@@ -1,6 +1,6 @@
 一般ユーザ
 
-<table>
+<table border="1">
   <tr>
     <th>No.</th>
     <th>ユーザー名</th>
@@ -14,8 +14,15 @@
     <td><%= publics.id %></td>
     <td><%= publics.name %></td>
     <td><%= l publics.created_at %></td>
-    <td><%= publics.is_active %></td>
-    <td>詳細</td>
+    <td>
+      <% if publics.is_active? %>
+        有効
+      <% else %>
+        退会済み
+      <% end %>
+
+    </td>
+    <td><%= link_to "詳細", admins_public_path(publics.id) %></td>
   </tr>
   <% end %>
 </table>
