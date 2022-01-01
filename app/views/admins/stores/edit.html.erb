@@ -1,0 +1,18 @@
+<h2>ストアユーザ　編集</h2>
+
+<%= form_with model: @store, url: admins_store_path(@store.id), local: true do |f| %>
+
+  <%= f.text_field :name %>
+  <%= f.text_field :email %>
+  <%= f.text_field :telephone_number %>
+  <%= f.text_field :postal_code %>
+  <%= f.text_field :address %>
+
+  <%= f.label :is_active, "有効" %>
+  <%= f.radio_button :is_active, true %>
+  <%= f.label :is_active, "退会済み" %>
+  <%= f.radio_button :is_active, false %>
+
+  <%= f.submit "変更内容を登録" %>
+
+<% end %>
