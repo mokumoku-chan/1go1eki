@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :admins do
     root to: 'homes#top'
     resources :publics, only: [:index, :show, :edit, :update]
+    resources :stores, only: [:index]
   end
 
 
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
 
 
   namespace :stores do
-    # root to: 'homes#top'
+    root to: 'homes#top'
   end
 
 
