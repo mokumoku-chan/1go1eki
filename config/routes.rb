@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :stores
-  # devise_for :publics
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   namespace :admins do
@@ -11,6 +10,11 @@ Rails.application.routes.draw do
 
   namespace :publics do
     root to: 'homes#top'
+  end
+
+
+  namespace :stores do
+    # root to: 'homes#top'
   end
 
 
@@ -25,5 +29,12 @@ Rails.application.routes.draw do
     passwords: 'publics/passwords',
     registrations: 'publics/registrations'
   }
+
+  devise_for :stores, controllers: {
+    sessions: 'stores/sessions',
+    passwords: 'stores/passwords',
+    registrations: 'stores/registrations'
+  }
+
 
 end
