@@ -42,7 +42,9 @@ Rails.application.routes.draw do
 
   namespace :stores do
     root to: 'homes#top'
-
+    get '/mypage' => 'userpages#show', as: 'mypage'
+    get '/mypage/edit' => 'userpages#edit', as: 'mypage_edit'
+    patch '/mypage' => 'userpages#update', as: 'mypage_update'
 
   end
 
