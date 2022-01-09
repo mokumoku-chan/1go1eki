@@ -14,3 +14,52 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+
+('button').click(function() {
+        console.log('クリックされました！');
+    })
+
+
+
+  ('button').click(function() {
+    const canvas = document.getElementById("canvas");
+    const no_data = document.getElementById("no_data");
+    const station = document.getElementById("station").value;
+
+    var url = 'https://express.heartrails.com/api/json?method=getStations&name='+ station;
+
+    fetch(url)
+  .then(response => {
+    return response.json();
+  })
+
+  .then(data => {
+    const Data = JSON.parse(JSON.stringify(data))
+
+    const data1 = Data.response.station
+    console.log(data1)
+    canvas.innerHTML = data1[1].name
+    no_data.innerHTML = ""
+
+    $.ajax({
+      url: 'homes/index',
+      type: 'GET',
+      datatype: 'html',
+      async: true,
+      data: {
+        station: data[1].name
+      },
+    });
+
+  })
+
+  .catch(data => {
+    console.log("NOT")
+    canvas.innerHTML = ""
+    no_data.innerHTML = "駅名が見つかりません"
+  })
+
+
+});

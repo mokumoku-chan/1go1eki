@@ -1,0 +1,17 @@
+<h2>Mypage</h2>
+
+プロフィール画像
+<%= attachment_image_tag @user, :profile_image, :fill, 15, 15, fallback: "noimage.png"%>
+
+ユーザ名
+<%= @user.name %>
+メールアドレス
+<%= @user.email %>
+電話番号
+<%= @user.telephone_number %>
+よく使う駅
+
+
+
+<%= link_to "編集ページ 行", mypage_edit_path %>
+<%= link_to "退会", mypage_path %>

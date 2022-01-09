@@ -1,0 +1,23 @@
+<h2>編集ページ</h2>
+
+
+<%= form_with model: @user, url: mypage_update_path, local: true do |f| %>
+  <%= attachment_image_tag @user, :profile_image, :fill, 15, 15, fallback: "noimage.png"%>
+  <%= f.label :profile_image, "プロフィール画像" %>
+  <%= f.attachment_field :profile_image %>
+
+  <%= f.label :name, "ユーザ名" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email, "メールアドレス" %>
+  <%= f.text_field :email %>
+
+  <%= f.label :telephone_number, "電話番号" %>
+  <%= f.text_field :telephone_number %>
+
+  <h5>よく使う駅</h5>
+
+
+  <%= f.submit "編集内容登録" %>
+
+<% end %>

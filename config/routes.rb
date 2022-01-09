@@ -30,13 +30,20 @@ Rails.application.routes.draw do
   end
 
 
-  namespace :users do
+  scope module: :users do
     root to: 'homes#top'
+    get 'users/mypage' => 'userpages#show', as: 'mypage'
+    get 'users/mypage/edit' => 'userpages#edit', as: 'mypage_edit'
+    patch 'users/mypage' => 'userpages#update', as: 'mypage_update'
+
+    resources :homes, only: [:index]
   end
 
 
   namespace :stores do
     root to: 'homes#top'
+
+
   end
 
 
