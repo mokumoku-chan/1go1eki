@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     get 'users/mypage/edit' => 'userpages#edit', as: 'mypage_edit'
     patch 'users/mypage' => 'userpages#update', as: 'mypage_update'
 
+
     resources :homes, only: [:index]
   end
 
@@ -47,7 +48,9 @@ Rails.application.routes.draw do
     patch '/mypage' => 'userpages#update'
 
     get '/storepage' => 'storepages#show', as: 'storepage'
-    get '/storepage/edit' => 'storepages#show', as: 'storepage_edit'
+    get '/storepage/edit' => 'storepages#edit', as: 'storepage_edit'
+    patch '/storepage' => 'storepages#update', as: 'storepage_update'
+    post '/storepage' => 'storepages#create', as: 'storepage_create'
 
   end
 

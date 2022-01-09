@@ -1,16 +1,28 @@
 <h2>ストアページ</h2>
 
-<%= @store.name %>
-<%= attachment_image_tag @user, :profile_image, :fill, 15, 15, fallback: "noimage.png"%>
+<div class="field">
+    <%= @store.name %>
+</div>
 
-<%= @store.introduction %>
+<div class="field">
+    ストア情報
+    <%= @store.introduction %>
+</div>
 
-<%= @store.telephone_number %>
-<%= @store.postal_code %>
-<%= @store.address %>
+<div class="field">
+    <%= @store.telephone_number %>
+</div>
 
-<% @homepages.each do |homepage| %>
-  <%= homepage.store_id %>
-<% end %>
+<div class="field">
+    〒<%= @store.postal_code %>
+    <%= @store.address %>
+</div>
 
-<%= link_to "編集ページ 行き", stores_storepage_path %>
+<div class="field">
+    <% @homepages.each do |homepage| %>
+        <%= homepage.url_type_to_jp %>
+        <%= homepage.url %>
+    <% end %>
+</div>
+
+<%= link_to "編集ページ 行き", stores_storepage_edit_path %>

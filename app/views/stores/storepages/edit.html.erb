@@ -1,0 +1,46 @@
+<h4>編集ページ</h4>
+
+<%= form_with model: @store, url: stores_storepage_update_path, local: true do |f| %>
+
+  <div class="field">
+    店名
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    紹介
+    <%= f.text_area :introduction %>
+  </div>
+
+  <div class="field">
+    電話番号
+    <%= f.text_field :telephone_number %>
+  </div>
+
+  <div class="field">
+    メールアドレス
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    郵便番号
+    <%= f.text_field :postal_code %>
+  </div>
+
+  <div class="field">
+    住所
+    <%= f.text_field :address %>
+  </div>
+
+  <%= f.submit "基本情報変更" %>
+
+<% end %>
+
+<% if @homepage_info == 0 %>
+  <%= form_with model: @homepages, url: stores_storepage_create_path, local: true do |f| %>
+    <%= f.select :url_type, {'HP':0, 'Twitter':1, "Instagram":2, "Facebook":3, "LINE":4, "その他":5},{include_blank: "選択してください"}, {class: "required: true"} %>
+    <%= f.text_field :url %>
+
+    <%= f.submit "ホームページ情報登録" %>
+  <% end %>
+<% end %>
