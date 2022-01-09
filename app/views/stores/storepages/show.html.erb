@@ -1,0 +1,16 @@
+<h2>ストアページ</h2>
+
+<%= @store.name %>
+<%= attachment_image_tag @user, :profile_image, :fill, 15, 15, fallback: "noimage.png"%>
+
+<%= @store.introduction %>
+
+<%= @store.telephone_number %>
+<%= @store.postal_code %>
+<%= @store.address %>
+
+<% @homepages.each do |homepage| %>
+  <%= homepage.store_id %>
+<% end %>
+
+<%= link_to "編集ページ 行き", stores_storepage_path %>
