@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_09_092951) do
+ActiveRecord::Schema.define(version: 2022_01_09_152402) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -35,6 +35,18 @@ ActiveRecord::Schema.define(version: 2022_01_09_092951) do
   create_table "stations", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "storeinfos", force: :cascade do |t|
+    t.integer "store_id", null: false
+    t.string "station", null: false
+    t.string "place"
+    t.string "start_period", null: false
+    t.string "end_period", null: false
+    t.string "open_time", null: false
+    t.string "close_time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

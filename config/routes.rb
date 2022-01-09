@@ -52,6 +52,8 @@ Rails.application.routes.draw do
     patch '/storepage' => 'storepages#update', as: 'storepage_update'
     post '/storepage' => 'storepages#create', as: 'storepage_create'
 
+    resources :info, only: [:show, :create, :edit,:update]
+
   end
 
 
