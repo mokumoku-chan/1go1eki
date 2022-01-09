@@ -1,0 +1,27 @@
+<h2>出店情報登録</h2>
+
+<div class="field">
+  店名
+  <%= @store.name %>
+</div>
+
+<div class="field">
+  お店の紹介文
+  <%= @store.introduction %>
+</div>
+
+<div class="field">
+  電話番号
+  <%= @store.telephone_number %>
+</div>
+
+<div class="field">
+  ホームページURL
+  <% @homepages.each do |homepage| %>
+    <%= homepage.url_type_to_jp %>
+    <%= homepage.url %>
+  <% end %>
+</div>
+
+<%= form_with model: @info, url: stores_info_index_path, local: true do |f| %>
+<% end %>
