@@ -1,4 +1,6 @@
-<h4>編集ページ</h4>
+<h2>編集ページ</h2>
+
+<h4>基本情報</h4>
 
 <%= form_with model: @store, url: stores_storepage_update_path, local: true do |f| %>
 
@@ -32,15 +34,29 @@
     <%= f.text_field :address %>
   </div>
 
+  <%= hidden_field_tag :change_id, 0 %>
+
   <%= f.submit "基本情報変更" %>
 
 <% end %>
 
-<% if @homepage_info == 0 %>
-  <%= form_with model: @homepages, url: stores_storepage_create_path, local: true do |f| %>
+
+<h4>SNS</h4>
+<%= form_with model: @homepage_new, url: stores_storepage_create_path, local: true do |f| %>
+  <%= f.select :url_type, {'HP':0, 'Twitter':1, "Instagram":2, "Facebook":3, "LINE":4, "その他":5},{include_blank: "選択してください"}, {class: "required: true"} %>
+  <%= f.text_field :url %>
+  <%= f.submit "ホームページ情報登録" %>
+<% end %>
+
+
+
+<% @homepages.each do |homepage| %>
+  <%= form_with model: homepage, url: stores_storepage_update_path, local: true do |f| %>
     <%= f.select :url_type, {'HP':0, 'Twitter':1, "Instagram":2, "Facebook":3, "LINE":4, "その他":5},{include_blank: "選択してください"}, {class: "required: true"} %>
     <%= f.text_field :url %>
 
-    <%= f.submit "ホームページ情報登録" %>
+    <%= hidden_field_tag :change_id, 1 %>
+    <%= f.submit "ホームページ情報変更" %>
   <% end %>
 <% end %>
+

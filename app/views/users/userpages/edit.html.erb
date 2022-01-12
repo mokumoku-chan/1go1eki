@@ -15,9 +15,39 @@
   <%= f.label :telephone_number, "電話番号" %>
   <%= f.text_field :telephone_number %>
 
-  <h5>よく使う駅</h5>
-
-
   <%= f.submit "編集内容登録" %>
 
 <% end %>
+
+
+<h3>よく使う駅</h3>
+
+  <form>
+    <input type="text" size="40" id="station">
+
+    <input type="button" value="検索" onclick="OnButtonClick();">
+  </form>
+
+  <div id="St_name"></div>
+  <div id="no_data"></div>
+
+<%= form_with model: @station_new, url: mypage_create_path, local: true do |f| %>
+  <%= f.hidden_field :name, :value => "", :id => "station_name" %>
+
+  <%= f.submit "登録" %>
+<% end %>
+
+
+<table>
+  <tr>
+    <th>駅名</th>
+    <th></th>
+  </tr>
+
+  <% @stations.each do |station| %>
+  <tr>
+    <td><%= station.name %></td>
+    <td><%= link_to "削除", destroy_mypage_path(station.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+  </tr>
+  <% end %>
+</table>

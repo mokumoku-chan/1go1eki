@@ -5,20 +5,12 @@ class Stores::StorepagesController < ApplicationController
     @homepages = Homepage.where(store_id: current_store.id)
   end
 
+
   def edit
     @store = Store.find(current_store.id)
     @homepages = Homepage.where(store_id: current_store.id)
-
-    if @homepages.blank?
-      @homepages = Homepage.new
-      @homepage_info = 0
-
-    else
-      @homepage_info = 1
-    end
-
+    @homepage_new = Homepage.new
   end
-
 
   def create
     homepage = Homepage.new(url_params)
@@ -28,17 +20,23 @@ class Stores::StorepagesController < ApplicationController
   end
 
 
-
   def update
-    store = Store.find(current_store.id)
-    store.update(store_params)
+    if params[:change_id] == "0"
+      store = Store.find(current_store.id)
+      store.update(store_params)
+
+    elsif params[:change_id] == "1"
+      homepage = Homepage.where(store_id: current_store.id)
+      homepage.update(url_params)
+    end
+
     redirect_to stores_storepage_path
   end
 
 
   private
   def store_params
-    params.require(:store).permit(:name, :telephone_number, :postal_code, :address, :introduction)
+    params.require(:store).permit(:name, :email, :telephone_number, :postal_code, :address, :introduction)
   end
 
   def url_params

@@ -21,14 +21,8 @@
 
 
 
-('button').click(function() {
-        console.log('クリックされました！');
-    })
-
-
-
-  ('button').click(function() {
-    const canvas = document.getElementById("canvas");
+  function OnButtonClick() {
+    const St_name = document.getElementById("St_name");
     const no_data = document.getElementById("no_data");
     const station = document.getElementById("station").value;
 
@@ -44,26 +38,18 @@
 
     const data1 = Data.response.station
     console.log(data1)
-    canvas.innerHTML = data1[1].name
-    no_data.innerHTML = ""
+    St_name.innerHTML = data1[0].name
+    $("#station_name").val(data1[0].name);
 
-    $.ajax({
-      url: 'homes/index',
-      type: 'GET',
-      datatype: 'html',
-      async: true,
-      data: {
-        station: data[1].name
-      },
-    });
+    no_data.innerHTML = ""
 
   })
 
   .catch(data => {
     console.log("NOT")
-    canvas.innerHTML = ""
+    St_name.innerHTML = ""
     no_data.innerHTML = "駅名が見つかりません"
   })
 
 
-});
+};

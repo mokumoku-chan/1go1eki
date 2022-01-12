@@ -9,7 +9,13 @@
 <%= @user.email %>
 電話番号
 <%= @user.telephone_number %>
-よく使う駅
+
+<h4>よく使う駅</h4>
+
+
+<% @stations.each do |station| %>
+  <%= station.name %>
+<% end %>
 
 
 

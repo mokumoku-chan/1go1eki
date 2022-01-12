@@ -1,0 +1,36 @@
+<h2>編集ページ</h2>
+
+
+<%= form_with model: @info, url: stores_info_path(@info.id), local: true do |f| %>
+  <div class="field">
+    <%= f.label :station, "駅名" %>
+    <%= f.text_field :station %>
+  </div>
+
+  <div class="field">
+    <%= f.label :place, "出店場所(詳細)" %>
+    <%= f.text_field :place %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_period, "開始日" %>
+    <%= f.date_field :start_period, value: @info.start_period %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_period, "終了日" %>
+    <%= f.date_field :end_period, value: @info.end_period %>
+  </div>
+
+  <div class="field">
+    <%= f.label :open_time, "開店時間" %>
+    <%= f.time_field :open_time, value: @info.open_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :close_time, "閉店時間" %>
+    <%= f.time_field :close_time, value: @info.close_time %>
+  </div>
+
+  <%= f.submit "変更登録" %>
+<% end %>
