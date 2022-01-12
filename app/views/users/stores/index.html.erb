@@ -1,0 +1,52 @@
+
+<% if @often_use.blank? %>
+  <h2>本日出店中のストア</h2>
+  <% @infos.each do |info| %>
+    <div class="field">
+      <%= info.station %>駅
+    </div>
+
+    <div class="field">
+      <%= info.start_period %>
+      ～
+      <%= info.end_period %>
+    </div>
+
+    <div class="field">
+      <%= info.place %>
+    </div>
+  <% end %>
+
+<% else %>
+
+  <% @often_use.each do |station| %>
+
+    <% @infos.each do |info| %>
+      <% if info.station == station.name %>
+        <% store = Store.find(info.store_id) %>
+        <h4><%= info.station %>駅に出店中のポップアップストア</h4>
+
+        <div class="field">
+          <%= store.name %>
+        </div>
+
+        <div class="field">
+          <%= info.start_period %>
+          ～
+          <%= info.end_period %>
+        </div>
+
+        <div class="field">
+          <%= info.place %>
+        </div>
+
+        <div class="field">
+          <%= link_to "詳細", store_path(info.id) %>
+        </div>
+
+      <% end %>
+    <% end %>
+  <% end %>
+
+<% end %>
+

@@ -5,5 +5,6 @@ class Store < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :homepage
+  belongs_to :storeinfo
 
 end
