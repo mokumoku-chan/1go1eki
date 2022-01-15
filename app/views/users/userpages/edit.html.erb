@@ -1,7 +1,7 @@
 <h2>編集ページ</h2>
 
 
-<%= form_with model: @user, url: mypage_update_path, local: true do |f| %>
+<%= form_with model: @user, url: users_mypage_update_path, local: true do |f| %>
   <%= attachment_image_tag @user, :profile_image, :fill, 15, 15, fallback: "noimage.png"%>
   <%= f.label :profile_image, "プロフィール画像" %>
   <%= f.attachment_field :profile_image %>
@@ -31,7 +31,7 @@
   <div id="St_name"></div>
   <div id="no_data"></div>
 
-<%= form_with model: @station_new, url: mypage_create_path, local: true do |f| %>
+<%= form_with model: @station_new, url: users_mypage_create_path, local: true do |f| %>
   <%= f.hidden_field :name, :value => "", :id => "station_name" %>
 
   <%= f.submit "登録" %>
@@ -47,7 +47,7 @@
   <% @stations.each do |station| %>
   <tr>
     <td><%= station.name %></td>
-    <td><%= link_to "削除", destroy_mypage_path(station.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+    <td><%= link_to "削除", users_destroy_mypage_path(station.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
   </tr>
   <% end %>
 </table>

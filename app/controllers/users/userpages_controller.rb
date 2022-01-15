@@ -15,19 +15,19 @@ class Users::UserpagesController < ApplicationController
     station = Station.new(station_params)
     station.user_id = current_user.id
     station.save
-    redirect_to mypage_path
+    redirect_to users_mypage_path
   end
 
   def update
     user = User.find(current_user.id)
     user.update(user_params)
-    redirect_to mypage_path
+    redirect_to users_mypage_path
   end
 
   def destroy
     station = Station.find(params[:format])
     station.destroy
-    redirect_to mypage_edit_path
+    redirect_to users_mypage_edit_path
   end
 
 

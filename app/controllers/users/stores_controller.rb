@@ -1,7 +1,10 @@
 class Users::StoresController < ApplicationController
   def index
     date = Date.today
-    @often_use = Station.where(user_id: current_user.id)
+
+    if user_signed_in?
+      @often_use = Station.where(user_id: current_user.id)
+    end
     @stores = Store.find(1)
 
 

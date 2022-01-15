@@ -30,13 +30,13 @@ Rails.application.routes.draw do
   end
 
 
-  scope module: :users do
+  namespace :users do
     root to: 'homes#top'
-    get 'users/mypage' => 'userpages#show', as: 'mypage'
-    get 'users/mypage/edit' => 'userpages#edit', as: 'mypage_edit'
-    patch 'users/mypage' => 'userpages#update', as: 'mypage_update'
-    post 'users/mypage' => 'userpages#create', as: 'mypage_create'
-    delete 'users/mypage' => 'userpages#destroy', as: 'destroy_mypage'
+    get '/mypage' => 'userpages#show', as: 'mypage'
+    get '/mypage/edit' => 'userpages#edit', as: 'mypage_edit'
+    patch '/mypage' => 'userpages#update', as: 'mypage_update'
+    post '/mypage' => 'userpages#create', as: 'mypage_create'
+    delete '/mypage' => 'userpages#destroy', as: 'destroy_mypage'
 
     resources :homes, only: [:index]
     resources :stores, only: [:index, :show]
@@ -44,7 +44,7 @@ Rails.application.routes.draw do
 
 
   namespace :stores do
-    root to: 'homes#top'
+    root to: 'users/homes#top'
     get '/mypage' => 'userpages#show'
     get '/mypage/edit' => 'userpages#edit'
     patch '/mypage' => 'userpages#update'
