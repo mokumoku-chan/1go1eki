@@ -1,3 +1,3 @@
 class Storeinfo < ApplicationRecord
-  has_many :stores, dependent: :destroy
+  belongs_to :store
 end

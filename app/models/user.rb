@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   attachment :profile_image
 
+  has_many :favorites, dependent: :destroy
 
 
 end

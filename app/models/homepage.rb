@@ -1,5 +1,5 @@
 class Homepage < ApplicationRecord
-  has_many :stores, dependent: :destroy
+  belongs_to :store
 
 
   def url_type_to_jp
