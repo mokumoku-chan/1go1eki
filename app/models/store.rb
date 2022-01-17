@@ -4,10 +4,11 @@ class Store < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # belongs_to :homepage
-  # belongs_to :storeinfo
+
   has_many :homepages, dependent: :destroy
   has_many :storeinfo, dependent: :destroy
+  has_many :store_image, dependent: :destroy
+  attachment :image
 
   has_many :favorites, dependent: :destroy
 

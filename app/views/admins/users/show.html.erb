@@ -1,5 +1,7 @@
-<h2>詳細</h2>
 
+<%= render 'layouts/title', title: "一般ユーザ詳細" %>
+
+<section class="page">
 <table border="1">
   <tr>
     <th>No</th>
@@ -36,6 +38,7 @@
 
 <%= link_to "登録情報編集", edit_admins_user_path(@user.id) %>
 
+</section>
 
 
 

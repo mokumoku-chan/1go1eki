@@ -1,28 +1,38 @@
-一般ユーザ
 
-<table border="1">
-  <tr>
-    <th>No.</th>
-    <th>ユーザー名</th>
-    <th>登録日</th>
-    <th>ステータス</th>
-    <th>詳細</th>
-  </tr>
+<%= render 'layouts/title', title: "一般ユーザ" %>
 
-  <% @users.each do |user| %>
-  <tr>
-    <td><%= user.id %></td>
-    <td><%= user.name %></td>
-    <td><%= l user.created_at %></td>
-    <td>
-      <% if user.is_active? %>
-        有効
-      <% else %>
-        退会済み
+<section class="page">
+  <table rules="all">
+    <thead>
+      <tr>
+        <th scope="row", height="50", class="No">No.</th>
+        <th scope="row">ユーザー名</th>
+        <th scope="row">登録日</th>
+        <th scope="row">ステータス</th>
+        <th scope="row"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td height="50", class="No"><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= l user.created_at %></td>
+        <td>
+          <% if user.is_active? %>
+            有効
+          <% else %>
+            退会済み
+          <% end %>
+
+        </td>
+        <td><%= link_to "詳細", admins_user_path(user.id) %></td>
+      </tr>
       <% end %>
 
-    </td>
-    <td><%= link_to "詳細", admins_user_path(user.id) %></td>
-  </tr>
-  <% end %>
-</table>
+
+    </tbody>
+  </table>
+  <%= paginate @users %>
+</section>

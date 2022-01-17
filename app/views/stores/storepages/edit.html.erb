@@ -2,6 +2,8 @@
 
 <h4>基本情報</h4>
 
+<%= link_to "画像登録/編集画面 行き", stores_image_edit_path %>
+
 <%= form_with model: @store, url: stores_storepage_update_path, local: true do |f| %>
 
   <div class="field">

@@ -1,0 +1,14 @@
+<h2>画像編集画面</h2>
+
+  <% @images.each do |image| %>
+      <%= attachment_image_tag image, :image, :fill, 300, 200, fallback: "noimage.png"%>
+      <%= link_to "削除", stores_image_path(image.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+  <% end %>
+
+
+
+  <%= form_with model: @image_new, url: stores_image_path, local: true do |f| %>
+    <%= f.attachment_field :image %>
+    <%= f.submit "登録" %>
+
+  <% end %>

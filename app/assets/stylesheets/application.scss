@@ -16,3 +16,95 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+
+.title_field {
+  position: relative;
+  height: 100px;
+}
+
+.title_field .train {
+  width: 30%;
+  height: 120px;
+  background-image: url("train.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  right: 0;
+}
+
+.title_board {
+  width: 30%;
+  height: 120px;
+  background-image: url("board.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  position: absolute;
+  left: 0;
+
+  .title {
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+  }
+}
+
+.line_image {
+  height: 50px;
+  background-image: url('line.png');
+  background-repeat: repeat-x;
+}
+
+
+.inner {
+    width: 80%;
+    margin: 30px auto;
+
+    .field {
+      margin: 20px;
+    }
+
+    input[type='email'] {
+      width: 50%;
+      height: 40px;
+    }
+
+    input[type='password'] {
+      width: 50%;
+      height: 40px;
+    }
+}
+
+
+.page {
+  width: 80%;
+  margin: 30px auto;
+}
+
+table {
+  margin: 20px auto;
+  width: 100%;
+  font-size: 20px;
+
+
+  .No {
+    text-align: center;
+  }
+}
+
+table th, table td {
+  padding: 9px;
+}
+
+footer {
+
+}
+
+
+
+
+
