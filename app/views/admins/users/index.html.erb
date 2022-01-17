@@ -21,9 +21,9 @@
         <td><%= l user.created_at %></td>
         <td>
           <% if user.is_active? %>
-            有効
+            <p class="valid">有効</p>
           <% else %>
-            退会済み
+            <p class="invalid">退会済み</p>
           <% end %>
 
         </td>

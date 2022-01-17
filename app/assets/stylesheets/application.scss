@@ -81,7 +81,7 @@
 
 
 .page {
-  width: 80%;
+  width: 70%;
   margin: 30px auto;
 }
 
@@ -99,6 +99,50 @@ table {
 table th, table td {
   padding: 9px;
 }
+
+
+.valid {
+  color: blue;
+}
+
+.invalid {
+  color: grey;
+}
+
+.edit-button {
+  text-align: center;
+}
+
+
+.input {
+  margin: 20px;
+  display: flex;
+
+  .input-label {
+    margin-right: 20px;
+    width: 200px;
+    font-weight: bold;
+  }
+
+  .input-field {
+    width: 50%;
+    input[type='text'] {
+      width: 100%;
+      height: 40px;
+    }
+
+    input[type='email'] {
+      width: 100%;
+      height: 40px;
+    }
+  }
+}
+
+
+
+ul li {
+    list-style: none;
+  }
 
 footer {
 

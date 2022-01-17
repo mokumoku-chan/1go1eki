@@ -1,16 +1,39 @@
-<h2>編集</h2>
+<%= render 'layouts/title', title: "一般ユーザ編集" %>
 
-<%= form_with model: @user, url: admins_user_path(@user.id), local:true do |f| %>
+<section class="page">
 
-  <%= f.text_field :name %>
-  <%= f.text_field :email %>
-  <%= f.text_field :telephone_number %>
-  <%= f.label :is_active, "有効" %>
-  <%= f.radio_button :is_active, true %>
-  <%= f.label :is_active, "退会済み" %>
-  <%= f.radio_button :is_active, false %>
 
-  <%= f.submit "変更" %>
+  <%= form_with model: @user, url: admins_user_path(@user.id), local:true do |f| %>
+    <ul class="input-list">
+      <li class="input">
+        <div class="input-label"><%= f.label :name, "ユーザ名" %></div>
+        <div class="input-field"><%= f.text_field :name %></div>
+      </li>
 
-<% end %>
+      <li class="input">
+        <div class="input-label"><%= f.label :email, "メールアドレス" %></div>
+        <div class="input-field"><%= f.email_field :email %></div>
+      </li>
+
+      <li class="input">
+        <div class="input-label"><%= f.label :telephone_number, "電話番号" %></div>
+        <div class="input-field"><%= f.text_field :telephone_number %></div>
+      </li>
+
+      <li class="input">
+        <div class="input-label"></div>
+        <div class="input-field">
+          <%= f.label :is_active, "有効" %>
+          <%= f.radio_button :is_active, true %>
+          <%= f.label :is_active, "退会済み" %>
+          <%= f.radio_button :is_active, false %>
+        </div>
+      </li>
+    </ul>
+    <%= f.submit "変更" %>
+
+  <% end %>
+
+  <%= link_to "一般ユーザ一覧に戻る", admins_users_path %>
+</section>
 
