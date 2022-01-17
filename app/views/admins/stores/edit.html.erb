@@ -1,18 +1,47 @@
-<h2>ストアユーザ　編集</h2>
 
-<%= form_with model: @store, url: admins_store_path(@store.id), local: true do |f| %>
+<%= render 'layouts/title', title: "ストアユーザ編集" %>
 
-  <%= f.text_field :name %>
-  <%= f.text_field :email %>
-  <%= f.text_field :telephone_number %>
-  <%= f.text_field :postal_code %>
-  <%= f.text_field :address %>
+<section class="page">
 
-  <%= f.label :is_active, "有効" %>
-  <%= f.radio_button :is_active, true %>
-  <%= f.label :is_active, "退会済み" %>
-  <%= f.radio_button :is_active, false %>
+  <%= form_with model: @store, url: admins_store_path(@store.id), local: true do |f| %>
+    <ul class="input-list">
+      <li class="input">
+        <div class="input-label"><%= f.label :name, "ストア名" %></div>
+        <div class="input-field"><%= f.text_field :name %></div>
+      </li>
 
-  <%= f.submit "変更内容を登録" %>
+      <li class="input">
+        <div class="input-label"><%= f.label :email, "メールアドレス" %></div>
+        <div class="input-field"><%= f.text_field :email %></div>
+      </li>
 
-<% end %>
+      <li class="input">
+        <div class="input-label"><%= f.label :telephone_number, "電話番号" %></div>
+        <div class="input-field"><%= f.text_field :telephone_number %></div>
+      </li>
+
+    <li class="input">
+      <div class="input-label"><%= f.label :postal_code, "郵便番号" %></div>
+      <div class="input-field"><%= f.text_field :postal_code %></div>
+      </li>
+    <li class="input">
+      <div class="input-label"><%= f.label :address, "住所" %></div>
+      <div class="input-field"><%= f.text_field :address %></div>
+    </li>
+
+  <li class="input">
+    <div class="input-label"><%= f.label :is_active, "ステータス" %></div>
+    <div class="input-field">
+      <%= f.label :is_active, "有効" %>
+      <%= f.radio_button :is_active, true %>
+      <%= f.label :is_active, "退会済み" %>
+      <%= f.radio_button :is_active, false %>
+    </div>
+    </li>
+    </ul>
+
+    <%= f.submit "変更内容を登録" %>
+
+  <% end %>
+
+</section>
