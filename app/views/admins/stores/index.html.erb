@@ -1,28 +1,7 @@
 
 <%= render 'layouts/title', title: "ストアユーザ" %>
 
-<table border="1">
-  <% @stores.each do |store| %>
-    <tr>
-      <th>No.</th>
-      <th>ストア名</th>
-      <th>登録日</th>
-      <th>ステータス</th>
-      <th></th>
-    </tr>
-
-    <tr>
-      <td><%= store.id %></td>
-      <td><%= store.name %></td>
-      <td><%= l store.created_at %></td>
-      <td>
-        <% if store.is_active? %>
-          有効
-        <% else %>
-          退会済み
-        <% end %>
-      </td>
-      <td><%= link_to "詳細", admins_store_path(store.id) %></td>
-    </tr>
-  <% end %>
-</table>
+<section class="page">
+  <%= render 'admins/stores/store', stores: @stores %>
+  <%= paginate @stores %>
+</section>

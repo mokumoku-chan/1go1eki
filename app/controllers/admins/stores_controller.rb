@@ -1,7 +1,7 @@
 class Admins::StoresController < ApplicationController
 
   def index
-    @stores = Store.all
+    @stores = Store.page(params[:page])
   end
 
   def show

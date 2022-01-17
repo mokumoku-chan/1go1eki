@@ -1,58 +1,11 @@
-一般ユーザ
+<%= render 'layouts/title', title: "TOPページ" %>
 
-<table border="1">
-  <tr>
-    <th>No.</th>
-    <th>ユーザ名</th>
-    <th>登録日</th>
-    <th>ステータス</th>
-    <th></th>
-  </tr>
+<section class="page">
+  <%= render 'admins/users/user', users: @users %>
+  <%= link_to "一般ユーザ一覧 行き", admins_users_path %>
 
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.id %></td>
-      <td><%= user.name %></td>
-      <td><%= l user.created_at %></td>
-      <td>
-        <% if user.is_active? %>
-          有効
-        <% else %>
-          退会済み
-        <% end %>
-      </td>
-      <td><%= link_to "詳細", admins_user_path(user.id) %></td>
-    </tr>
-  <% end %>
+  <div class="middle-line_image"></div>
 
-</table>
-
-
-ストアユーザ
-
-<table border="1">
-  <tr>
-    <th>No.</th>
-    <th>ユーザ名</th>
-    <th>登録日</th>
-    <th>ステータス</th>
-    <th></th>
-  </tr>
-
-  <% @stores.each do |store| %>
-    <tr>
-      <td><%= store.id %></td>
-      <td><%= store.name %></td>
-      <td><%= l store.created_at %></td>
-      <td>
-        <% if store.is_active? %>
-          有効
-        <% else %>
-          退会済み
-        <% end %>
-      </td>
-      <td><%= link_to "詳細", admins_store_path(store.id) %></td>
-    </tr>
-  <% end %>
-
-</table>
+  <%= render 'admins/stores/store', stores: @stores %>
+  <%= link_to "ストアユーザ一覧 行き", admins_stores_path %>
+</section>
