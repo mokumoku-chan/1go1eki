@@ -1,3 +1,9 @@
-<h1>TOPページ</h1>
+<%= render 'layouts/title', title: "TOPページ" %>
 
-ストアユーザ
+<section class="page">
+
+  <%= month_calendar do |date| %>
+    <%= date %>
+  <% end %>
+
+</section>
