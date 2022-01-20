@@ -1,9 +1,30 @@
-<h2>出店情報一覧</h2>
-<%= link_to "追加", new_stores_info_path %>
+<%= render 'layouts/title', title: "TOPページ" %>
 
-<% @infos.each do |info| %>
-    <%= info.start_period %> ~
-    <%= info.end_period %>
-    <%= info.station %>駅
-    <%= link_to "詳細", stores_info_path(info.id) %>
-<% end %>
+<section class="page">
+
+    <%= month_calendar do |date| %>
+        <%= date.day %></br>
+        <% @infos_all.each do |all| %>
+            <% if date == all.start_period.to_date %>
+                <%= link_to all.station, stores_info_path(all.id) %>
+            <% end %>
+
+            <% if (date >= all.start_period.to_date) and (date <= all.end_period.to_date) %>
+                <div class="period_bar"></div>
+            <% end %>
+        <% end %>
+    <% end %>
+
+    <%= link_to "追加", new_stores_info_path %>
+
+    <% @infos.each do |info| %>
+        <div class="shop_info">
+            <%= info.start_period %> ~
+            <%= info.end_period %>
+            <%= info.station %>駅
+            <%= link_to "詳細", stores_info_path(info.id) %>
+        </div>
+    <% end %>
+
+</section>
+

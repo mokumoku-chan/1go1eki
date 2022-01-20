@@ -1,7 +1,11 @@
 class Stores::InfoController < ApplicationController
 
   def index
-    @infos = Storeinfo.where(store_id: current_store.id)
+
+    date = Date.today
+
+    @infos_all = Storeinfo.where(store_id: current_store.id)
+    @infos = Storeinfo.where("store_id == ? and start_period <= ?", current_store.id, date)
   end
 
   def new
