@@ -1,49 +1,61 @@
-<h2>ストアページ</h2>
-    <% @images.each do |image| %>
-        <%= attachment_image_tag image, :image, :fill, 300, 200, fallback: "noimage.png"%>
-    <% end %>
+<%= render 'layouts/title', title: "ストアページ" %>
+<section class="page">
+    <h2><%= @store.name %></h2>
+    <div class="store_page">
+        <div class="image_filed">
+            <% @images.each do |image| %>
+                <%= attachment_image_tag image, :image, :fill, 300, 200, fallback: "noimage.png"%>
+            <% end %>
 
-    <%= attachment_image_tag @images[0], :image, :fill, 300, 200, fallback: "noimage.png"%>
+            <% img = @images[0] %>
+            <%= attachment_image_tag img, :image, :fill, 300, 200, fallback: "noimage.png", id: "img_id" %>
+            <input id="img_name" type="hidden" value= <%= @images_arr %> >
+            <input type="button" value=">" onclick="changeImage_plus();">
 
-<div class="field">
-    <%= @store.name %>
-</div>
+        </div>
 
-<div class="field">
-    <%= @store.email %>
-</div>
+        <div class="info_field">
+            <div class="field">
+                ストア情報
+                <%= @store.introduction %>
+            </div>
 
-<div class="field">
-    ストア情報
-    <%= @store.introduction %>
-</div>
+            <div class="field">
+                電話番号
+                <%= @store.telephone_number %>
+            </div>
 
-<div class="field">
-    <%= @store.telephone_number %>
-</div>
+            <div class="field">
+                住所
+                〒<%= @store.postal_code %>
+                <%= @store.address %>
+            </div>
 
-<div class="field">
-    〒<%= @store.postal_code %>
-    <%= @store.address %>
-</div>
+            <div class="field">
+                <% @homepages.each do |homepage| %>
+                    <% if homepage.url_type == 0 %>
+                        <i class="fas fa-home"></i>
+                    <% elsif homepage.url_type == 1 %>
+                        <i class="fab fa-twitter-square"></i>
+                    <% elsif homepage.url_type == 2 %>
+                        <i class="fab fa-instagram-square"></i>
+                    <% elsif homepage.url_type == 3 %>
+                        <i class="fab fa-facebook-square"></i>
+                    <% elsif homepage.url_type == 4 %>
+                        <i class="fab fa-line"></i>
 
-<div class="field">
-    <% @homepages.each do |homepage| %>
-        <% if homepage.url_type == 0 %>
-            <i class="fas fa-home"></i>
-        <% elsif homepage.url_type == 1 %>
-            <i class="fab fa-twitter-square"></i>
-        <% elsif homepage.url_type == 2 %>
-            <i class="fab fa-instagram-square"></i>
-        <% elsif homepage.url_type == 3 %>
-            <i class="fab fa-facebook-square"></i>
-        <% elsif homepage.url_type == 4 %>
-            <i class="fab fa-line"></i>
+                    <% end %>
+                    <%= homepage.url_type_to_jp %>
+                    <%= homepage.url %>
+                <% end %>
+            </div>
 
-        <% end %>
-        <%= homepage.url_type_to_jp %>
-        <%= homepage.url %>
-    <% end %>
-</div>
+            <div class="field">
+                メールアドレス
+                <%= @store.email %>
+            </div>
+        </div>
 
-<%= link_to "編集ページ 行き", edit_stores_storepage_path %>
+        <%= link_to "編集ページ 行き", edit_stores_storepage_path %>
+    </div>
+</section>

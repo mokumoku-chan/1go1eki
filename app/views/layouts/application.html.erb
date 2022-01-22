@@ -26,6 +26,8 @@
 
     <% elsif store_signed_in? %>
       <li>
+        <%= link_to "ストアページ", stores_storepage_path %>
+        <%= link_to "TOPページ", stores_info_index_path %>
         <%= link_to "ログアウト", destroy_store_session_path, method: :delete %>
       </li>
 

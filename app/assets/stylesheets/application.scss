@@ -165,6 +165,23 @@ table th, table td {
   background-color: red;
 }
 
+.store_page {
+  display: flex;
+
+  .image_filed {
+    margin: 10px;
+    width: 40%;
+    height: 100%;
+  }
+
+  .info_field {
+    margin: 10px;
+    width: 60%;
+    height: 100%;
+  }
+}
+
+
 
 
 ul li {
