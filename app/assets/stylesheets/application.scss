@@ -126,17 +126,17 @@ table th, table td {
 }
 
 
-.input {
+.input, .info {
   margin: 20px;
   display: flex;
 
-  .input-label {
+  .input-label, .info-title {
     margin-right: 20px;
     width: 200px;
     font-weight: bold;
   }
 
-  .input-field {
+  .input-field, .info-contents {
     width: 50%;
     input[type='text'] {
       width: 100%;

@@ -1,29 +1,37 @@
 <%= render 'layouts/title', title: "出店情報詳細" %>
 
 <section class="page">
-  <div class="field">
-    <%= @info.station %>駅
-  </div>
+  <ul class="info-list">
+    <li class="info">
+      <div class="info-title">駅名</div>
+      <div class="info-contents"><%= @info.station %>駅</div>
+    </li>
 
-  <div class="field">
-    出店場所(詳細)
-    <%= @info.place %>
-  </div>
+    <li class="info">
+      <div class="info-title">出店場所(詳細)</div>
+      <div class="info-contents">
+        <%= @info.place %>
+      </div>
+    </li>
 
-  <div class="field">
-    <%= @info.start_period %>
-    ～
-    <%= @info.end_period %>
-  </div>
+    <li class="info">
+      <div class="info-title">出店期間</div>
+      <div class="info-contents">
+        <%= l Time.parse(@info.start_period) %>
+        ～
+        <%= l Time.parse(@info.end_period) %>
+      </div>
+    </li>
 
-  <div class="field">
-    開店時間
-    <%= @info.open_time %>
-    ～
-    閉店時間
-    <%= @info.close_time %>
-  </div>
-
+    <li class="info">
+      <div class="info-title">営業時間</div>
+      <div class="info-contents">
+        OPEN　<%= @info.open_time %>
+        ～
+        CLOSE　<%= @info.close_time %>
+      </div>
+    </li>
+  </ul>
 
   <%= link_to "一覧に戻る", stores_info_index_path %>
   <%= link_to "修正", edit_stores_info_path(@info.id) %>
