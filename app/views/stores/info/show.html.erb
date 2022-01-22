@@ -7,30 +7,7 @@
       <div class="info-contents"><%= @info.station %>駅</div>
     </li>
 
-    <li class="info">
-      <div class="info-title">出店場所(詳細)</div>
-      <div class="info-contents">
-        <%= @info.place %>
-      </div>
-    </li>
-
-    <li class="info">
-      <div class="info-title">出店期間</div>
-      <div class="info-contents">
-        <%= l Time.parse(@info.start_period) %>
-        ～
-        <%= l Time.parse(@info.end_period) %>
-      </div>
-    </li>
-
-    <li class="info">
-      <div class="info-title">営業時間</div>
-      <div class="info-contents">
-        OPEN　<%= @info.open_time %>
-        ～
-        CLOSE　<%= @info.close_time %>
-      </div>
-    </li>
+    <%= render 'stores/info/info', info: @info %>
   </ul>
 
   <%= link_to "一覧に戻る", stores_info_index_path %>

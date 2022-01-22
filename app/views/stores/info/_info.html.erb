@@ -1,0 +1,31 @@
+<ul class="info-list">
+
+    <li class="info">
+      <div class="info-title">出店場所(詳細)</div>
+      <div class="info-contents">
+        <%= info.place %>
+      </div>
+    </li>
+
+    <li class="info">
+      <div class="info-title">
+        出店期間  <i class="far fa-calendar"></i>
+      </div>
+      <div class="info-contents">
+        <%= l Time.parse(info.start_period) %>
+        ～
+        <%= l Time.parse(info.end_period) %>
+      </div>
+    </li>
+
+    <li class="info">
+      <div class="info-title">
+        営業時間  <i class="far fa-clock"></i>
+      </div>
+      <div class="info-contents">
+        OPEN　<%= info.open_time %>
+        ～
+        CLOSE　<%= info.close_time %>
+      </div>
+    </li>
+  </ul>

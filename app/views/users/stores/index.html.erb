@@ -1,72 +1,44 @@
+<%= render 'layouts/title', title: "ストア一覧" %>
 
-<% if !@often_use.blank? %>
+<section class="page">
+  <% if !@often_use.blank? %>
 
-  <% @often_use.each do |station| %>
+    <% @often_use.each do |station| %>
 
-    <% @infos.each do |info| %>
-      <% if info.station == station.name %>
-        <% store = Store.find(info.store_id) %>
-        <h4><%= info.station %>駅に出店中のポップアップストア</h4>
+      <% @infos.each do |info| %>
+        <% if info.station == station.name %>
+          <% store = Store.find(info.store_id) %>
+          <h4><%= info.station %>駅に開催中のポップアップストア</h4>
 
-        <div class="field">
-          <%= store.name %>
-        </div>
+          <li class="info">
+            <div class="info-title">店名</div>
+            <div class="info-contents"><%= store.name %></div>
+          </li>
 
-        <div class="field">
-          <%= info.start_period %>
-          ～
-          <%= info.end_period %>
-        </div>
+          <%= render 'stores/info/info', info: info %>
 
-        <div class="field">
-          <%= info.open_time %>
-          ～
-          <%= info.close_time %>
-        </div>
+          <div class="field">
+            <%= link_to "詳細", users_store_path(info.id) %>
+          </div>
 
-        <div class="field">
-          <%= info.place %>
-        </div>
-
-        <div class="field">
-          <%= link_to "詳細", users_store_path(info.id) %>
-        </div>
-
+        <% end %>
       <% end %>
     <% end %>
+    <div class="middle-line_image"></div>
   <% end %>
 
-   <h2>本日出店中のストア</h2>
+  <h2>本日開催中のポップアップストア</h2>
   <% @infos.each do |info| %>
     <% store = Store.find(info.store_id) %>
     <div class="field">
       <%= store.name %>
     </div>
 
-    <div class="field">
-      <%= info.station %>駅
-    </div>
-
-    <div class="field">
-      <%= info.start_period %>
-      ～
-      <%= info.end_period %>
-    </div>
-
-    <div class="field">
-      <%= info.open_time %>
-      ～
-      <%= info.close_time %>
-    </div>
-
-    <div class="field">
-      <%= info.place %>
-    </div>
+    <%= render 'stores/info/info', info: info %>
 
     <div class="field">
       <%= link_to "詳細", users_store_path(info.id) %>
     </div>
   <% end %>
-
-<% end %>
+</section>
 
