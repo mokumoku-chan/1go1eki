@@ -52,15 +52,9 @@ Rails.application.routes.draw do
     get '/mypage/edit' => 'userpages#edit'
     patch '/mypage' => 'userpages#update'
 
-    get '/storepage' => 'storepages#show', as: 'storepage'
-    get '/storepage/edit' => 'storepages#edit', as: 'storepage_edit'
-    patch '/storepage' => 'storepages#update', as: 'storepage_update'
-    post '/storepage' => 'storepages#create', as: 'storepage_create'
-
-
-
     resources :info, only: [:show, :index, :new, :create, :edit, :update, :destroy]
     resource :image
+    resource :storepage, only: [:show, :edit, :update, :create, :destroy]
 
   end
 

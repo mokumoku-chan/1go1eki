@@ -11,7 +11,7 @@ class Stores::StorepagesController < ApplicationController
     @store = Store.find(current_store.id)
     @homepages = Homepage.where(store_id: current_store.id)
     @homepage_new = Homepage.new
-    
+
   end
 
   def create
@@ -32,6 +32,12 @@ class Stores::StorepagesController < ApplicationController
       homepage.update(url_params)
     end
 
+    redirect_to stores_storepage_path
+  end
+
+  def destroy
+    homepage = Homepage.find(params[:format])
+    homepage.destroy
     redirect_to stores_storepage_path
   end
 
