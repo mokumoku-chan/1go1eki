@@ -130,6 +130,10 @@ table th, table td {
   margin: 20px;
   display: flex;
 
+  ul li {
+    list-style: none;
+  }
+
   .input-label, .info-title {
     margin-right: 20px;
     width: 200px;
@@ -182,11 +186,19 @@ table th, table td {
 }
 
 
+.shop-info{
+  .info {
+    margin: 20px;
+    display: flex;
+   }
 
-
-ul li {
-    list-style: none;
+  .period, .station, .detail {
+   margin-right: 20px;
   }
+}
+
+
+
 
 footer {
 

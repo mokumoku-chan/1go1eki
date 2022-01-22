@@ -18,12 +18,16 @@
     <%= link_to "追加", new_stores_info_path %>
 
     <% @infos.each do |info| %>
-        <div class="shop_info">
-            <%= info.start_period %> ~
-            <%= info.end_period %>
-            <%= info.station %>駅
-            <%= link_to "詳細", stores_info_path(info.id) %>
-        </div>
+        <ol class="shop-info">
+            <li class="info">
+                <div class="period">
+                    <%= info.start_period %> ~
+                    <%= info.end_period %>
+                </div>
+                <div class="station"><%= info.station %>駅</div>
+                <div class="detail"><%= link_to "詳細", stores_info_path(info.id) %></div>
+            </li>
+        </ol>
     <% end %>
 
 </section>
