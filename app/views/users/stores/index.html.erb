@@ -12,7 +12,7 @@
 
           <li class="info">
             <div class="info-title">店名</div>
-            <div class="info-contents"><%= store.name %></div>
+            <div class="info-contents"><%= link_to store.name, users_storepage_path(store.id) %></div>
           </li>
 
           <%= render 'stores/info/info', info: info %>

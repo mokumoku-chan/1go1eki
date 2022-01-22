@@ -1,0 +1,9 @@
+<%= render 'layouts/title', title: "ストア詳細" %>
+
+<section class="page">
+  <%= @store.name %>
+  <%= @store.introduction %>
+
+  <%= attachment_image_tag @images[0], :image, :fill, 15, 15, fallback: "noimage.png"%>
+
+</section>

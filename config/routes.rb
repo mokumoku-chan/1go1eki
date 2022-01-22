@@ -40,6 +40,7 @@ Rails.application.routes.draw do
 
 
     resources :homes, only: [:index]
+    resources :storepages, only: [:index, :show]
     resources :stores, only: [:index, :show] do
       resource :favorites, only: [:create, :destroy]
     end
