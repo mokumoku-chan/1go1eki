@@ -20,25 +20,25 @@
         <div class="input-field"><%= f.text_field :telephone_number %></div>
       </li>
 
-    <li class="input">
-      <div class="input-label"><%= f.label :postal_code, "郵便番号" %></div>
-      <div class="input-field"><%= f.text_field :postal_code %></div>
+      <li class="input">
+        <div class="input-label"><%= f.label :postal_code, "郵便番号" %></div>
+        <div class="input-field"><%= f.text_field :postal_code %></div>
+        </li>
+      <li class="input">
+        <div class="input-label"><%= f.label :address, "住所" %></div>
+        <div class="input-field"><%= f.text_field :address %></div>
       </li>
-    <li class="input">
-      <div class="input-label"><%= f.label :address, "住所" %></div>
-      <div class="input-field"><%= f.text_field :address %></div>
-    </li>
 
-  <li class="input">
-    <div class="input-label"><%= f.label :is_active, "ステータス" %></div>
-    <div class="input-field">
-      <%= f.label :is_active, "有効" %>
-      <%= f.radio_button :is_active, true %>
-      <%= f.label :is_active, "退会済み" %>
-      <%= f.radio_button :is_active, false %>
-    </div>
+    <li class="input">
+      <div class="input-label"><%= f.label :is_active, "ステータス" %></div>
+      <div class="input-field">
+        <%= f.label :is_active, "有効" %>
+        <%= f.radio_button :is_active, true %>
+        <%= f.label :is_active, "退会済み" %>
+        <%= f.radio_button :is_active, false %>
+      </div>
     </li>
-    </ul>
+  </ul>
 
     <%= f.submit "変更内容を登録" %>
 

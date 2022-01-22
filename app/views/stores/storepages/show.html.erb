@@ -3,6 +3,8 @@
         <%= attachment_image_tag image, :image, :fill, 300, 200, fallback: "noimage.png"%>
     <% end %>
 
+    <%= attachment_image_tag @images[0], :image, :fill, 300, 200, fallback: "noimage.png"%>
+
 <div class="field">
     <%= @store.name %>
 </div>
@@ -27,6 +29,18 @@
 
 <div class="field">
     <% @homepages.each do |homepage| %>
+        <% if homepage.url_type == 0 %>
+            <i class="fas fa-home"></i>
+        <% elsif homepage.url_type == 1 %>
+            <i class="fab fa-twitter-square"></i>
+        <% elsif homepage.url_type == 2 %>
+            <i class="fab fa-instagram-square"></i>
+        <% elsif homepage.url_type == 3 %>
+            <i class="fab fa-facebook-square"></i>
+        <% elsif homepage.url_type == 4 %>
+            <i class="fab fa-line"></i>
+
+        <% end %>
         <%= homepage.url_type_to_jp %>
         <%= homepage.url %>
     <% end %>

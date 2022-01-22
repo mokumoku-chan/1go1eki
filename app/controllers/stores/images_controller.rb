@@ -8,14 +8,13 @@ class Stores::ImagesController < ApplicationController
     image = StoreImage.new(image_params)
     image.store_id = current_store.id
     image.save
-    redirect_to stores_image_edit_path
+    redirect_to edit_stores_image_path
   end
 
   def destroy
-    binding.pry
     image = StoreImage.find(params[:format])
     image.destroy
-    redirect_to stores_image_edit_path
+    redirect_to edit_stores_image_path
   end
 
   private

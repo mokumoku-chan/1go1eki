@@ -23,8 +23,7 @@
 
   function OnButtonClick() {
     const St_name = document.getElementById("St_name");
-    const no_data = document.getElementById("no_data");
-    const station = document.getElementById("station").value;
+    const station = document.getElementById("station_name").value;
 
     var url = 'https://express.heartrails.com/api/json?method=getStations&name='+ station;
 
@@ -38,18 +37,18 @@
 
     const data1 = Data.response.station
     console.log(data1)
-    St_name.innerHTML = data1[0].name
+    St_name.innerHTML = "OK"
     $("#station_name").val(data1[0].name);
 
-    no_data.innerHTML = ""
 
   })
 
   .catch(data => {
     console.log("NOT")
-    St_name.innerHTML = ""
-    no_data.innerHTML = "駅名が見つかりません"
+    St_name.innerHTML = "駅名が見つかりません"
   })
-
-
 };
+
+
+
+

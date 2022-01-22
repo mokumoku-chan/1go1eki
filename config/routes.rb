@@ -57,13 +57,10 @@ Rails.application.routes.draw do
     patch '/storepage' => 'storepages#update', as: 'storepage_update'
     post '/storepage' => 'storepages#create', as: 'storepage_create'
 
-    get '/image/edit' => 'images#edit'
-    patch '/image' => 'images#update'
-    post '/image' => 'images#create'
-    delete '/image' => 'image#destroy'
+
 
     resources :info, only: [:show, :index, :new, :create, :edit, :update, :destroy]
-    # resource :image, only: [:edit, :create, :destory]
+    resource :image
 
   end
 
