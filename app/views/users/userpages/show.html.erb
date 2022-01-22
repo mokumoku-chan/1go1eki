@@ -1,23 +1,46 @@
-<h2>Mypage</h2>
+<%= render 'layouts/title', title: "Mypage" %>
 
-プロフィール画像
-<%= attachment_image_tag @user, :profile_image, :fill, 15, 15, fallback: "noimage.png"%>
+<section class="page">
+  <div class="profile">
+    <div class="profile_image">
+      プロフィール画像
+      <%= attachment_image_tag @user, :profile_image, :fill, 15, 15, fallback: "noimage.png"%>
+    </div>
 
-ユーザ名
-<%= @user.name %>
-メールアドレス
-<%= @user.email %>
-電話番号
-<%= @user.telephone_number %>
+    <div class="profile-info">
+      <div class="basic-info">
+        <h4>基本情報</h4>
+        <ul class="info-list">
+          <li class="info">
+            <div class="info-title">ユーザ名</div>
+            <div class="info-contents"><%= @user.name %></div>
+          </li>
 
-<h4>よく使う駅</h4>
+          <li class="info">
+            <div class="info-title">メールアドレス</div>
+            <div class="info-contents"><%= @user.email %></div>
+          </li>
 
+          <li class="info">
+            <div class="info-title">電話番号</div>
+            <div class="info-contents"><%= @user.telephone_number %></div>
+          </li>
+        </ul>
+      </div>
 
-<% @stations.each do |station| %>
-  <%= station.name %>
-<% end %>
+      <div class="often_use">
 
+        <h4>よく使う駅  <i class="fas fa-subway"></i></h4>
+        <% @stations.each do |station| %>
+          <ul class="station-list">
+            <li class="station-name"><%= station.name %></li>
+          </ul>
+        <% end %>
+      </div>
 
+    </div>
 
-<%= link_to "編集ページ 行", users_mypage_edit_path %>
-<%= link_to "退会", users_mypage_path %>
+    <%= link_to "編集ページ 行", users_mypage_edit_path %>
+    <%= link_to "退会", users_mypage_path %>
+  </div>
+</section>

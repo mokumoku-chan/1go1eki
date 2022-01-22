@@ -169,16 +169,16 @@ table th, table td {
   background-color: red;
 }
 
-.store_page {
+.store_page, .profile {
   display: flex;
 
-  .image_filed {
+  .image_filed, .profile_image {
     margin: 10px;
     width: 40%;
     height: 100%;
   }
 
-  .info_field {
+  .info_field, .profile_info {
     margin: 10px;
     width: 60%;
     height: 100%;
@@ -195,6 +195,10 @@ table th, table td {
   .period, .station, .detail {
    margin-right: 20px;
   }
+}
+
+.often_use {
+  margin: 50px 0 0 0;
 }
 
 

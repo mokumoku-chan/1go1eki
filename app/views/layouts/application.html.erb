@@ -21,7 +21,7 @@
 
     <% elsif user_signed_in? %>
       <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"fas fa-sign-out-alt" %>
       </li>
 
     <% elsif store_signed_in? %>
