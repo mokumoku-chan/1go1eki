@@ -55,7 +55,7 @@ Rails.application.routes.draw do
 
     resources :info, only: [:show, :index, :new, :create, :edit, :update, :destroy]
     resources :reviews, only: [:index]
-    resources :items
+    resources :items, only: [:show, :index, :new, :create, :edit, :update]
     resource :image
     resource :storepage, only: [:show, :edit, :update, :create, :destroy]
 

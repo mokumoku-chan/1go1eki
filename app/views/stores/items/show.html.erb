@@ -1,0 +1,31 @@
+<%= render 'layouts/title', title: "アイテム詳細" %>
+
+<section class="page">
+  <div class="item">
+    <div class="item-img">
+      <%= image_tag attachment_url(@item, :image, :fill, 300, 200, fallback: "noimage.png"), size:'300x200' %>
+    </div>
+
+    <div class="item-info">
+      <ul class="item-list">
+        <li class="info">
+          <div class="info-title">アイテム名</div>
+          <div class="info-contents"><%= @item.name %></div>
+        </li>
+
+        <li class="info">
+          <div class="info-title">アイテム紹介</div>
+          <div class="info-comments"><%= @item.comment %></div>
+        </li>
+
+        <li class="info">
+          <div class="info-title">金額</div>
+          <div class="info-contents">￥<%= @item.price %> (税抜き)</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <%= link_to "アイテム一覧に戻る", stores_items_path %>
+  <%= link_to "アイテム編集　行き", edit_stores_item_path(@item.id) %>
+</section>

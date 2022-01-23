@@ -7,6 +7,7 @@ class Store < ApplicationRecord
 
   has_many :homepages, dependent: :destroy
   has_many :storeinfo, dependent: :destroy
+  has_many :item, dependent: :destroy
   has_many :store_image, dependent: :destroy
   attachment :image
 

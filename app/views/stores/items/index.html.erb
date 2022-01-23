@@ -1,1 +1,35 @@
-TOP
+<%= render 'layouts/title', title: "アイテム一覧" %>
+
+<section class="page">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>登録日</th>
+        <th>アイテム名</th>
+        <th>金額</th>
+        <th>ステータス</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= l item.created_at %></td>
+          <td><%= item.name %></td>
+          <td><%= item.price %></td>
+          <td>
+            <% if item.status == 0 %>
+              <div class="sale">販売中</div>
+            <% else %>
+              <div class="stop">販売停止中</div>
+            <% end %>
+          </td>
+          <td><%= link_to "詳細", stores_item_path(item.id) %></td>
+          <td><%= link_to "編集", edit_stores_item_path(item.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

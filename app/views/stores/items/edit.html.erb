@@ -1,0 +1,43 @@
+<%= render 'layouts/title', title: "アイテム編集" %>
+<section class="page">
+  <%= form_with model: @item, url: stores_item_path(@item.id), local: true do |f| %>
+
+  <ul class="input-list">
+      <li class="input">
+        <div class="input-label"><%= f.label :name, "アイテム名" %></div>
+        <div class="input-field"><%= f.text_field :name %></div>
+      </li>
+
+      <li class="input">
+        <div class="input-label"><%= f.label :comment, "アイテム紹介" %></div>
+        <div class="input-field"><%= f.text_area :comment %></div>
+      </li>
+
+      <li class="input">
+        <div class="input-label"><%= f.label :image, "アイテムイメージ" %></div>
+        <div class="input-field">
+          <%= image_tag attachment_url(@item, :image, :fill, 300, 200, fallback: "noimage.png"), size:'300x200' %>
+          <%= f.attachment_field :image %>
+        </div>
+      </li>
+
+      <li class="input">
+        <div class="input-label"><%= f.label :price, "金額 (税抜き)" %></div>
+        <div class="input-field"><%= f.text_field :price %></div>
+      </li>
+
+      <li class="input">
+        <div class="input-label"><%= f.label :is_active, "ステータス" %></div>
+        <div class="input-field">
+          <%= f.label :status, "販売中" %>
+          <%= f.radio_button :status, 0 %>
+          <%= f.label :status, "販売停止" %>
+          <%= f.radio_button :is_active, 1 %>
+        </div>
+      </li>
+    </ul>
+
+    <%= f.submit "アイテム編集" %>
+  <% end %>
+
+</section>
