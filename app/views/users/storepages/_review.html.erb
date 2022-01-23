@@ -1,0 +1,25 @@
+<div class="evaluation">
+  <h5>コメント一覧</h5>
+  <% reviews.each do |review| %>
+    <% user = User.find(review.user_id) %>
+    <div class="review">
+      <div class="review-img"><%= attachment_image_tag user, :profile_image,  :fill, 100, 100, fallback: "noimage.png", class: "profile_image" %></div>
+      <div class="review-contents">
+        <div class="shop-evaluation" data-score="<%= review.evaluation %>"></div>
+        <div class="review-title"><%= review.title %></div>
+        <div class="review-comment"><%= review.comment %></div>
+        <div class="review-update"><%= l review.updated_at, format: :long %></div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  $('.shop-evaluation').raty({
+  readOnly: true,
+  score: function() {
+  return $(this).attr('data-score');
+  },
+  path: '/assets/'
+  });
+</script>

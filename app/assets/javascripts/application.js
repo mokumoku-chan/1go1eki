@@ -19,6 +19,7 @@
 //= require turbolinks
 //= require_tree .
 
+//= require jquery.raty.js
 
 
   function OnButtonClick() {
@@ -72,5 +73,6 @@ function changeImage_plus() {
 
 
 };
+
 
 

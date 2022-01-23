@@ -8,5 +8,23 @@ class Users::StorepagesController < ApplicationController
 
     date = Date.today
     @infos = Storeinfo.where("store_id == ? and end_period >= ?",@store.id, date)
+
+    @review_new = Review.new
+    @reviews = Review.where(store_id: @store.id).order(updated_at: :desc)
+
+  end
+
+  def create
+    review = Review.new(review_params)
+    review.user_id = current_user.id
+    review.save
+    redirect_to users_storepage_path(review.store_id)
+
+
+  end
+
+  private
+  def review_params
+    params.require(:review).permit(:store_id, :title, :comment, :evaluation)
   end
 end

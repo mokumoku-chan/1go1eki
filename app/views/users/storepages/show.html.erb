@@ -33,4 +33,45 @@
     <% end %>
   </div>
 
+  <div class="evaluation">
+    <h5>コメント</h5>
+    <div class="store-evaluation">
+      <%= form_with model: @review_new, url: users_storepages_path, local: true do |f| %>
+        <%= f.hidden_field :store_id, :value => @store.id %>
+        <div class="field">
+          <%= f.label :title, "タイトル" %></br>
+          <%= f.text_field :title %>
+        </div>
+        <div id="evaluate_stars", class="field"></div>
+        <div class="field">
+          <%= f.label :comment, "コメント" %></br>
+          <%= f.text_area :comment %>
+        </div>
+
+        <% if user_signed_in? %>
+          <%= f.submit "投稿" %>
+        <% else %>
+          <%= link_to "ログイン画面行き", user_session_path %>
+          コメント投稿するにはログインしてください
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="evaluation">
+    <h5>コメント一覧</h5>
+    <%= render 'users/storepages/review', reviews: @reviews %>
+  </div>
+
+    <script>
+      $('#evaluate_stars').raty({
+        size: 36,
+        starOn: "<%= asset_path('star-on.png') %>",
+        starOff: "<%= asset_path('star-off.png') %>",
+        starHalf: "<%= asset_path('star-half.png') %>",
+        scoreName: 'review[evaluation]' //登録するモデル名とカラム名を記述
+      });
+    </script>
+
+
 </section>

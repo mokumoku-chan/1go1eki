@@ -82,7 +82,7 @@ header {
   background-repeat: repeat-x;
 }
 
-.inner {
+.inner, .store-evaluation {
     width: 80%;
     margin: 30px auto;
 
@@ -103,6 +103,11 @@ header {
     input[type='text'] {
       width: 50%;
       height: 30px;
+    }
+
+    textarea {
+      width: 50%;
+      height: 100px;
     }
 }
 
@@ -200,6 +205,13 @@ table th, table td {
     color: black;
   }
 }
+
+.star {
+  .img {
+    width: 20px;
+    height: 20px;
+  }
+}
 .shop-image {
   margin: 30px;
 }
@@ -263,10 +275,27 @@ table th, table td {
   margin-left: 40px;
 }
 
-img {
-  width: 300px;
-  height: 200px;
+
+.image_filed{
+  img {
+    width: 300px;
+    height: 200px;
+  }
 }
+
+.evaluation {
+  .review {
+    display: flex;
+    margin: 40px;
+  }
+  .review-img {
+    margin-right: 30px;
+  }
+}
+
+
+
+
 footer {
 
 }

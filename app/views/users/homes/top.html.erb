@@ -18,7 +18,7 @@
 
           <div class="index-info">
             <div class="img_field">
-              <%= attachment_image_tag images[0], :image, :fill, 300, 200, fallback: "noimage.png", id: "img_id" %>
+                <%= image_tag attachment_url(images[0], :image, :fill, 300, 200, fallback: "noimage.png"), size:'300x200' %>
             </div>
 
             <div class="info_field">
