@@ -134,13 +134,13 @@ table th, table td {
     list-style: none;
   }
 
-  .input-label, .info-title {
+  .input-label, .info-title, .station {
     margin-right: 20px;
     width: 200px;
     font-weight: bold;
   }
 
-  .input-field, .info-contents {
+  .input-field, .info-contents, .button {
     width: 50%;
     input[type='text'] {
       width: 100%;
@@ -150,6 +150,10 @@ table th, table td {
     input[type='email'] {
       width: 100%;
       height: 40px;
+    }
+
+    input {
+
     }
 
     textarea {
@@ -174,13 +178,13 @@ table th, table td {
 
   .image_filed, .profile_image {
     margin: 10px;
-    width: 40%;
+    width: 30%;
     height: 100%;
   }
 
   .info_field, .profile_info {
     margin: 10px;
-    width: 60%;
+    width: 70%;
     height: 100%;
   }
 }
@@ -197,7 +201,7 @@ table th, table td {
   }
 }
 
-.often_use {
+.often_use, .favorite {
   margin: 50px 0 0 0;
 }
 

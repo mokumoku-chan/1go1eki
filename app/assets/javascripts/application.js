@@ -45,6 +45,7 @@
 
   .catch(data => {
     console.log("NOT")
+     $("#station_name").val("");
     St_name.innerHTML = "駅名が見つかりません"
   })
 };

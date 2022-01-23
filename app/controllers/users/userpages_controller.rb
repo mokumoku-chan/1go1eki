@@ -3,18 +3,22 @@ class Users::UserpagesController < ApplicationController
   def show
     @user = User.find(current_user.id)
     @stations = Station.where(user_id: current_user.id)
+    @favorites = Favorite.where(user_id: current_user.id)
   end
 
   def edit
     @user = User.find(current_user.id)
     @stations = Station.where(user_id: current_user.id)
     @station_new = Station.new
+
+    @stores = Store.all
   end
 
   def create
     station = Station.new(station_params)
     station.user_id = current_user.id
     station.save
+
     redirect_to users_mypage_path
   end
 

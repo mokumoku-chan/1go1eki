@@ -38,6 +38,16 @@
         <% end %>
       </div>
 
+      <div class="favorite">
+        <h4>お気に入りストア <i class="fas fa-heart"></i></h4>
+        <% @favorites.each do |favorite| %>
+          <ul class="favorite-list">
+            <li class="favorite-store"><%= Store.find(favorite.store_id).name %></li>
+          </ul>
+        <% end %>
+
+      </div>
+
     </div>
 
     <%= link_to "編集ページ 行", users_mypage_edit_path %>
