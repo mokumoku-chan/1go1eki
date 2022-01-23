@@ -69,4 +69,8 @@ class Stores::RegistrationsController < Devise::RegistrationsController
     :postal_code, :address])
   end
 
+  def after_sign_in_path_for(resource)
+    stores_info_index_path
+  end
+
 end

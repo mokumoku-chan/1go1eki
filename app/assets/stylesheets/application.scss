@@ -19,6 +19,16 @@
 @import 'font-awesome';
 
 
+
+header {
+  height: 100px;
+  display: flex;
+
+  .logo {
+    text-align: center;
+  }
+}
+
 .title_field {
   position: relative;
   height: 100px;
@@ -66,6 +76,11 @@
   background-repeat: repeat-x;
 }
 
+.short-line_image {
+  height: 30px;
+  background-image: url('short_line.png');
+  background-repeat: repeat-x;
+}
 
 .inner {
     width: 80%;
@@ -95,6 +110,7 @@
 .page {
   width: 70%;
   margin: 30px auto;
+
 }
 
 table {
@@ -136,12 +152,12 @@ table th, table td {
 
   .input-label, .info-title, .station {
     margin-right: 20px;
-    width: 200px;
+    width: 40%;
     font-weight: bold;
   }
 
   .input-field, .info-contents, .button {
-    width: 50%;
+    width: 60%;
     input[type='text'] {
       width: 100%;
       height: 40px;
@@ -161,6 +177,31 @@ table th, table td {
       height: 60px;
     }
   }
+}
+
+.profile_image {
+  .img {
+    width: 100%;
+    height: 100%;
+    border-radius: 90px;
+  }
+}
+
+.register-img {
+  margin: 0 0 30px 0;
+  .h4 {
+    margin-bottom: 20px;
+  }
+}
+
+.edit-img {
+  .delete-img {
+    margin-left: 30px;
+    color: black;
+  }
+}
+.shop-image {
+  margin: 30px;
 }
 
 .shop_info {
@@ -201,13 +242,31 @@ table th, table td {
   }
 }
 
+.index-info {
+  margin: 20px;
+  display: flex;
+}
+
 .often_use, .favorite {
   margin: 50px 0 0 0;
+  width: 70%;
+  margin-left: auto;
 }
 
 
+.info-list {
+  margin: 30px;
+}
 
+.sns_new, .sns_edit {
+  margin-top: 30px;
+  margin-left: 40px;
+}
 
+img {
+  width: 300px;
+  height: 200px;
+}
 footer {
 
 }

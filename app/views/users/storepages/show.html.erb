@@ -1,9 +1,36 @@
 <%= render 'layouts/title', title: "ストア詳細" %>
 
 <section class="page">
-  <%= @store.name %>
-  <%= @store.introduction %>
+  <h4><%= @store.name %></h4>
+  <% if user_signed_in? %>
+    <%= render 'users/favorites/favorite', store: @store %>
+  <% end %>
+  <div class="store_page">
+    <div class = "image_filed">
+      <%= render 'stores/storepages/image', images: @images, images_arr: @images_arr %>
+    </div>
 
-  <%= attachment_image_tag @images[0], :image, :fill, 15, 15, fallback: "noimage.png"%>
+    <div class="info_field">
+      <ul class="info-list">
+        <%= render 'stores/storepages/storepage', store: @store, homepages: @homepages %>
+
+      </ul>
+    </div>
+  </div>
+
+  <div class="store-schedule">
+    <h5>今後のポップアップストア出店予定</h5>
+    <% @infos.each do |info| %>
+      <ol class="shop-info">
+        <li class="info">
+          <div class="period">
+            <%= info.start_period %> ~
+            <%= info.end_period %>
+          </div>
+          <div class="station"><%= info.station %>駅</div>
+        </li>
+      </ol>
+    <% end %>
+  </div>
 
 </section>

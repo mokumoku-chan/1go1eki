@@ -6,11 +6,14 @@
         <%= date.day %></br>
         <% @infos_all.each do |all| %>
             <% if date == all.start_period.to_date %>
-                <%= link_to all.station, stores_info_path(all.id) %>
+                <% station = all.station+"駅" %>
+                <%= link_to station, stores_info_path(all.id) %></br>
+                Start
             <% end %>
 
-            <% if (date >= all.start_period.to_date) and (date <= all.end_period.to_date) %>
-                <div class="period_bar"></div>
+            <% if date == all.end_period.to_date %>
+                <%= all.station+"駅" %></br>
+                End
             <% end %>
         <% end %>
     <% end %>

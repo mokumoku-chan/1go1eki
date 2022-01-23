@@ -1,10 +1,13 @@
 class Users::HomesController < ApplicationController
   def top
-  end
+        date = Date.today
+
+    if user_signed_in?
+      @often_use = Station.where(user_id: current_user.id)
+    end
+
+    @infos = Storeinfo.where("start_period <= ? and end_period >= ?", date, date)
 
 
-  def index
-    @station = params[:station]
-    binding.pry
   end
 end

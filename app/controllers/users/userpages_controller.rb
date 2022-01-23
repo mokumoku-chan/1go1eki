@@ -1,4 +1,5 @@
 class Users::UserpagesController < ApplicationController
+  before_action :hoge
 
   def show
     @user = User.find(current_user.id)
@@ -42,6 +43,11 @@ class Users::UserpagesController < ApplicationController
 
   def station_params
     params.require(:station).permit(:name)
+  end
+  
+  def hoge
+    pp "===================="
+    pp current_user
   end
 
 end

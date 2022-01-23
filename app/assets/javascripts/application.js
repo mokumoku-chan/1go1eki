@@ -50,7 +50,7 @@
   })
 };
 
-var num = -1;
+var num = 0;
 
 function changeImage_plus() {
   const img_id = document.getElementById("img_id");
@@ -67,7 +67,7 @@ function changeImage_plus() {
     num ++;
   }
 
-  console.log(img)
+  console.log(img[num])
    $("#img_id").attr('src', img[num]);
 
 

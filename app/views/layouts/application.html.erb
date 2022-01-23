@@ -14,31 +14,54 @@
   </head>
 
   <body>
-    <% if admin_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-      </li>
+    <header>
+      <div class="menu">
+        <% if admin_signed_in? %>
+          <li>
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+          </li>
 
-    <% elsif user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"fas fa-sign-out-alt" %>
-      </li>
+        <% elsif user_signed_in? %>
+          <li>
+            <%= link_to "My page", users_mypage_path %>
+            <%= link_to "TOPページ", users_root_path %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"fas fa-sign-out-alt" %>
+          </li>
 
-    <% elsif store_signed_in? %>
-      <li>
-        <%= link_to "ストアページ", stores_storepage_path %>
-        <%= link_to "TOPページ", stores_info_index_path %>
-        <%= link_to "ログアウト", destroy_store_session_path, method: :delete %>
-      </li>
+        <% elsif store_signed_in? %>
+          <li>
+            <%= link_to "ストアページ", stores_storepage_path %>
+            <%= link_to "TOPページ", stores_info_index_path %>
+            <%= link_to "ログアウト", destroy_store_session_path, method: :delete %>
+          </li>
 
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_admin_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_admin_session_path %>
-      </li>
-    <% end %>
+        <% else %>
+          <li>
+            <%= link_to "新規登録", new_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to "ログイン", new_user_session_path %>
+          </li>
+        <% end %>
+      </div>
+
+      <div class="logo">
+        一期一駅
+      </div>
+
+      <div class="search">
+        <div class = "text-right mr-3 mb-4">
+          <%= form_tag(users_stores_path, :method => 'get') do %>
+            <%= text_field_tag :search %>
+            <%= submit_tag 'Search', :station => nil %>
+            駅名検索
+            <%= radio_button_tag :type, "station" %>
+            店名検索
+            <%= radio_button_tag :type, "store" %>
+          <% end %>
+        </div>
+      </div>
+    </header>
 
     <%= yield %>
 

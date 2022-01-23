@@ -2,16 +2,17 @@ class Users::StoresController < ApplicationController
   def index
     date = Date.today
 
-    if user_signed_in?
-      @often_use = Station.where(user_id: current_user.id)
+    if params[:type] == "station"
+      @infos = Storeinfo.search(params[:search]).where("start_period <= ? and end_period >= ?", date, date)
+      @type = 0
+
+    else
+      @store = Store.search(params[:search])
+      @type = 1
+      @date = date
+
     end
-    @stores = Store.find(1)
-
-
-    @infos = Storeinfo.where("start_period <= ? and end_period >= ?", date, date)
-
   end
-
 
   def show
     @info = Storeinfo.find(params[:id])

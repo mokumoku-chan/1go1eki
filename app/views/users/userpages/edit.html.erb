@@ -1,72 +1,60 @@
 <%= render 'layouts/title', title: "編集画面" %>
 
 <section class="page">
-  <div class="profile">
-    <div class="profile_image">
-      <h4>プロフィール画像</h4>
-      <%= form_with model: @user, url: users_mypage_update_path, local: true do |f| %>
-        <%= attachment_image_tag @user, :profile_image, :fill, 15, 15, fallback: "noimage.png"%>
-        <%= f.attachment_field :profile_image %>
-    </div>
-
-    <div class="profile_info">
-
-      <h4>基本情報</h4>
-      <ul class="input-list">
-        <li class="input">
-          <div class="input-label"><%= f.label :name, "ユーザ名" %></div>
-          <div class="input-field"><%= f.text_field :name %></div>
-        </li>
-
-        <li class="input">
-          <div class="input-label"><%= f.label :email, "メールアドレス" %></div>
-          <div class="input-field"><%= f.text_field :email %></div>
-        </li>
-
-        <li class="input">
-          <div class="input-label"><%= f.label :telephone_number, "電話番号" %></div>
-          <div class="input-field"><%= f.text_field :telephone_number %></div>
-        </li>
-      </ul>
-      <%= f.submit "編集内容登録" %>
-
-        <div class="often_use">
-    <h4>よく使う駅</h4>
-    <%= form_with model: @station_new, url: users_mypage_create_path, local: true do |f| %>
-      <div class="input-field">
-        <%= f.text_field :name, :value => "", :id => "station_name" %>
-
-        <input type="button" value="検索" onclick="OnButtonClick();">
-        <%= f.submit "登録" %>
+  <%= form_with model: @user, url: users_mypage_update_path, local: true do |f| %>
+    <div class="profile">
+      <div class="profile_image">
+        <h4>プロフィール画像</h4>
+          <%= attachment_image_tag @user, :profile_image, :fill, 15, 15, fallback: "noimage.png"%>
+          <%= f.attachment_field :profile_image %>
       </div>
-      <div id="St_name"></div>
 
+      <div class="profile_info">
+        <h4>基本情報</h4>
+          <ul class="input-list">
+            <li class="input">
+              <div class="input-label"><%= f.label :name, "ユーザ名" %></div>
+              <div class="input-field"><%= f.text_field :name %></div>
+            </li>
+
+            <li class="input">
+              <div class="input-label"><%= f.label :email, "メールアドレス" %></div>
+              <div class="input-field"><%= f.text_field :email %></div>
+            </li>
+
+            <li class="input">
+              <div class="input-label"><%= f.label :telephone_number, "電話番号" %></div>
+              <div class="input-field"><%= f.text_field :telephone_number %></div>
+            </li>
+          </ul>
+          <%= f.submit "編集内容登録" %>
+        </div>
+      </div>
     <% end %>
+    <div class="often_use">
+      <h4>よく使う駅</h4>
+      <%= form_with model: @station_new, url: users_mypage_create_path, local: true do |f| %>
+        <div class="input-field">
+          <%= f.text_field :name, :value => "", :id => "station_name" %>
 
-    <ul class="info-list">
-      <% @stations.each do |station| %>
-        <li class="info">
-          <div class="station"><%= station.name %></div>
-          <div class="button"><%= link_to "削除", users_destroy_mypage_path(station.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></div>
-        </li>
+          <input type="button" value="検索" onclick="OnButtonClick();">
+          <%= f.submit "登録" %>
+        </div>
+        <div id="St_name"></div>
       <% end %>
-    </ul>
 
-  </div>
-
-  <div class="favorite">
-    <h4>お気に入りストア</h4>
-
-
-  </div>
+      <ul class="info-list">
+        <% @stations.each do |station| %>
+          <li class="info">
+            <div class="station"><%= station.name %></div>
+            <div class="button"><%= link_to "削除", users_destroy_mypage_path(station.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></div>
+          </li>
+        <% end %>
+      </ul>
     </div>
 
-
-
-    <% end %>
-  </div>
-
-
-
+    <div class="favorite">
+      <h4>お気に入りストア</h4>
+    </div>
 
 </section>

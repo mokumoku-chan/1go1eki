@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  root to: 'homes#top'
+
   namespace :admins do
     root to: 'homes#top'
     resources :users, only: [:index, :show, :edit, :update]
@@ -38,9 +40,7 @@ Rails.application.routes.draw do
     post '/mypage' => 'userpages#create', as: 'mypage_create'
     delete '/mypage' => 'userpages#destroy', as: 'destroy_mypage'
 
-
-    resources :homes, only: [:index]
-    resources :storepages, only: [:index, :show]
+    resources :storepages, only: [:show]
     resources :stores, only: [:index, :show] do
       resource :favorites, only: [:create, :destroy]
     end

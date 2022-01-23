@@ -1,0 +1,40 @@
+  <li class="info">
+      <div class="info-title">ストア情報</div>
+      <div class="info-contents"><%= store.introduction %></div>
+  </li>
+
+  <li class="info">
+      <div class="info-title">電話番号</div>
+      <div class="info-contents"><%= store.telephone_number %></div>
+  </li>
+
+
+  <li class="info">
+      <div class="info-title">住所</div>
+      <div class="info-contents">
+          〒<%= store.postal_code %>
+          <%= store.address %>
+      </div>
+
+  <li class="info">
+      <div class="info-title">SNS</div>
+      <div class="info-contents">
+          <% homepages.each do |homepage| %>
+              <% if homepage.url_type == 0 %>
+                  <i class="fas fa-home"></i>
+              <% elsif homepage.url_type == 1 %>
+                  <i class="fab fa-twitter-square"></i>
+              <% elsif homepage.url_type == 2 %>
+                  <i class="fab fa-instagram-square"></i>
+              <% elsif homepage.url_type == 3 %>
+                  <i class="fab fa-facebook-square"></i>
+              <% elsif homepage.url_type == 4 %>
+                  <i class="fab fa-line"></i>
+              <% end %>
+              <%= homepage.url_type_to_jp %>
+              <%= homepage.url %></br>
+          <% end %>
+      </div>
+  </li>
+
+

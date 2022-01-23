@@ -3,9 +3,10 @@ class Stores::StorepagesController < ApplicationController
   def show
     @store = Store.find(current_store.id)
     @images = StoreImage.where(store_id: current_store.id)
-    images_arr = StoreImage.where(store_id: current_store.id).pluck(:image_id)
+    images_arr = @images.map {|image| Refile.attachment_url(image, :image)}
     @images_arr = images_arr.to_json.html_safe
     @homepages = Homepage.where(store_id: current_store.id)
+
   end
 
 

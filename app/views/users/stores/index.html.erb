@@ -1,44 +1,17 @@
-<%= render 'layouts/title', title: "ストア一覧" %>
+<%= render 'layouts/title', title: "検索結果" %>
 
 <section class="page">
-  <% if !@often_use.blank? %>
+  <% if @type == 0 %>
+    <%= render 'users/stores/storeinfo', infos: @infos %>
 
-    <% @often_use.each do |station| %>
+  <% elsif @type == 1 %>
 
-      <% @infos.each do |info| %>
-        <% if info.station == station.name %>
-          <% store = Store.find(info.store_id) %>
-          <h4><%= info.station %>駅に開催中のポップアップストア</h4>
-
-          <li class="info">
-            <div class="info-title">店名</div>
-            <div class="info-contents"><%= link_to store.name, users_storepage_path(store.id) %></div>
-          </li>
-
-          <%= render 'stores/info/info', info: info %>
-
-          <div class="field">
-            <%= link_to "詳細", users_store_path(info.id) %>
-          </div>
-
-        <% end %>
-      <% end %>
+    <% @store.each do |store| %>
+      <% infos = Storeinfo.where("store_id== ? and end_period >= ?", store.id, @date) %>
+      <%= render 'users/stores/storeinfo', infos: infos %>
     <% end %>
-    <div class="middle-line_image"></div>
+
   <% end %>
 
-  <h2>本日開催中のポップアップストア</h2>
-  <% @infos.each do |info| %>
-    <% store = Store.find(info.store_id) %>
-    <div class="field">
-      <%= store.name %>
-    </div>
-
-    <%= render 'stores/info/info', info: info %>
-
-    <div class="field">
-      <%= link_to "詳細", users_store_path(info.id) %>
-    </div>
-  <% end %>
 </section>
 

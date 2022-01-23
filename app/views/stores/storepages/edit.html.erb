@@ -50,26 +50,29 @@
 
 
   <h4>SNS</h4>
-  <%= form_with model: @homepage_new, url: stores_storepage_path, local: true do |f| %>
-    <%= f.select :url_type, {'HP':0, 'Twitter':1, "Instagram":2, "Facebook":3, "LINE":4, "その他":5},{include_blank: "選択してください"}, {class: "required: true"} %>
-    <%= f.text_field :url %>
-    <%= f.submit "ホームページ情報登録" %>
-  <% end %>
 
-
-
-  <% @homepages.each do |homepage| %>
-    <%= form_with model: homepage, url: stores_storepage_path, local: true do |f| %>
+  <div class="sns_new">
+    <h4>新規登録</h4>
+    <%= form_with model: @homepage_new, url: stores_storepage_path, local: true do |f| %>
       <%= f.select :url_type, {'HP':0, 'Twitter':1, "Instagram":2, "Facebook":3, "LINE":4, "その他":5},{include_blank: "選択してください"}, {class: "required: true"} %>
       <%= f.text_field :url %>
-
-      <%= hidden_field_tag :change_id, 1 %>
-      <%= f.submit "ホームページ情報変更" %>
-      <%= link_to "削除", stores_storepage_path(homepage.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+      <%= f.submit "ホームページ情報登録" %>
     <% end %>
-  <% end %>
+  </div>
 
-  <%= link_to "ストアページに戻る", stores_storepage_path %>
+  <div class="sns_edit">
+    <h4>編集</h4>
+      <% @homepages.each do |homepage| %>
+      <%= form_with model: homepage, url: stores_storepage_path, local: true do |f| %>
+        <%= f.select :url_type, {'HP':0, 'Twitter':1, "Instagram":2, "Facebook":3, "LINE":4, "その他":5},{include_blank: "選択してください"}, {class: "required: true"} %>
+        <%= f.text_field :url %>
+
+        <%= hidden_field_tag :change_id, 1 %>
+        <%= f.submit "ホームページ情報変更" %>
+        <%= link_to "削除", stores_storepage_path(homepage.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+      <% end %>
+    <% end %>
+  </div>
 
 </section>
 
