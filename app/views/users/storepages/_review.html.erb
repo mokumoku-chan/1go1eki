@@ -3,7 +3,10 @@
   <% reviews.each do |review| %>
     <% user = User.find(review.user_id) %>
     <div class="review">
-      <div class="review-img"><%= attachment_image_tag user, :profile_image,  :fill, 100, 100, fallback: "noimage.png", class: "profile_image" %></div>
+      <div class="review-img">
+        <div class="user_name"><%= user.name %></div>
+        <%= attachment_image_tag user, :profile_image,  :fill, 100, 100, fallback: "noimage.png", class: "profile_image" %>
+      </div>
       <div class="review-contents">
         <div class="shop-evaluation" data-score="<%= review.evaluation %>"></div>
         <div class="review-title"><%= review.title %></div>

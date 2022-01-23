@@ -27,6 +27,10 @@ header {
   .logo {
     text-align: center;
   }
+
+  .search {
+    text-align: right;
+  }
 }
 
 .title_field {
@@ -290,7 +294,16 @@ table th, table td {
   }
   .review-img {
     margin-right: 30px;
+
+    .user_name {
+      text-align: center;
+      margin-bottom: 10px;
+    }
   }
+}
+
+.store-schedule {
+  margin-top: 30px;
 }
 
 
