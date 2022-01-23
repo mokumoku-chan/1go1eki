@@ -54,8 +54,10 @@ Rails.application.routes.draw do
     patch '/mypage' => 'userpages#update'
 
     resources :info, only: [:show, :index, :new, :create, :edit, :update, :destroy]
+    resources :review, only: [:index]
     resource :image
     resource :storepage, only: [:show, :edit, :update, :create, :destroy]
+
 
   end
 
