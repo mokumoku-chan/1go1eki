@@ -3,26 +3,37 @@
   <% reviews.each do |review| %>
     <% user = User.find(review.user_id) %>
     <div class="review">
-      <div class="review-img">
+      <div class="review_img">
         <div class="user_name"><%= user.name %></div>
-        <%= attachment_image_tag user, :profile_image,  :fill, 100, 100, fallback: "noimage.png", class: "profile_image" %>
+        <%= attachment_image_tag user, :profile_image, fallback: "noimage.png", id: "profile_image" %>
       </div>
-      <div class="review-contents">
-        <div class="shop-evaluation" data-score="<%= review.evaluation %>"></div>
-        <div class="review-title"><%= review.title %></div>
-        <div class="review-comment"><%= review.comment %></div>
-        <div class="review-update"><%= l review.updated_at, format: :long %></div>
+      <div class="review_contents">
+        <div class="review_title"><%= review.title %></div>
+        <div class="shop_evaluation" data-score="<%= review.evaluation %>"></div>
+        <div class="review_comment"><%= review.comment %></div>
+        <div class="review_update"><%= l review.updated_at, format: :long %></div>
       </div>
     </div>
   <% end %>
 </div>
 
 <script>
-  $('.shop-evaluation').raty({
+  $('.shop_evaluation').raty({
   readOnly: true,
   score: function() {
   return $(this).attr('data-score');
   },
   path: '/assets/'
   });
+
 </script>
+
+          <script>
+            $('#evaluate_stars').raty({
+              size: 36,
+              starOn: "<%= asset_path('star-on.png') %>",
+              starOff: "<%= asset_path('star-off.png') %>",
+              starHalf: "<%= asset_path('star-half.png') %>",
+              scoreName: 'review[evaluation]' //登録するモデル名とカラム名を記述
+            });
+          </script>

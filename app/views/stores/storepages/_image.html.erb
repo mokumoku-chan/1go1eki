@@ -1,6 +1,9 @@
-<div class="image_filed">
-  <%= attachment_image_tag images[0], :image, :fill, 300, 200, fallback: "noimage.png", id: "img_id" %>
-  <input type="button" value=">" onclick="changeImage_plus();">
+<%= attachment_image_tag @user, :profile_image, fallback: "noimage.png", id: "img_id" %>
+
+<div class="image_button">
+  <input type="button" value="<" onclick="changeImage_negative();">
   <input id="img_name" type="hidden" value= <%= images_arr %> >
 
+  <input type="button" value=">" onclick="changeImage_plus();">
+<input id="img_name" type="hidden" value= <%= images_arr %> >
 </div>

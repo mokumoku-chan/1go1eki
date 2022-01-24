@@ -7,11 +7,11 @@ class Users::StorepagesController < ApplicationController
     @homepages = Homepage.where(store_id: @store.id)
 
     date = Date.today
-    @infos = Storeinfo.where("store_id == ? and end_period >= ?",@store.id, date)
+    @infos = Storeinfo.where("store_id == ? and start_period >= ?",@store.id, date)
 
     @review_new = Review.new
-    @reviews = Review.where(store_id: @store.id).order(updated_at: :desc)
-    @items = Item.where("store_id == ? and status == ?", @store.id, 0)
+    @reviews = Review.where(store_id: @store.id).order(updated_at: :desc).page(params[:page])
+    @items = Item.where("store_id == ? and status == ?", @store.id, 0).page(params[:page])
 
   end
 

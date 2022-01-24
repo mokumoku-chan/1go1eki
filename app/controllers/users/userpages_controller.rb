@@ -12,7 +12,7 @@ class Users::UserpagesController < ApplicationController
     @stations = Station.where(user_id: current_user.id)
     @station_new = Station.new
 
-    @stores = Store.all
+
   end
 
   def create
@@ -44,7 +44,7 @@ class Users::UserpagesController < ApplicationController
   def station_params
     params.require(:station).permit(:name)
   end
-  
+
   def hoge
     pp "===================="
     pp current_user

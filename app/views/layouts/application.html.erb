@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
   </head>
 
   <body>
     <header>
       <div class="logo">
-        <%= image_tag 'logo.jpg' %>
+
       </div>
       <div class="menu">
         <% if admin_signed_in? %>
@@ -25,13 +27,15 @@
           </li>
 
         <% elsif user_signed_in? %>
-          <li>
-            <%= link_to "My page", users_mypage_path %>
-            <%= link_to "TOPページ", users_root_path %>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"fas fa-sign-out-alt" %>
-          </li>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"fas fa-sign-out-alt nav-list" %>
+        <%= link_to "TOPページ", users_root_path, class: "nav-link" %>
+        <%= link_to "My page", users_mypage_path, class: "nav-link" %>
+
+
+
 
         <% elsif store_signed_in? %>
+
           <li>
             <%= link_to "ストアページ", stores_storepage_path %>
             <%= link_to "TOPページ", stores_info_index_path %>
@@ -61,6 +65,8 @@
           <% end %>
         </div>
       </div>
+
+
     </header>
 
     <%= yield %>
@@ -71,3 +77,4 @@
     <p class="footer-text">Supported by HeartRails Express</p>
   </footer>
 </html>
+

@@ -3,32 +3,32 @@
 <section class="page">
   <% if !@often_use.blank? %>
     <% cnt=0 %>
-    <h3>よく使う駅にて開催中のポップアップストア</h3>
-    <% @often_use.each do |station| %>
-      <% @infos.each do |info| %>
-        <% if info.station == station.name %>
-          <% cnt = cnt + 1 %>
-          <% store = Store.find(info.store_id) %>
-          <% images = StoreImage.where(store_id: store.id) %>
-          <h4><%= info.station %>駅</h4>
+    <div class="often_use_station">
+      <h3>よく使う駅にて開催中のポップアップストア</h3>
+      <% @often_use.each do |station| %>
+        <% @infos.each do |info| %>
+          <% if info.station == station.name %>
+            <% cnt = cnt + 1 %>
+            <% store = Store.find(info.store_id) %>
+            <% images = StoreImage.where(store_id: store.id) %>
+            <h4><%= info.station %>駅</h4>
 
-          <div class="field">
-            <h4><%= link_to store.name, users_storepage_path(store.id) %></h4>
-          </div>
-
-          <div class="index-info">
-            <div class="img_field">
-                <%= image_tag attachment_url(images[0], :image, :fill, 300, 200, fallback: "noimage.png"), size:'300x200' %>
+            <div class="field">
+              <h4><%= link_to store.name, users_storepage_path(store.id) %></h4>
             </div>
 
-            <div class="info_field">
-              <%= render 'stores/info/info', info: info %>
+            <div class="store">
+              <div class="store_image">
+                  <%= attachment_image_tag images[0], :image, fallback: "noimage.png", id: "img_id" %>
+              </div>
+
+              <div class="store_info">
+                <%= render 'stores/info/info', info: info %>
+              </div>
             </div>
-          </div>
-
-
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     <% end %>
 
     <% if cnt > 0 %>

@@ -1,0 +1,23 @@
+<% items.each do |item| %>
+      <div class="item">
+        <div class="item_img"><%= attachment_image_tag item, :image, fallback: "noimage.png", id: "item_img_id" %></div>
+        <div class="item_info">
+          <ul class="item-list">
+            <li class="info">
+              <div class="info-title">アイテム名</div>
+              <div class="info-contents"><%= item.name %></div>
+            </li>
+
+            <li class="info">
+              <div class="info-title">アイテム紹介</div>
+              <div class="info-contents"><%= item.comment %></div>
+            </li>
+
+            <li class="info">
+              <div class="info-title">金額</div>
+              <div class="info-contents">￥<%= item.price %> (税抜き)</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <% end %>

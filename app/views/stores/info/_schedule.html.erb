@@ -1,5 +1,23 @@
 <div class="store-schedule">
     <h5>今後のポップアップストア出店予定</h5>
+    <div class="calendar">
+      <%= month_calendar do |date| %>
+          <%= date.day %></br>
+          <% infos.each do |all| %>
+              <% if date == all.start_period.to_date %>
+                  <% station = all.station+"駅" %>
+                  <%= station %></br>
+                  Start
+              <% end %>
+
+              <% if date == all.end_period.to_date %>
+                  <%= all.station+"駅" %></br>
+                  End
+              <% end %>
+          <% end %>
+      <% end %>
+    </div>
+
     <% infos.each do |info| %>
       <ol class="shop-info">
         <li class="info">

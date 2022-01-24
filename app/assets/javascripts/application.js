@@ -70,9 +70,25 @@ function changeImage_plus() {
 
   console.log(img[num])
    $("#img_id").attr('src', img[num]);
-
-
 };
 
+function changeImage_negative() {
+  const img_id = document.getElementById("img_id");
+
+  var img = new Array()
+  img = $("#img_name").val();
+  img = JSON.parse(img)
+
+  if (num == img.length-1){
+    num = 0;
+  }
+
+  else {
+    num --;
+  }
+
+  console.log(img[num])
+   $("#img_id").attr('src', img[num]);
+};
 
 
