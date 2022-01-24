@@ -46,8 +46,33 @@
   </div>
 
   <div class="evaluation">
-    <h5>コメント一覧</h5>
     <%= render 'users/storepages/review', reviews: @reviews %>
+  </div>
+
+  <div class="item-index">
+    <h5>アイテム一覧</h5>
+    <% @items.each do |item| %>
+      <div class="item">
+        <div class="item-img"><%= image_tag attachment_url(item, :image, :fill, 300, 200, fallback: "noimage.png") %></div>
+        <ul class="item-list">
+          <li class="info">
+            <div class="info-title">アイテム名</div>
+            <div class="info-contents"><%= item.name %></div>
+          </li>
+
+          <li class="info">
+            <div class="info-title">アイテム紹介</div>
+            <div class="info-contents"><%= item.comment %></div>
+          </li>
+
+          <li class="info">
+            <div class="info-title">金額</div>
+            <div class="info-contents">￥<%= item.price %> (税抜き)</div>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+
   </div>
 
     <script>

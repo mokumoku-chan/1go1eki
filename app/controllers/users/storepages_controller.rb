@@ -11,6 +11,7 @@ class Users::StorepagesController < ApplicationController
 
     @review_new = Review.new
     @reviews = Review.where(store_id: @store.id).order(updated_at: :desc)
+    @items = Item.where("store_id == ? and status == ?", @store.id, 0)
 
   end
 

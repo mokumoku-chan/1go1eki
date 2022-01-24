@@ -86,6 +86,16 @@ header {
   background-repeat: repeat-x;
 }
 
+.logo {
+  width: 100%;
+}
+
+.logo img {
+    width: 300px;
+    text-align: center;
+
+}
+
 .inner, .store-evaluation {
     width: 80%;
     margin: 30px auto;
@@ -258,6 +268,8 @@ table th, table td {
   }
 }
 
+
+
 .index-info {
   margin: 20px;
   display: flex;
@@ -309,7 +321,18 @@ table th, table td {
 
 .item {
   display: flex;
+  margin: 40px;
+
+  img {
+  width: 200px;
+  margin-top: 30px;
+  }
+
+  .item-img {
+    margin-right: 30px;
+  }
 }
+
 
 
 

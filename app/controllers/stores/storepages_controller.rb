@@ -7,6 +7,7 @@ class Stores::StorepagesController < ApplicationController
     @images_arr = images_arr.to_json.html_safe
     @homepages = Homepage.where(store_id: current_store.id)
     @reviews = Review.where(store_id: @store.id).order(updated_at: :desc)
+    @items = Item.where(store_id: @store.id)
 
   end
 
