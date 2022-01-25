@@ -39,6 +39,10 @@ Rails.application.routes.draw do
     patch '/mypage' => 'userpages#update', as: 'mypage_update'
     post '/mypage' => 'userpages#create', as: 'mypage_create'
     delete '/mypage' => 'userpages#destroy', as: 'destroy_mypage'
+    get 'userpages/unsubscribe' => 'userpages#unsubscribe', as: 'confirm_unsubscribe'
+    patch 'userpages/withdraw' => 'userpages#withdraw', as: 'withdraw_user'
+    put 'userpages/withdraw' => 'userpages#withdraw'
+
 
     resources :storepages, only: [:show, :create]
     resources :reviews, only: [:index, :show]
