@@ -57,6 +57,9 @@ Rails.application.routes.draw do
     get '/mypage' => 'userpages#show'
     get '/mypage/edit' => 'userpages#edit'
     patch '/mypage' => 'userpages#update'
+    get 'storepages/unsubscribe' => 'storepages#unsubscribe', as: 'confirm_unsubscribe'
+    patch 'storepages/withdraw' => 'storepages#withdraw', as: 'withdraw_store'
+    put 'storepages/withdraw' => 'storepages#withdraw'
 
     resources :info, only: [:show, :index, :new, :create, :edit, :update, :destroy]
     resources :reviews, only: [:index]

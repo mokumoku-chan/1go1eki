@@ -47,6 +47,17 @@ class Stores::StorepagesController < ApplicationController
   end
 
 
+  def unsubscribe
+  end
+
+  def withdraw
+    store = Store.find(current_store.id)
+    store.update(is_active: false)
+    reset_session
+    redirect_to root_path
+  end
+
+
   private
   def store_params
     params.require(:store).permit(:name, :email, :telephone_number, :postal_code, :address, :introduction)
