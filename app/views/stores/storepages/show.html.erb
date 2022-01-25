@@ -3,9 +3,7 @@
     <h2><%= @store.name %></h2>
     <div class="store_page">
         <div class="image_filed">
-            <%= attachment_image_tag @images[0], :image, :fill, 300, 200, fallback: "noimage.png", id: "img_id" %>
-            <input id="img_name" type="hidden" value= <%= @images_arr %> >
-            <input type="button" value=">" onclick="changeImage_plus();">
+            <%= render 'stores/storepages/image', images: @images, images_arr: @images_arr %>
         </div>
 
         <div class="info_field">
@@ -20,6 +18,6 @@
         </div>
     </div>
     <%= link_to "編集ページ 行き", edit_stores_storepage_path %>
-    
+
     <%= render 'users/storepages/review', reviews: @reviews %>
 </section>

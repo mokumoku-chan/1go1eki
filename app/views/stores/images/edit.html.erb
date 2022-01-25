@@ -1,7 +1,7 @@
 <%= render 'layouts/title', title: "画像編集画面" %>
 
   <section class="page">
-    <div class="register-img">
+    <div class="register_img">
       <h4>新規登録</h4>
       <%= form_with model: @image_new, url: stores_image_path, local: true do |f| %>
         <%= f.attachment_field :image %>

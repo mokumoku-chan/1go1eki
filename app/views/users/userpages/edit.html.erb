@@ -5,7 +5,7 @@
     <div class="profile">
       <div class="profile_image">
         <h4>プロフィール画像</h4>
-          <%= attachment_image_tag @user, :profile_image, fallback: "noimage.png"%>
+          <%= attachment_image_tag @user, :profile_image, fallback: "noimage.png", id: "profile_img"%>
           <%= f.attachment_field :profile_image %>
       </div>
 
@@ -27,7 +27,7 @@
               <div class="input-field"><%= f.text_field :telephone_number %></div>
             </li>
           </ul>
-          <%= f.submit "編集内容登録" %>
+          <%= f.submit "更新" %>
         </div>
       </div>
     <% end %>
@@ -40,7 +40,7 @@
           <input type="button" value="検索" onclick="OnButtonClick();">
           <%= f.submit "登録" %>
         </div>
-        <div id="St_name"></div>
+        <div id="St_name">必ず検索後に登録をお願いします</div>
       <% end %>
 
       <ul class="info-list">

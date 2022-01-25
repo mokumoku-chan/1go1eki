@@ -1,50 +1,50 @@
 <%= render 'layouts/title', title: "編集ページ" %>
 
 <section class="page">
+  <div class="basic_info">
   <h4>基本情報</h4>
 
-  <%= link_to "画像登録/編集画面 行き", edit_stores_image_path %>
+    <%= link_to "画像登録/編集画面 行き", edit_stores_image_path %>
 
-  <%= form_with model: @store, url: stores_storepage_path, local: true do |f| %>
+    <%= form_with model: @store, url: stores_storepage_path, local: true do |f| %>
 
-    <ul class="input-list">
-      <li class="input">
-        <div class="input-label"><%= f.label :name, "店名" %></div>
-        <div class="input-field"><%= f.text_field :name %></div>
-      </li>
+      <ul class="input-list">
+        <li class="input">
+          <div class="input-label"><%= f.label :name, "店名" %></div>
+          <div class="input-field"><%= f.text_field :name %></div>
+        </li>
 
-      <li class="input">
-        <div class="input-label"><%= f.label :introduction, "店舗紹介" %></div>
-        <div class="input-field"><%= f.text_area :introduction %></div>
-      </li>
+        <li class="input">
+          <div class="input-label"><%= f.label :introduction, "店舗紹介" %></div>
+          <div class="input-field"><%= f.text_area :introduction %></div>
+        </li>
 
-      <li class="input">
-        <div class="input-label"><%= f.label :telephone_number, "電話番号" %></div>
-        <div class="input-field"><%= f.text_field :telephone_number %></div>
-      </li>
+        <li class="input">
+          <div class="input-label"><%= f.label :telephone_number, "電話番号" %></div>
+          <div class="input-field"><%= f.text_field :telephone_number %></div>
+        </li>
 
-      <li class="input">
-        <div class="input-label"><%= f.label :email, "メールアドレス" %></div>
-        <div class="input-field"><%= f.text_field :email %></div>
-      </li>
+        <li class="input">
+          <div class="input-label"><%= f.label :email, "メールアドレス" %></div>
+          <div class="input-field"><%= f.text_field :email %></div>
+        </li>
 
-      <li class="input">
-        <div class="input-label"><%= f.label :postal_code, "郵便番号" %></div>
-        <div class="input-field"><%= f.text_field :postal_code %></div>
-      </li>
+        <li class="input">
+          <div class="input-label"><%= f.label :postal_code, "郵便番号" %></div>
+          <div class="input-field"><%= f.text_field :postal_code %></div>
+        </li>
 
-      <li class="input">
-        <div class="input-label"><%= f.label :address, "住所" %></div>
-        <div class="input-field"><%= f.text_field :address %></div>
-      </li>
-    </ul>
+        <li class="input">
+          <div class="input-label"><%= f.label :address, "住所" %></div>
+          <div class="input-field"><%= f.text_field :address %></div>
+        </li>
+      </ul>
 
-    <%= hidden_field_tag :change_id, 0 %>
+      <%= hidden_field_tag :change_id, 0 %>
+      <div class="register_button"><%= f.submit "変更" %></div>
 
-    <%= f.submit "基本情報変更" %>
-
-  <% end %>
-
+    <% end %>
+  </div>
 
   <div class="middle-line_image"></div>
 
@@ -56,22 +56,24 @@
     <%= form_with model: @homepage_new, url: stores_storepage_path, local: true do |f| %>
       <%= f.select :url_type, {'HP':0, 'Twitter':1, "Instagram":2, "Facebook":3, "LINE":4, "その他":5},{include_blank: "選択してください"}, {class: "required: true"} %>
       <%= f.text_field :url %>
-      <%= f.submit "ホームページ情報登録" %>
+      <%= f.submit "登録" %>
     <% end %>
   </div>
 
   <div class="sns_edit">
     <h4>編集</h4>
       <% @homepages.each do |homepage| %>
-      <%= form_with model: homepage, url: stores_storepage_path, local: true do |f| %>
-        <%= f.select :url_type, {'HP':0, 'Twitter':1, "Instagram":2, "Facebook":3, "LINE":4, "その他":5},{include_blank: "選択してください"}, {class: "required: true"} %>
-        <%= f.text_field :url %>
+        <div class="sns_field">
+        <%= form_with model: homepage, url: stores_storepage_path, local: true do |f| %>
+          <%= f.select :url_type, {'HP':0, 'Twitter':1, "Instagram":2, "Facebook":3, "LINE":4, "その他":5},{include_blank: "選択してください"}, {class: "required: true"} %>
+          <%= f.text_field :url %>
 
-        <%= hidden_field_tag :change_id, 1 %>
-        <%= f.submit "ホームページ情報変更" %>
-        <%= link_to "削除", stores_storepage_path(homepage.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+          <%= hidden_field_tag :change_id, 1 %>
+          <%= f.submit "変更" %>
+          <%= link_to "削除", stores_storepage_path(homepage.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+        <% end %>
+        </div>
       <% end %>
-    <% end %>
   </div>
 
 </section>
