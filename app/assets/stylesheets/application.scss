@@ -21,7 +21,7 @@
 
 
 header {
-  height: 100px;
+  height: 250px;
   display: flex;
 
   .logo {
@@ -87,13 +87,38 @@ header {
 }
 
 .logo {
+  display: flex;
+  justify-content:center;
+  align-items: flex-end;
   width: 100%;
+}
+
+.menu_left {
+  order: 1;
+}
+
+.logo_img {
+  order: 2;
+}
+
+.menu_right {
+  order: 3;
 }
 
 .logo img {
     width: 300px;
     text-align: center;
+    margin-top: 20px;
+}
 
+.menu_left, .menu_right {
+  li {
+    display: inline;
+}
+
+span {
+  color: #FF82B2;
+}
 }
 
 .inner, .store-evaluation {
@@ -178,12 +203,6 @@ table th, table td {
   }
 }
 
-.star {
-  .img {
-    width: 20px;
-    height: 20px;
-  }
-}
 .shop-image {
   margin: 30px;
 }
@@ -463,9 +482,3 @@ footer {
   line-height: 120px;
   border-top: solid 3px #ffcccc;
 }
-
-
-
-
-
-

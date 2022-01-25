@@ -1,0 +1,14 @@
+<%= render 'layouts/title', title: "投稿コメント一覧" %>
+
+<section class="page">
+
+  <% @reviews.each do |review| %>
+    <% store = Store.find(review.store_id) %>
+    <%= review.title %>
+    <%= review.comment %>
+    <%= review.evaluation %>
+
+  <% end %>
+
+
+</section>

@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     delete '/mypage' => 'userpages#destroy', as: 'destroy_mypage'
 
     resources :storepages, only: [:show, :create]
+    resources :reviews, only: [:index, :show]
     resources :stores, only: [:index, :show] do
       resource :favorites, only: [:create, :destroy]
     end
