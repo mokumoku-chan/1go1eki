@@ -1,4 +1,5 @@
 class Users::FavoritesController < ApplicationController
+before_action :authenticate_user!, {only: [:create, :destroy]}
 
   def create
     store = Store.find(params[:store_id])

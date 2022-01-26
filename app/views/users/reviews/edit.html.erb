@@ -1,0 +1,29 @@
+<%= render 'layouts/title', title: "コメント編集" %>
+
+<section class="page">
+  <%= form_with model: @review, url: users_review_path(@review.id), local: true do |f| %>
+    <div class="star_filed">
+      <div class="detail-value", id="star_display<%= @review.id %>"></div>
+    </div>
+
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title %>
+    <%= f.label :comment, "コメント" %>
+    <%= f.text_area :comment %>
+
+    <%= f.submit "編集" %>
+  <% end %>
+
+  <script>
+    $('#star_display<%= @review.id %>').raty({
+      size: 30,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      half: true,
+      score: <%= @review.evaluation %>,
+      scoreName: 'review[evaluation]',
+    });
+  </script>
+
+</section>

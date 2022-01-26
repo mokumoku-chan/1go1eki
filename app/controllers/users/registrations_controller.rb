@@ -69,6 +69,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_in_path_for(resource)
-    users_stores_path
+    users_root_path
   end
 end

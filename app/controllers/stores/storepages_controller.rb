@@ -1,4 +1,5 @@
 class Stores::StorepagesController < ApplicationController
+  before_action :authenticate_store!, {only: [:show, :edit, :create, :update, :destroy, :unsubscribe, :withdraw]}
 
   def show
     @store = Store.find(current_store.id)

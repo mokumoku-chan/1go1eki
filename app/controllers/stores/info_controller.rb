@@ -1,4 +1,5 @@
 class Stores::InfoController < ApplicationController
+  before_action :authenticate_store!, {only: [:new, :index, :show, :create, :edit, :update, :destroy]}
 
   def index
 

@@ -482,3 +482,19 @@ footer {
   line-height: 120px;
   border-top: solid 3px #ffcccc;
 }
+
+
+.destination {
+  display: flex;
+  .square {
+    width: 300px;
+    height: 50px;
+    background-color: #6aa7cd;
+  }
+
+  .triangle{
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 50px solid #6aa7cd;
+}
+}

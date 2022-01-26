@@ -1,4 +1,6 @@
 class Stores::ImagesController < ApplicationController
+  before_action :authenticate_store!, {only: [:edit, :create, :destroy]}
+
   def edit
     @images = StoreImage.where(store_id: current_store.id)
     @image_new = StoreImage.new

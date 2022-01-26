@@ -1,5 +1,5 @@
 class Users::UserpagesController < ApplicationController
-  before_action :hoge
+  before_action :authenticate_user!, {only: [:show, :edit, :create, :update, :destroy, :unsubscribe, :withdraw]}
 
   def show
     @user = User.find(current_user.id)

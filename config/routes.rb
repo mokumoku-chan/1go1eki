@@ -45,7 +45,7 @@ Rails.application.routes.draw do
 
 
     resources :storepages, only: [:show, :create]
-    resources :reviews, only: [:index, :show]
+    resources :reviews, only: [:index, :edit, :update, :destroy]
     resources :stores, only: [:index, :show] do
       resource :favorites, only: [:create, :destroy]
     end

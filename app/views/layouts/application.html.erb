@@ -40,6 +40,7 @@
           </ul>
 
           <ul class="menu_right">
+            <%= render 'layouts/menu', path: users_reviews_path, top_word: "コ", word: "メント一覧" %>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <span>L</span>og out
@@ -67,7 +68,7 @@
         <% else %>
 
           <ul class="menu_left">
-            <%= render 'layouts/menu', path: new_user_registration_path ,top_word: "T", word: "OPページ" %>
+            <%= render 'layouts/menu', path: root_path ,top_word: "T", word: "OPページ" %>
             <%= render 'layouts/menu', path: new_user_registration_path, top_word: "A", word: "BOUT" %>
           </ul>
 

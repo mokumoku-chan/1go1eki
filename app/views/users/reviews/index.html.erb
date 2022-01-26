@@ -4,11 +4,35 @@
 
   <% @reviews.each do |review| %>
     <% store = Store.find(review.store_id) %>
-    <%= review.title %>
-    <%= review.comment %>
+    <%= store.name %>
+
     <%= review.evaluation %>
 
+    <div class="star_filed">
+      <div class="detail-value", id="star_display<%= review.id %>"></div>
+      <div class="eval"><%= review.evaluation %>/5点</div>
+    </div>
+
+    <%= review.title %>
+    <%= review.comment %>
+
+    <%= link_to "詳細", users_review_path(review.id) %>
+    <%= link_to "編集", edit_users_review_path(review.id) %>
+
+  <script>
+    $('#star_display<%= review.id %>').raty({
+      size: 30,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      half: true,
+      readOnly: true,
+      score: <%= review.evaluation %>,
+    });
+  </script>
+
   <% end %>
+
 
 
 </section>

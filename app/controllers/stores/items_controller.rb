@@ -1,4 +1,6 @@
 class Stores::ItemsController < ApplicationController
+  before_action :authenticate_store!, {only: [:index, :new, :create, :update, :show, :edit]}
+
   def index
     @items = Item.where(store_id: current_store.id).page(params[:page])
   end
