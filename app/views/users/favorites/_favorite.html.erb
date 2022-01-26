@@ -1,9 +1,11 @@
 <% if store.favorited_by?(current_user) %>
   <%= link_to users_store_favorites_path(store), method: :delete do %>
-    ♥ お気に入り登録済み
+    <%= image_tag 'heart_on.png', class: "heart_on" %>
   <% end %>
+  お気に入り登録済み
 <% else %>
   <%= link_to users_store_favorites_path(store), method: :post do %>
-    ♡ お気に入り登録
+    <%= image_tag 'heart_off.png', class: "heart_off" %>
   <% end %>
+  お気に入り登録
 <% end %>
