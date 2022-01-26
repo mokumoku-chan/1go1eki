@@ -211,7 +211,7 @@ table th, table td {
   width: 100%;
 }
 
-.profile {
+.profile, .store_page, .item {
   display: flex;
 }
 
@@ -315,6 +315,14 @@ table th, table td {
 }
 
 
+
+.review_store a {
+  color: #665266;
+  font-weight: bold;
+  font-size: 25px;
+
+}
+
 .star_filed {
   display: flex;
 
@@ -322,7 +330,6 @@ table th, table td {
     margin: 0 10px;
   }
 }
-
 
 .review_info {
   margin: 10px 20px 20px 40px;
@@ -344,6 +351,9 @@ table th, table td {
 }
 
 
+
+
+
 .calendar {
   width: 80%;
   margin: 20px auto;
@@ -353,11 +363,6 @@ table th, table td {
   margin: 20px;
 }
 
-.review_contents {
-  .review_title {
-    text: bold
-  }
-}
 
 .often_use_station {
   margin-bottom: 20px;
