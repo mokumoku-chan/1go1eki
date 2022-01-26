@@ -91,3 +91,6 @@ function changeImage_negative() {
    $("#img_id").attr('src', img[num]);
 };
 
+
+
+
