@@ -6,7 +6,7 @@ class Stores::InfoController < ApplicationController
     date = Date.today
 
     @infos_all = Storeinfo.where(store_id: current_store.id)
-    @infos = Storeinfo.where("store_id == ? and end_period <= ?", current_store.id, date)
+    @infos = Storeinfo.where("store_id == ? and end_period >= ?", current_store.id, date)
   end
 
   def new

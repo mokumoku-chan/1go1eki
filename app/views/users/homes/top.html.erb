@@ -14,15 +14,16 @@
             <h4><%= info.station %>駅</h4>
 
             <div class="field">
-              <h4><%= link_to store.name, users_storepage_path(store.id) %></h4>
+              <h4 class="store_color"><%= link_to store.name, users_storepage_path(store.id) %></h4>
             </div>
 
-            <div class="store">
-              <div class="store_image">
-                  <%= attachment_image_tag images[0], :image, fallback: "noimage.png", id: "img_id" %>
+
+            <div class="row">
+              <div class="store_image col-md-12 col-lg-4">
+                  <%= attachment_image_tag images[0], :image, fallback: "noimage.png", class: "img-fluid" %>
               </div>
 
-              <div class="store_info">
+              <div class="store_info col-md-12 col-lg-8">
                 <%= render 'stores/info/info', info: info %>
               </div>
             </div>

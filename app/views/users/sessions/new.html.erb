@@ -2,6 +2,8 @@
 
 <section class="inner">
 
+    <div class="destination_session"><%= link_to "ストアユーザの方はこちらへ", new_store_session_path %></div>
+
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label :email, "メールアドレス" %><br />

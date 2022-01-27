@@ -1,6 +1,9 @@
 <%= render 'layouts/title', title: "アイテム一覧" %>
 
 <section class="page">
+
+  <div class="destination"><%= link_to "アイテム追加", new_stores_item_path %></div>
+
   <table class="table">
     <thead>
       <tr>
@@ -26,8 +29,8 @@
               <div class="stop">販売停止中</div>
             <% end %>
           </td>
-          <td><%= link_to "詳細", stores_item_path(item.id) %></td>
-          <td><%= link_to "編集", edit_stores_item_path(item.id) %></td>
+          <td><div class="link_color"><%= link_to "詳細", stores_item_path(item.id) %></div></td>
+          <td><div class="link_color"><%= link_to "編集", edit_stores_item_path(item.id) %></div></td>
         </tr>
       <% end %>
     </tbody>

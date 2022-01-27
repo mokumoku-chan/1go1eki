@@ -41,9 +41,9 @@
       </li>
     </ul>
 
-    <%= f.submit "変更登録" %>
+    <div class="item_change"><%= f.submit "変更" %></div>
   <% end %>
 
-  <%= link_to "詳細に戻る", stores_info_path(@info.id) %>
+  <div class="destination"><%= link_to "詳細に戻る", stores_info_path(@info.id) %></div>
 
 </section>

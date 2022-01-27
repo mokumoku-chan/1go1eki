@@ -9,15 +9,14 @@
     <% end %>
   </div>
 
-  <div class="store_page">
-    <div class = "image_filed">
+  <div class="row">
+    <div class = "image_filed col-sm-12 col-lg-4">
       <%= render 'stores/storepages/image', images: @images, images_arr: @images_arr %>
     </div>
 
-    <div class="info_field">
+    <div class="info_field col-sm-12 col-lg-8">
       <ul class="info-list">
         <%= render 'stores/storepages/storepage', store: @store, homepages: @homepages %>
-
       </ul>
     </div>
   </div>
@@ -40,6 +39,7 @@
 
     <div class="tab-pane" id="comments">
       <div class="store-evaluation">
+
         <%= form_with model: @review_new, url: users_storepages_path, local: true do |f| %>
           <%= f.hidden_field :store_id, :value => @store.id %>
           <div class="field">
@@ -57,7 +57,7 @@
           <% if user_signed_in? %>
             <%= f.submit "投稿" %>
           <% else %>
-            <%= link_to "ログイン画面行き", user_session_path %>
+            <div class="destination"><%= link_to "ログイン画面行き", user_session_path %></div>
             コメント投稿するにはログインしてください
           <% end %>
         <% end %>

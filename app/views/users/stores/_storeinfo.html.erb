@@ -3,15 +3,16 @@
     <% store = Store.find(info.store_id) %>
     <div class="field">
       <% images = StoreImage.where(store_id: store.id) %>
-      <h4><%= link_to store.name, users_storepage_path(store.id) %></h4>
+      <h4 class="store_color"><%= link_to store.name, users_storepage_path(store.id) %></h4>
     </div>
 
-    <div class="store">
-      <div class="store_image">
-        <%= image_tag attachment_url(images[0], :image, :fill, 300, 200, fallback: "noimage.png"), size:'300x200' %>
+
+    <div class="row">
+      <div class="store_image col-sm-12 col-lg-4">
+        <%= image_tag attachment_url(images[0], :image, fallback: "noimage.png"), class: "img-fluid" %>
       </div>
 
-      <div class="store_info">
+      <div class="store_info col-sm-12 col-lg-8">
         <ul class="info-list">
           <li class="info">
             <div class="info-title">駅名 <i class="fas fa-subway"></i></div>

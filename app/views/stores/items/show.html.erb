@@ -2,12 +2,12 @@
 
 <section class="page">
   <div class="item">
-    <div class="item-img">
-      <%= image_tag attachment_url(@item, :image, :fill, 300, 200, fallback: "noimage.png"), size:'300x200' %>
+    <div class="item_img">
+      <%= image_tag attachment_url(@item, :image, :fill, 300, 200, fallback: "noimage.png"), id: "item_img" %>
     </div>
 
-    <div class="item-info">
-      <ul class="item-list">
+    <div class="item_info">
+      <ul class="item_list">
         <li class="info">
           <div class="info-title">アイテム名</div>
           <div class="info-contents"><%= @item.name %></div>
@@ -26,6 +26,6 @@
     </div>
   </div>
 
-  <%= link_to "アイテム一覧に戻る", stores_items_path %>
-  <%= link_to "アイテム編集　行き", edit_stores_item_path(@item.id) %>
+
+  <div class="destination"><%= link_to "アイテム編集　行き", edit_stores_item_path(@item.id) %></div>
 </section>

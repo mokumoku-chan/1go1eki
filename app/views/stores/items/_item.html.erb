@@ -1,7 +1,10 @@
 <% items.each do |item| %>
-      <div class="item">
-        <div class="item_img"><%= attachment_image_tag item, :image, fallback: "noimage.png", id: "item_img_id" %></div>
-        <div class="item_info">
+
+      <div class="row">
+        <div class="item_img store_image col-3">
+          <%= attachment_image_tag item, :image, fallback: "noimage.png", class: "img-fluid" %>
+        </div>
+        <div class="item_info store_image col-8">
           <ul class="item-list">
             <li class="info">
               <div class="info-title">アイテム名</div>
@@ -20,4 +23,6 @@
           </ul>
         </div>
       </div>
+
+      <div class="short-line_image"></div>
     <% end %>

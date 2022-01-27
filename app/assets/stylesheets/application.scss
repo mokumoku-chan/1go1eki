@@ -27,6 +27,17 @@ header {
   .search {
     text-align: right;
     margin-top: 20px;
+
+    input[type='submit'] {
+      width: 100px;
+      height: 35px;
+      background-color: #fff0f5;
+      font-weight: bold;
+      color: #db7093;
+      border-radius: 6px;
+      border-color: #db7093;
+      margin-left: 10px;
+    }
   }
 }
 
@@ -80,6 +91,7 @@ header {
 
 .short-line_image {
   height: 30px;
+  margin: 30px 0;
   background-image: url('short_line.png');
   background-repeat: repeat-x;
 }
@@ -167,8 +179,82 @@ header {
 .page {
   width: 70%;
   margin: 30px auto;
-
 }
+
+
+.item {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.store {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.store_color{
+  margin: 20px 0;
+  a{
+    color: black;
+  }
+}
+
+.profile_image, .profile_info {
+  h4 {
+    margin: 20px 0;
+  }
+}
+
+
+
+.review_title {
+  font-weight: bold;
+  margin: 10px;
+}
+
+.review_contents {
+  margin: 30px 20px 30px 10px;
+}
+
+.update_time {
+  text-align: right;
+}
+.star_filed {
+  margin: 10px 0;
+}
+
+.favorite {
+  margin-top: 20px;
+  .favorite-list {
+  margin: 30px;
+  }
+}
+
+.often_use {
+  margin: 20px 0;
+  .station-list {
+    margin: 30px;
+  }
+}
+
+.info-list {
+  .row {
+  margin: 20px 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 table {
   margin: 20px auto;
@@ -220,15 +306,22 @@ table th, table td {
   width: 100%;
 }
 
-.profile, .store_page, .item {
+
+.image_filed {
+  img {
+    width: 80%;
+  }
+}
+
+.profile, .store_page, .item, .store {
   display: flex;
 }
 
 
-.profile, .store_page, .item, .review, .store {
+.profile, .store_page, .item, .store {
 
-  .profile_image, .image_filed, .item_img, .review_img, .store_image {
-    width: 30%;
+  .profile_image, .image_filed, .item_img, .store_image {
+    width: 100%;
     margin: 10px 10px 20px 10px;
 
     img#img_id {
@@ -239,6 +332,9 @@ table th, table td {
     width: 80%;
     }
 
+    img#item_img {
+    width: 80%;
+    }
 
     img#item_img_id {
     margin: 20px auto;
@@ -257,27 +353,14 @@ table th, table td {
   }
 
   .profile_info, .info_field, .item_info, .store_info {
-    width: 70%;
+    width: 100%;
     margin: 10px 0;
   }
 }
 
-.often_use {
-  margin-left: 30%;
-  margin-top: 20px;
 
-  .station-list {
-    margin: 30px;
-  }
-}
 
-.favorite {
-  margin-left: 30%;
 
-  .favorite-list {
-    margin: 30px;
-  }
-}
 
 .input, .info {
   margin: 20px;
@@ -324,6 +407,9 @@ table th, table td {
 }
 
 
+.review {
+  margin: 10px;
+}
 
 .review_store a {
   color: #665266;
@@ -340,25 +426,55 @@ table th, table td {
   }
 }
 
-.review_info {
-  margin: 10px 20px 20px 40px;
-}
-.review_title {
-  font-weight: bold;
-  margin: 10px;
+
+.button, .sns_field {
+  a {
+    color: grey;
+    font-weight: bold;
+  }
 }
 
-.review_contents {
-  margin: 0 20px 30px 10px;
-}
-
-.update_time {
-  text-align: right;
-}
-.star_filed {
+.destination {
   margin: 10px 0;
+  background-image: url('destination.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  a {
+    margin: 0 10px;
+    color: grey;
+    font-weight: bold;
+  }
 }
 
+.destination_session {
+  background-position: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: right;
+  background-image: url('destination.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  a {
+    margin: 0 10px;
+    color: grey;
+    font-weight: bold;
+  }
+}
+
+.destination_left {
+  margin: 10px 0;
+  background-image: url('destination_left.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  a {
+    margin: 0 10px;
+    color: grey;
+    font-weight: bold;
+  }
+}
 
 
 
@@ -377,10 +493,6 @@ table th, table td {
   margin-bottom: 20px;
 }
 
-
-.info-list {
-  margin: 30px;
-}
 
 .basic_info {
   margin-bottom: 30px;
@@ -498,6 +610,36 @@ table th, table td {
   }
 }
 
+.item_register {
+  margin: 20px 0;
+  text-align: center;
+
+  input[type='submit'] {
+    width: 100px;
+    height: 35px;
+    background-color: #ffc0cb;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+    border-color: #db7093;
+  }
+}
+
+.item_change {
+  margin: 20px 0;
+  text-align: center;
+
+  input[type='submit'] {
+    width: 100px;
+    height: 35px;
+    background-color: #FFBEDA;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+    border-color: #db7093;
+  }
+}
+
 
 .sns_new {
   margin-top: 30px;
@@ -545,5 +687,4 @@ footer {
   line-height: 120px;
   border-top: solid 3px #ffcccc;
 }
-
 

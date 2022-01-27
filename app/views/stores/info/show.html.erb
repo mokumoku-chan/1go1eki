@@ -7,8 +7,8 @@
     <%= render 'stores/info/info', info: @info %>
   </ul>
 
-  <%= link_to "一覧に戻る", stores_info_index_path %>
-  <%= link_to "修正", edit_stores_info_path(@info.id) %>
-  <%= link_to "削除", stores_info_path(@info.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+
+  <div class="destination"><%= link_to "編集", edit_stores_info_path(@info.id) %></div>
+  <div class="destination_left"><%= link_to "削除", stores_info_path(@info.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></div>
 
 </section>

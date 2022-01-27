@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Portfolio</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="sd7Ms6s7I5ezKFHjrCgAmxGXYLu9p3e1qZlJEqeOiLVB4vbnqAz/XQqFiAOwMMWm1A71RJCgYjv0iFJ15dZSIg==" />
+    
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" media="all" href="/assets/simple_calendar.self-10f106c9c28c2c181fcbe9d181e690dc5e175bbb6d7bd3d36b4c9fdcfec3e62c.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/admins/homes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/admins/publics.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/admins/stores.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/admins/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/homes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/stores/homes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/stores/images.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/stores/info.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/stores/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/stores/reviews.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/stores/storepages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/stores/userpages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/users/favorites.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/users/homes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/users/reviews.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/users/storepages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/users/stores.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/users/userpages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/application.self-0577d2897cf2af5eb39e18afdf46d935576e5eeb8e413d6822631baa10ececf4.css?body=1" data-turbolinks-track="reload" />
+    <script src="/assets/jquery3.self-2a83d06853bd343c7bfc2e5d4539814cfa934676e2948ed348311435eca862f5.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/popper.self-55bd1408b0e4ff3edf21524b78fbe2266615c8015ce0e5f0828089b1de27d63c.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/util.self-197864e168f49c2e53bbb4579b4ed462c63d0fa531eba8b827757e6ba024c4b6.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/tooltip.self-55a682239474659a1ced2c468b381f3494a6d9599d1835fffca6a66086f1cdcb.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/popover.self-7ec215d4000b569dfee76d25f291a265840127fe98a715ff502e78d746d9c97c.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/collapse.self-6decc576a7cd6ee359ba633b0a0f77b28361e605c4b8e874e4deadfe0a00b5e0.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/scrollspy.self-053d994e15f718843786331cf164bdca55515bdd31c8996ae99a70d0aa35adca.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/button.self-62823a38d47a151c99c288aa5f49fa5212d088d9f5291bf646f86950a07d206f.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/modal.self-071badad945f3b3af6587e69cae678c8b9f42d2d9fdeaf9244c697e2894ec021.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/tab.self-c62b0224a7adeb008d4c19373efacb07f1ede540c4860eae826286f6c86d64c7.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/dropdown.self-dbb021a3d72f285291066c0f88463510ebc9c2e7f3b1e38a111c38752fba1ff9.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/carousel.self-5b08285be06565e6e58e07dd5b91a8f35e085ec884a13d4ee3a352077f6e561d.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/alert.self-3bfbebe85dbe7b4fd0b2f246dfd4bf070e6c9527faa3f2b1943296721e4f20dc.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap/toast.self-0a482f93e56ffc35ce8b5f22cf74766b0b60c056ff7c50855c3cc0cee15b1a72.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/rails-ujs.self-81c572f39b69ead02e3f97fe43b76954a434591bc2837e3a35af212315e67569.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/activestorage.self-1ed4604ac2170045f1ffca4edb81a75246661555e4f9cf682bb8a21825e32e1c.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/admins/homes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/admins/publics.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/admins/stores.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/admins/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/action_cable.self-69fddfcddf4fdef9828648f9330d6ce108b93b82b0b8d3affffc59a114853451.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/cable.self-8484513823f404ed0c0f039f75243bfdede7af7919dda65f2e66391252443ce9.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/homes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/jquery.raty.self-51cbf348ed14d8259c5df31532822192a136b69898527cabbdecdecf4a8c6746.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/stores/homes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/stores/images.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/stores/info.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/stores/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/stores/reviews.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/stores/storepages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/stores/userpages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/users/favorites.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/users/homes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/users/reviews.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/users/storepages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/users/stores.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/users/userpages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/application.self-d0561931b1f7b17ed915bbb502c8e06f56b8ad3f08a1a167fbeb87152c5da360.js?body=1" data-turbolinks-track="reload"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <img class="logo_img" src="/assets/logo-5525d64e58eab2ae30127265637e39f74271f5e15875e25a4ec1b1d0084d34de.jpg" />
+
+          <ul class="menu_left">
+              <li>
+    <a href="/users">
+      <span>T</span>OPページ
+</a>  </li>
+
+              <li>
+    <a href="/users/mypage">
+      <span>M</span>y page
+</a>  </li>
+
+          </ul>
+
+          <ul class="menu_right">
+              <li>
+    <a href="/users/reviews">
+      <span>コ</span>メント一覧
+</a>  </li>
+
+            <li>
+              <a rel="nofollow" data-method="delete" href="/users/sign_out">
+                <span>L</span>og out
+</a>            </li>
+          </ul>
+
+      </div>
+
+      <div class="search">
+        <div class = "text-right mr-3 mb-4">
+          <form action="/users/stores" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            <input type="text" name="search" id="search" />
+            <input type="submit" name="commit" value="Search" id="search_button" data-disable-with="Search" />
+            駅名検索
+            <input type="radio" name="type" id="type_station" value="station" />
+            店名検索
+            <input type="radio" name="type" id="type_store" value="store" />
+</form>        </div>
+      </div>
+
+
+    </header>
+
+    <div class="title_field">
+  <div class="title_board">
+    <h5 class="title">ストア詳細</h5>
+  </div>
+  <div class="train"></div>
+</div>
+
+<div class="line_image"></div>
+
+
+<section class="page">
+  <h3>和菓子屋</h3>
+
+  <div class="like_button">
+        <a rel="nofollow" data-method="post" href="/users/stores/3/favorites">
+    <img id="heart_off" src="/assets/heart_off-cffe3a18a8ac7be09bb6732746181094a94f9650a0c3812a2a902575d8db910c.png" />
+</a>  お気に入り登録
+
+  </div>
+
+  <div class="row">
+  <div class="store_page col-768-12 col-lg-6">
+    <div class = "image_filed">
+      <img id="img_id" class="attachment  profile_image fallback" src="/assets/noimage-e29185ac537364eba4f92073f84c2e8c2c6862ea1c542b90fe5dc099ebe3cc5d.png" />
+
+<div class="image_button">
+  <input type="button" value="<" onclick="changeImage_negative();">
+  <input id="img_name" type="hidden" value= ["/attachments/e7e2cc971a118adf81a6d9af8c7f8714145b6d1e/store/9771ad92c0a90c5bc5aef9d9116b1db3d4aad550a6a9153809e9ea0e466c/image","/attachments/eb438ad22f0dd64f3f549232c939fc4e093f51d0/store/3444fa50e60ef033332b53a102b017ddd61d68e4060bceaace462dfdeddb/image"] >
+
+  <input type="button" value=">" onclick="changeImage_plus();">
+<input id="img_name" type="hidden" value= ["/attachments/e7e2cc971a118adf81a6d9af8c7f8714145b6d1e/store/9771ad92c0a90c5bc5aef9d9116b1db3d4aad550a6a9153809e9ea0e466c/image","/attachments/eb438ad22f0dd64f3f549232c939fc4e093f51d0/store/3444fa50e60ef033332b53a102b017ddd61d68e4060bceaace462dfdeddb/image"] >
+</div>
+
+    </div>
+  </div>
+  <div class="col-768-12 col-lg-6">
+    <div class="info_field ">
+      <ul class="info-list">
+          <li class="info">
+      <div class="info-title">ストア情報</div>
+      <div class="info-contents"></div>
+  </li>
+
+  <li class="info">
+      <div class="info-title">電話番号</div>
+      <div class="info-contents">0987654321</div>
+  </li>
+
+
+  <li class="info">
+      <div class="info-title">住所</div>
+      <div class="info-contents">
+          〒3320098
+          山梨県甲府市1-2-3
+      </div>
+
+  <li class="info">
+      <div class="info-title">SNS</div>
+      <div class="info-contents">
+                  <i class="fas fa-home"></i>
+              HP
+              https://www.wagashi.com</br>
+      </div>
+  </li>
+
+
+
+
+      </ul>
+    </div>
+  </div>
+  </div>
+
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item"><a href="#items" class="nav-link active" data-toggle="tab">アイテム</a></li>
+    <li class="nav-item"><a href="#schedules" class="nav-link" data-toggle="tab">今後の予定</a></li>
+    <li class="nav-item"><a href="#comments" class="nav-link" data-toggle="tab">コメント</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="items">
+            <div class="item">
+        <div class="item_img"><img id="item_img_id" class="attachment item image" src="/attachments/28cad0ddcfdce737eb11522474f548cf3265878a/store/637a88451a069ece4d7ed6b51c47e7d0d0e32481740f5c73128fa429c680/image" /></div>
+        <div class="item_info">
+          <ul class="item-list">
+            <li class="info">
+              <div class="info-title">アイテム名</div>
+              <div class="info-contents">みたらし団子　2本セット</div>
+            </li>
+
+            <li class="info">
+              <div class="info-title">アイテム紹介</div>
+              <div class="info-contents"></div>
+            </li>
+
+            <li class="info">
+              <div class="info-title">金額</div>
+              <div class="info-contents">￥500 (税抜き)</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="short-line_image"></div>
+    
+    </div>
+
+    <div class="tab-pane" id="schedules">
+      <div class="store-schedule">
+    <h5>今後のポップアップストア出店予定</h5>
+    <div class="calendar">
+      <div class="simple-calendar">
+  <div class="calendar-heading">
+    <a href="/users/storepages/3?start_date=2021-12-26">Previous</a>
+    <span class="calendar-title">1月 2022</span>
+    <a href="/users/storepages/3?start_date=2022-02-07">Next</a>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+          <th>月</th>
+          <th>火</th>
+          <th>水</th>
+          <th>木</th>
+          <th>金</th>
+          <th>土</th>
+          <th>日</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td class="day wday-1 past prev-month">
+
+          27</br>
+
+</td>            <td class="day wday-2 past prev-month">
+
+          28</br>
+
+</td>            <td class="day wday-3 past prev-month">
+
+          29</br>
+
+</td>            <td class="day wday-4 past prev-month">
+
+          30</br>
+
+</td>            <td class="day wday-5 past prev-month">
+
+          31</br>
+
+</td>            <td class="day wday-6 past current-month">
+
+          1</br>
+
+</td>            <td class="day wday-0 past current-month">
+
+          2</br>
+
+</td>        </tr>
+        <tr>
+            <td class="day wday-1 past current-month">
+
+          3</br>
+
+</td>            <td class="day wday-2 past current-month">
+
+          4</br>
+
+</td>            <td class="day wday-3 past current-month">
+
+          5</br>
+
+</td>            <td class="day wday-4 past current-month">
+
+          6</br>
+
+</td>            <td class="day wday-5 past current-month">
+
+          7</br>
+
+</td>            <td class="day wday-6 past current-month">
+
+          8</br>
+
+</td>            <td class="day wday-0 past current-month">
+
+          9</br>
+
+</td>        </tr>
+        <tr>
+            <td class="day wday-1 past current-month">
+
+          10</br>
+
+</td>            <td class="day wday-2 past current-month">
+
+          11</br>
+
+</td>            <td class="day wday-3 past current-month">
+
+          12</br>
+
+</td>            <td class="day wday-4 past current-month">
+
+          13</br>
+
+</td>            <td class="day wday-5 past current-month">
+
+          14</br>
+
+</td>            <td class="day wday-6 past current-month">
+
+          15</br>
+
+</td>            <td class="day wday-0 past current-month">
+
+          16</br>
+
+</td>        </tr>
+        <tr>
+            <td class="day wday-1 past current-month">
+
+          17</br>
+
+</td>            <td class="day wday-2 past current-month">
+
+          18</br>
+
+</td>            <td class="day wday-3 past current-month">
+
+          19</br>
+
+</td>            <td class="day wday-4 past current-month">
+
+          20</br>
+
+</td>            <td class="day wday-5 past current-month">
+
+          21</br>
+
+</td>            <td class="day wday-6 past current-month">
+
+          22</br>
+
+</td>            <td class="day wday-0 past current-month">
+
+          23</br>
+
+</td>        </tr>
+        <tr>
+            <td class="day wday-1 past current-month">
+
+          24</br>
+
+</td>            <td class="day wday-2 past current-month">
+
+          25</br>
+
+</td>            <td class="day wday-3 past current-month">
+
+          26</br>
+
+</td>            <td class="day wday-4 today start-date current-month">
+
+          27</br>
+
+</td>            <td class="day wday-5 future current-month">
+
+          28</br>
+
+</td>            <td class="day wday-6 future current-month">
+
+          29</br>
+
+</td>            <td class="day wday-0 future current-month">
+
+          30</br>
+
+</td>        </tr>
+        <tr>
+            <td class="day wday-1 future current-month">
+
+          31</br>
+                  新横浜駅</br>
+                  Start
+
+</td>            <td class="day wday-2 future next-month">
+
+          1</br>
+
+</td>            <td class="day wday-3 future next-month">
+
+          2</br>
+
+</td>            <td class="day wday-4 future next-month">
+
+          3</br>
+
+</td>            <td class="day wday-5 future next-month">
+
+          4</br>
+
+                  新横浜駅</br>
+                  End
+</td>            <td class="day wday-6 future next-month">
+
+          5</br>
+
+</td>            <td class="day wday-0 future next-month">
+
+          6</br>
+
+</td>        </tr>
+    </tbody>
+  </table>
+</div>
+    </div>
+
+      <ol class="shop-info">
+        <li class="info">
+          <div class="period">
+            2022-01-31 ~
+            2022-02-04
+          </div>
+          <div class="station">新横浜駅</div>
+        </li>
+      </ol>
+  </div>
+    </div>
+
+    <div class="tab-pane" id="comments">
+      <div class="store-evaluation">
+        <form action="/users/storepages" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="D8sNvtyBGhykyJ4s8UftOxkaVJkPs4zc1HzXbzqiufqt/8sEESeVXAmD//Y21Vo0boOyktjbdRVBQH+oQPBPiw==" />
+          <input value="3" type="hidden" name="review[store_id]" id="review_store_id" />
+          <div class="field">
+            <label for="review_title">タイトル</label></br>
+            <input type="text" name="review[title]" id="review_title" />
+          </div>
+
+          <div id="evaluate_stars", class="field"></div>
+
+          <div class="field">
+            <label for="review_comment">コメント</label></br>
+            <textarea name="review[comment]" id="review_comment">
+</textarea>
+          </div>
+
+            <input type="submit" name="commit" value="投稿" data-disable-with="投稿" />
+</form>
+        <div class="comment">
+          <div class="evaluation">
+  <h5>コメント一覧</h5>
+</div>
+
+<script>
+  $('.shop_evaluation').raty({
+  readOnly: true,
+  score: function() {
+  return $(this).attr('data-score');
+  },
+  path: '/assets/'
+  });
+
+</script>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  $('#evaluate_stars').raty({
+    size: 36,
+    starOn: "/assets/star-on-88233ad1abcd2282b53edb9465a6bef42fd32de319f014e4059353e4fd8a7e0a.png",
+    starOff: "/assets/star-off-cf9b07584547d5d561dfac9cdbf7b6a530cb72a1b7a1096411966036c4017d38.png",
+    starHalf: "/assets/star-half-808ffaeee4006e4930f89f5dcf46f603eb173ecc365b8f3df2b822bb6747c0b8.png",
+    scoreName: 'review[evaluation]' //登録するモデル名とカラム名を記述
+  });
+</script>
+
+
+
+
+
+
+  </body>
+
+  <footer>
+    <p class="footer-text">Supported by HeartRails Express</p>
+  </footer>
+</html>
+

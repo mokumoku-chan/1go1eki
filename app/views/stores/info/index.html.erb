@@ -1,7 +1,7 @@
 <%= render 'layouts/title', title: "TOPページ" %>
 
 <section class="page">
-        <%= link_to "追加", new_stores_info_path %>
+    <div class="destination"><%= link_to "予定の追加", new_stores_info_path %></div>
 
     <%= month_calendar do |date| %>
         <%= date.day %></br>

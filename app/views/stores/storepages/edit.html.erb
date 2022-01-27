@@ -4,7 +4,7 @@
   <div class="basic_info">
   <h4>基本情報</h4>
 
-    <%= link_to "画像登録/編集画面 行き", edit_stores_image_path %>
+    <div class="destination_left"><%= link_to "画像登録/編集画面 行き", edit_stores_image_path %></div>
 
     <%= form_with model: @store, url: stores_storepage_path, local: true do |f| %>
 
@@ -76,7 +76,7 @@
       <% end %>
   </div>
 
-    <%= link_to "退会", stores_confirm_unsubscribe_path %>
+    <div class="destination"><%= link_to "退会", stores_confirm_unsubscribe_path %></div>
 
 </section>
 

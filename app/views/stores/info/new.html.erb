@@ -6,10 +6,13 @@
     <ul class="input-list">
 
       <li class="input">
-        <div class="input-label"><%= f.label :station, "駅名" %></div>
-        <div class="input-field"><%= f.text_field :station, :value => "", :id => "station_name" %></div>
-        <input type="button" value="検索" onclick="OnButtonClick()">
-        <div id="St_name"></div>
+          <div class="input-label"><%= f.label :station, "駅名" %></div>
+          <div class="input-field">
+            <%= f.text_field :station, :value => "", :id => "station_name" %></br>
+
+            <input type="button" value="検索" onclick="OnButtonClick()">
+            <div id="St_name">必ず検索後に登録をお願いします</div>
+          </div>
       </li>
 
       <li class="input">
@@ -38,7 +41,7 @@
       </li>
     </ul>
 
-    <%= f.submit "出店情報登録" %>
+    <div class="register_button"><%= f.submit "登録" %></div>
   <% end %>
 
 </section>

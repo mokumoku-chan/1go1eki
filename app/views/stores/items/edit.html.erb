@@ -27,17 +27,17 @@
       </li>
 
       <li class="input">
-        <div class="input-label"><%= f.label :is_active, "ステータス" %></div>
+        <div class="input-label"><%= f.label :status, "ステータス" %></div>
         <div class="input-field">
           <%= f.label :status, "販売中" %>
           <%= f.radio_button :status, 0 %>
           <%= f.label :status, "販売停止" %>
-          <%= f.radio_button :is_active, 1 %>
+          <%= f.radio_button :status, 1 %>
         </div>
       </li>
     </ul>
 
-    <%= f.submit "アイテム編集" %>
+    <div class="item_change"><%= f.submit "編集" %></div>
   <% end %>
 
 </section>
