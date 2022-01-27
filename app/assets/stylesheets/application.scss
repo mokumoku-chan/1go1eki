@@ -243,8 +243,20 @@ header {
   }
 }
 
+input#user_name, input#user_email, input#user_telephone_number {
+  width: 80%;
+  height: 40px;
+}
+
+input#station_name {
+  width: 60%;
+  height: 40px;
+}
 
 
+.profile_info {
+  margin-bottom: 60px;
+}
 
 
 
