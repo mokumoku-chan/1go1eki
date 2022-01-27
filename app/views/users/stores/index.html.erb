@@ -7,7 +7,7 @@
   <% elsif @type == 1 %>
 
     <% @store.each do |store| %>
-      <% infos = Storeinfo.where("store_id== ? and end_period >= ?", store.id, @date) %>
+      <% infos = Storeinfo.where("store_id== ? and end_period >= ? and is_active == ?", store.id, @date, true) %>
       <%= render 'users/stores/storeinfo', infos: infos %>
     <% end %>
 

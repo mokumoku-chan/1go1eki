@@ -13,43 +13,43 @@
       </div>
 
       <div class="store_info col-sm-12 col-lg-8">
-        <ul class="info-list">
-          <li class="info">
-            <div class="info-title">駅名 <i class="fas fa-subway"></i></div>
-            <div class="info-contents">
+        <div class="info-list">
+          <div class="row">
+            <div class="info-title col-sm-12 col-lg-3">駅名 <i class="fas fa-subway"></i></div>
+            <div class="info-contents col-sm-12 col-lg-8 offset-lg-1">
               <%= info.station %>駅
             </div>
-          </li>
+          </div>
 
-        <li class="info">
-          <div class="info-title">出店場所(詳細)</div>
-          <div class="info-contents">
+        <div class="row">
+          <div class="info-title col-sm-12 col-lg-3">出店場所(詳細)</div>
+          <div class="info-contents col-sm-12 col-lg-8 offset-lg-1">
             <%= info.place %>
           </div>
-        </li>
+        </div>
 
-        <li class="info">
-          <div class="info-title">
+        <div class="row">
+          <div class="info-title col-sm-12 col-lg-3">
             出店期間  <i class="far fa-calendar"></i>
           </div>
-          <div class="info-contents">
+          <div class="info-contents col-sm-12 col-lg-8 offset-lg-1">
             <%= l Time.parse(info.start_period) %>
             ～
             <%= l Time.parse(info.end_period) %>
           </div>
-        </li>
+        </div>
 
-        <li class="info">
-          <div class="info-title">
+        <div class="row">
+          <div class="info-title col-sm-12 col-lg-3">
             営業時間  <i class="far fa-clock"></i>
           </div>
-          <div class="info-contents">
+          <div class="info-contents col-sm-12 col-lg-8 offset-lg-1">
             OPEN　<%= info.open_time %>
             ～</br>
             CLOSE　<%= info.close_time %>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </div>
 
