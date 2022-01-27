@@ -244,7 +244,8 @@ header {
 }
 
 input#user_name, input#user_email, input#user_telephone_number,
- input#user_password, input#user_password_confirmation {
+ input#user_password, input#user_password_confirmation,
+ input#admin_email, input#admin_password, input#admin_password_confirmation{
   width: 80%;
   height: 40px;
 }
