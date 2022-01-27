@@ -2,7 +2,7 @@ class Users::ReviewsController < ApplicationController
   before_action :authenticate_user!, {only: [:index, :show]}
 
   def index
-      @reviews = Review.where(user_id: current_user.id).order(updated_at: :desc)
+      @reviews = Review.where(user_id: current_user.id).page(params[:page]).order(updated_at: :desc)
   end
 
 

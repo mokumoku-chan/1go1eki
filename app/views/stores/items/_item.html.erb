@@ -1,28 +1,28 @@
 <% items.each do |item| %>
 
-      <div class="row">
-        <div class="item_img store_image col-3">
-          <%= attachment_image_tag item, :image, fallback: "noimage.png", class: "img-fluid" %>
+  <div class="row">
+    <div class="item_img store_image col-sm-6 offset-sm-3 col-lg-3">
+      <%= attachment_image_tag item, :image, fallback: "noimage.png", class: "img-fluid" %>
+    </div>
+    <div class="item_info col-sm-12 col-lg-8 offset-lg-1">
+      <div class="item-list">
+        <div class="row">
+          <div class="info-title col-sm-12 col-lg-3">アイテム名</div>
+          <div class="info-contents col-sm-12 col-lg-8 offset-lg-1"><%= item.name %></div>
         </div>
-        <div class="item_info store_image col-8">
-          <ul class="item-list">
-            <li class="info">
-              <div class="info-title">アイテム名</div>
-              <div class="info-contents"><%= item.name %></div>
-            </li>
 
-            <li class="info">
-              <div class="info-title">アイテム紹介</div>
-              <div class="info-contents"><%= item.comment %></div>
-            </li>
+        <div class="row">
+          <div class="info-title col-sm-12 col-lg-3">アイテム紹介</div>
+          <div class="info-contents col-sm-12 col-lg-8 offset-lg-1"><%= item.comment %></div>
+        </div>
 
-            <li class="info">
-              <div class="info-title">金額</div>
-              <div class="info-contents">￥<%= item.price %> (税抜き)</div>
-            </li>
-          </ul>
+        <div class="row">
+          <div class="info-title col-sm-12 col-lg-3">金額</div>
+          <div class="info-contents col-sm-12 col-lg-8 offset-lg-1">￥<%= item.price %> (税抜き)</div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="short-line_image"></div>
-    <% end %>
+  <div class="short-line_image"></div>
+<% end %>

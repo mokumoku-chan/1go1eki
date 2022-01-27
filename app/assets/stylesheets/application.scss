@@ -142,7 +142,7 @@ header {
   }
 }
 
-.inner, .store-evaluation {
+.inner {
     width: 80%;
     margin: 30px auto;
 
@@ -243,7 +243,8 @@ header {
   }
 }
 
-input#user_name, input#user_email, input#user_telephone_number {
+input#user_name, input#user_email, input#user_telephone_number
+ {
   width: 80%;
   height: 40px;
 }
@@ -254,11 +255,24 @@ input#station_name {
 }
 
 
+input#review_title {
+  width: 100%;
+  height: 40px;
+}
+
+textarea#review_comment {
+  width: 100%;
+  height: 100px;
+}
+
 .profile_info {
   margin-bottom: 60px;
 }
 
 
+.store-evaluation .field {
+  margin: 20px 0;
+}
 
 
 
