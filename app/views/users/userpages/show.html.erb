@@ -38,7 +38,7 @@
   </div>
 
   <div class="favorite">
-    <h4>お気に入りストア <i class="fas fa-heart"></i></h4>
+    <h4>お気に入りストア <%= image_tag 'heart_on.png', id: "heart_on" %></h4>
     <% @favorites.each do |favorite| %>
       <ul class="favorite-list">
         <% store = Store.find(favorite.store_id) %>

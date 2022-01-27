@@ -1,6 +1,7 @@
 <%= render 'layouts/title', title: "編集画面" %>
 
 <section class="page">
+
   <%= form_with model: @user, url: users_mypage_update_path, local: true do |f| %>
     <div class="profile">
       <div class="profile_image">

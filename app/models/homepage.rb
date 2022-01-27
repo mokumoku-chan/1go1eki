@@ -1,6 +1,9 @@
 class Homepage < ApplicationRecord
   belongs_to :store
 
+  validates :url_type, presence: true
+  validates :url, presence: true
+
 
   def url_type_to_jp
     if url_type == 0

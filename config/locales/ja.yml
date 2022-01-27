@@ -3,3 +3,9 @@ ja:
     formats:
       default: '%Y/%m/%d'
       long: '%Y/%m/%d %H:%M:%S'
+
+
+  devise:
+    confirmations:
+      failure:
+        not_acount: "登録されていません。"

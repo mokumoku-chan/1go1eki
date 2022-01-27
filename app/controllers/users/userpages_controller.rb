@@ -25,8 +25,12 @@ class Users::UserpagesController < ApplicationController
 
   def update
     user = User.find(current_user.id)
-    user.update(user_params)
-    redirect_to users_mypage_path
+
+    if user.update(user_params)
+      redirect_to users_mypage_path
+    else
+      render :edit
+    end
   end
 
   def destroy
