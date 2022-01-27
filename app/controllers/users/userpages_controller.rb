@@ -18,9 +18,16 @@ class Users::UserpagesController < ApplicationController
   def create
     station = Station.new(station_params)
     station.user_id = current_user.id
-    station.save
 
-    redirect_to users_mypage_path
+    if station.save
+      redirect_to users_mypage_path
+    else
+      @user = User.find(current_user.id)
+      @stations = Station.where(user_id: current_user.id)
+      @station_new = Station.new
+
+      render :edit
+    end
   end
 
   def update
@@ -29,6 +36,10 @@ class Users::UserpagesController < ApplicationController
     if user.update(user_params)
       redirect_to users_mypage_path
     else
+      @user = User.find(current_user.id)
+      @stations = Station.where(user_id: current_user.id)
+      @station_new = Station.new
+
       render :edit
     end
   end
@@ -57,11 +68,6 @@ class Users::UserpagesController < ApplicationController
 
   def station_params
     params.require(:station).permit(:name)
-  end
-
-  def hoge
-    pp "===================="
-    pp current_user
   end
 
 end

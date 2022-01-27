@@ -9,8 +9,13 @@ class Stores::UserpagesController < ApplicationController
 
   def update
     store = Store.find(current_store.id)
-    store.update(store_params)
-    redirect_to stores_mypage_path
+    if store.update(store_params)
+      redirect_to stores_mypage_path
+
+    else
+      @store = Store.find(current_store.id)
+      render :edit
+    end
   end
 
 

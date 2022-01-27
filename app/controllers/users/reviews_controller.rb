@@ -13,8 +13,12 @@ class Users::ReviewsController < ApplicationController
 
   def update
     review = Review.find(params[:id])
-    review.update(review_params)
-    redirect_to users_reviews_path
+    if review.update(review_params)
+      redirect_to users_reviews_path
+    else
+      @review = Review.find(params[:id])
+      render :edit
+    end
   end
 
 

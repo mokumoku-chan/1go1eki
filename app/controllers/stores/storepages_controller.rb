@@ -23,22 +23,41 @@ class Stores::StorepagesController < ApplicationController
   def create
     homepage = Homepage.new(url_params)
     homepage.store_id = current_store.id
-    homepage.save
-    redirect_to stores_storepage_path
+    if homepage.save
+      redirect_to stores_storepage_path
+    else
+      @store = Store.find(current_store.id)
+      @homepages = Homepage.where(store_id: current_store.id)
+      @homepage_new = Homepage.new
+
+      render :edit
+    end
   end
 
 
   def update
     if params[:change_id] == "0"
       store = Store.find(current_store.id)
-      store.update(store_params)
+      if store.update(store_params)
+        redirect_to stores_storepage_path
+      else
+        @store = Store.find(current_store.id)
+        @homepages = Homepage.where(store_id: current_store.id)
+        @homepage_new = Homepage.new
+        render :edit
+      end
 
     elsif params[:change_id] == "1"
       homepage = Homepage.where(store_id: current_store.id)
-      homepage.update(url_params)
+      if homepage.update(url_params)
+        redirect_to stores_storepage_path
+      else
+        @store = Store.find(current_store.id)
+        @homepages = Homepage.where(store_id: current_store.id)
+        @homepage_new = Homepage.new
+        render :edit
+      end
     end
-
-    redirect_to stores_storepage_path
   end
 
   def destroy

@@ -22,8 +22,12 @@ class Stores::InfoController < ApplicationController
   def create
     info = Storeinfo.new(info_params)
     info.store_id = current_store.id
-    info.save
-    redirect_to stores_info_index_path
+    if info.save
+      redirect_to stores_info_index_path
+    else
+      @info = Storeinfo.new
+      render :new
+    end
   end
 
   def edit
@@ -32,8 +36,12 @@ class Stores::InfoController < ApplicationController
 
   def update
     info = Storeinfo.find(params[:id])
-    info.update(info_params)
-    redirect_to stores_info_path(info.id)
+    if info.update(info_params)
+      redirect_to stores_info_path(info.id)
+    else
+      @info = Storeinfo.find(params[:id])
+      render :edit
+    end
 
   end
 
