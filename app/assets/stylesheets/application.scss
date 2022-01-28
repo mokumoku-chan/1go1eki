@@ -256,7 +256,8 @@ input#user_name, input#user_email, input#user_telephone_number,
  input#admin_email, input#admin_password, input#admin_password_confirmation,
  input#store_name, input#store_email, input#store_telephone_number,
  input#store_postal_code, input#store_address, input#store_password,
- input#store_password_confirmation, input#storeinfo_place{
+ input#store_password_confirmation, input#storeinfo_place,
+ input#item_name {
   width: 80%;
   height: 40px;
 }
@@ -267,7 +268,7 @@ input#station_name {
 }
 
 input#storeinfo_start_period, input#storeinfo_end_period,
-input#storeinfo_open_time, input#storeinfo_close_time{
+input#storeinfo_open_time, input#storeinfo_close_time, input#item_price{
   width: 60%;
   height: 40px;
 }
@@ -282,7 +283,7 @@ textarea#review_comment {
   height: 100px;
 }
 
-textarea#store_introduction {
+textarea#store_introduction, textarea#item_comment {
   width: 80%;
   height: 100px;
 }
