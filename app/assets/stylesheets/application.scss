@@ -21,12 +21,13 @@
 
 
 header {
-  height: 250px;
+  height: 30%;
   display: flex;
 
   .search {
     text-align: right;
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 
     input[type='submit'] {
       width: 100px;
@@ -97,30 +98,25 @@ header {
 }
 
 .logo {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  width: 100%;
+  text-align: center;
 }
 
-.menu_left {
-  order: 1;
-  flex-basis: 30%;
-}
-
-.logo_img {
-  order: 2;
-}
-
-.menu_right {
-  order: 3;
-  flex-basis: 30%;
+.menu-item {
+  text-align: center;
 }
 
 .logo img {
     width: 300px;
-    text-align: center;
     margin-top: 20px;
+}
+
+
+.menu_left{
+  margin-top: auto;
+}
+
+.menu_right{
+  margin-top: auto;
 }
 
 .menu_left, .menu_right {
