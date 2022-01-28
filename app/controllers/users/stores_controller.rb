@@ -1,6 +1,6 @@
 class Users::StoresController < ApplicationController
   def index
-    date = Date.today
+    date = Date.current
 
     if params[:type] == "station"
       @infos = Storeinfo.search(params[:search]).where("start_period <= ? and end_period >= ?", date, date)

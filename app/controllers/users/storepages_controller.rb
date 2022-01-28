@@ -7,7 +7,7 @@ class Users::StorepagesController < ApplicationController
     @images_arr = images_arr.to_json.html_safe
     @homepages = Homepage.where(store_id: @store.id)
 
-    date = Date.today
+    date = Date.current
     @infos = Storeinfo.where("store_id == ? and start_period >= ?",@store.id, date)
 
     @review_new = Review.new

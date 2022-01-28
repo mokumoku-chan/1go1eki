@@ -1,6 +1,6 @@
 class Users::HomesController < ApplicationController
   def top
-        date = Date.today
+        date = Date.current
 
     if user_signed_in?
       @often_use = Station.where(user_id: current_user.id)
