@@ -2,12 +2,12 @@
 
 <section class="page">
   <div class="row">
-    <div class="profile_image col-sm-6 col-lg-3">
+    <div class="profile_image col-sm-6 col-lg-4">
       <h4>プロフィール画像</h4>
       <%= attachment_image_tag @user, :profile_image, fallback: "noimage.png", class: "img-fluid"%>
     </div>
 
-    <div class="profile_info col-sm-12 col-lg-8 offset-lg-1">
+    <div class="profile_info col-sm-12 col-lg-8">
       <h4>基本情報</h4>
       <div class="info-list">
         <div class="row">
