@@ -2,14 +2,171 @@
 <html>
   <head>
     <title>Portfolio</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   </head>
 
   <body>
+    <header>
+        <% if admin_signed_in? %>
+        <div class="menu">
+          <div class="row">
+            <div class="menu_left col-sm-4 col-lg-4">
+              <div class="row">
+                <div class="menu col-sm-8 col-lg-6"><%= render 'layouts/menu', path: admins_root_path ,top_word: "T", word: "OPページ" %></div>
+                <div class="menu col-sm-8 col-lg-6"><%= render 'layouts/menu', path: admins_users_path, top_word: "一", word: "般ユーザ" %></div>
+              </div>
+            </div>
+
+            <div class="menu_center col-sm-4 col-lg-4">
+              <div class="logo">
+                <%= image_tag 'logo.jpg', class: "img-fluid" %>
+              </div>
+            </div>
+
+            <div class="menu_right col-sm-4 col-lg-4">
+              <div class="row">
+                <div class="menu col-sm-8 col-lg-6"><%= render 'layouts/menu', path: admins_stores_path ,top_word: "ス", word: "トアユーザ" %></div>
+                <div class="menu col-sm-8 col-lg-6">
+                  <div class="menu-item">
+                    <%= link_to destroy_admin_session_path, method: :delete do %>
+                      <span>L</span>og out
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <% elsif user_signed_in? %>
+        <div class="menu">
+          <div class="row">
+            <div class="menu_left col-sm-4 col-lg-4">
+              <div class="row">
+                <div class="menu col-sm-8 col-lg-6"><%= render 'layouts/menu', path: users_root_path ,top_word: "T", word: "OPページ" %></div>
+                <div class="menu col-sm-8 col-lg-6"><%= render 'layouts/menu', path: users_mypage_path, top_word: "M", word: "y page" %></div>
+              </div>
+            </div>
+
+            <div class="menu_center col-sm-4 col-lg-4">
+              <div class="logo">
+                <%= image_tag 'logo.jpg', class: "img-fluid" %>
+              </div>
+            </div>
+
+            <div class="menu_right col-sm-4 col-lg-4">
+              <div class="row">
+                <div class="menu col-sm-8 col-lg-6"><%= render 'layouts/menu', path: users_reviews_path ,top_word: "コ", word: "メント一覧" %></div>
+                <div class="menu col-sm-8 col-lg-6">
+                  <div class="menu-item">
+                    <%= link_to destroy_user_session_path, method: :delete do %>
+                      <span>L</span>og out
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <% elsif store_signed_in? %>
+          <div class="menu">
+          <div class="row">
+            <div class="menu_left col-sm-4 col-lg-4">
+              <div class="row">
+                <div class="menu col-sm-8 col-lg-4"><%= render 'layouts/menu', path: stores_info_index_path ,top_word: "T", word: "OPページ" %></div>
+                <div class="menu col-sm-8 col-lg-4"><%= render 'layouts/menu', path: stores_storepage_path, top_word: "ス", word: "トアページ" %></div>
+                <div class="menu col-sm-8 col-lg-4"><%= render 'layouts/menu', path: stores_items_path, top_word: "ア", word: "イテム一覧" %></div>
+              </div>
+            </div>
+
+            <div class="menu_center col-sm-4 col-lg-4">
+              <div class="logo">
+                <%= image_tag 'logo.jpg', class: "img-fluid" %>
+              </div>
+            </div>
+
+            <div class="menu_right col-sm-4 col-lg-4">
+              <div class="row">
+                <div class="menu col-sm-8 col-lg-6"><%= render 'layouts/menu', path: stores_reviews_path ,top_word: "コ", word: "メント一覧" %></div>
+                <div class="menu col-sm-8 col-lg-6">
+                  <div class="menu-item">
+                    <%= link_to destroy_store_session_path, method: :delete do %>
+                      <span>L</span>og out
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <% else %>
+
+          <div class="menu">
+          <div class="row">
+            <div class="menu_left col-sm-4 col-lg-4">
+              <div class="row">
+                <div class="menu col-sm-8 col-lg-6"><%= render 'layouts/menu', path: root_path ,top_word: "T", word: "OPページ" %></div>
+                <div class="menu col-sm-8 col-lg-6"><%= render 'layouts/menu', path: about_path, top_word: "A", word: "BOUT" %></div>
+              </div>
+            </div>
+
+            <div class="menu_center col-sm-4 col-lg-4">
+              <div class="logo">
+                <%= image_tag 'logo.jpg', class: "img-fluid" %>
+              </div>
+            </div>
+
+            <div class="menu_right col-sm-4 col-lg-4">
+              <div class="row">
+                <div class="menu col-sm-8 col-lg-6"><%= render 'layouts/menu', path: new_user_registration_path ,top_word: "新", word: "規登録" %></div>
+                <div class="menu col-sm-8 col-lg-6">
+                  <div class="menu-item"><%= render 'layouts/menu', path: new_user_session_path, top_word: "L", word: "og in" %></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <% end %>
+
+
+      <div class="search">
+        <div class="row">
+          <div class = "text-right col-sm-12 col-lg-5 offset-lg-6">
+            <%= form_tag(users_stores_path, :method => 'get') do %>
+              <div class="search_type col-sm-6 col-lg-1"></div>
+              <%= text_field_tag :search %>
+              <%= submit_tag 'Search', :station => nil, id: "search_button" %>
+              駅名検索
+              <%= radio_button_tag :type, "station" %>
+              店名検索
+              <%= radio_button_tag :type, "store" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </header>
+
     <%= yield %>
+
   </body>
+
+  <footer>
+    <p class="footer-text">Supported by HeartRails Express</p>
+  </footer>
 </html>
+

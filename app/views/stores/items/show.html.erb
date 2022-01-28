@@ -1,0 +1,40 @@
+<%= render 'layouts/title', title: "アイテム詳細" %>
+
+<section class="page">
+  <div class="row">
+    <div class="item_img col-sm-6 col-lg-4">
+      <%= attachment_image_tag @item, :image, fallback: "noimage.png", class: "img-fluid" %>
+    </div>
+
+    <div class="info-list col-sm-12 col-lg-8">
+      <div class="row">
+        <div class="info-title col-sm-12 col-lg-3">アイテム名</div>
+        <div class="info-contents col-sm-12 col-lg-8 offset-lg-1"><%= @item.name %></div>
+      </div>
+
+      <div class="row">
+        <div class="info-title col-sm-12 col-lg-3">アイテム紹介</div>
+        <div class="info-comments col-sm-12 col-lg-8 offset-lg-1"><%= @item.comment %></div>
+      </div>
+
+      <div class="row">
+        <div class="info-title col-sm-12 col-lg-3">金額</div>
+        <div class="info-contents col-sm-12 col-lg-8 offset-lg-1">￥<%= @item.price %> (税抜き)</div>
+      </div>
+
+      <div class="row">
+        <div class="info-title col-sm-12 col-lg-3">販売ステータス</div>
+        <div class="info-contents col-sm-12 col-lg-8 offset-lg-1">
+          <% if @item.status == 0 %>
+            販売中
+          <% else %>
+            販売停止中
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="destination"><%= link_to "アイテム編集　行き", edit_stores_item_path(@item.id) %></div>
+</section>

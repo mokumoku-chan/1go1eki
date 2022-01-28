@@ -1,0 +1,51 @@
+<%= render 'layouts/title', title: "投稿コメント一覧" %>
+
+<section class="page">
+
+  <% @reviews.each do |review| %>
+    <% store = Store.find(review.store_id) %>
+
+    <div class="review">
+      <div class="review_store"><%= link_to store.name, users_storepage_path(store.id) %></div>
+
+      <div class="review_info">
+        <div class="star_filed">
+          <div class="star", id="star_display<%= review.id %>"></div>
+          <div class="eval"><%= review.evaluation %>/5点</div>
+        </div>
+
+        <div class="review_title"><%= review.title %></div>
+        <div class="review_contents"><%= review.comment %></div>
+        <div class="update_time">
+          投稿日時：<%= l review.updated_at, format: :long %>
+        </div>
+      </div>
+    </div>
+
+    <div class="link_button">
+      <div class="destination_left"><%= link_to "編集", edit_users_review_path(review.id) %></div>
+      <div class="destination"><%= link_to "削除", users_review_path(review.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></div>
+    </div>
+
+    <div class="short-line_image"></div>
+
+
+  <script>
+
+    $('#star_display<%= review.id %>').raty({
+      size: 30,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      half: true,
+      readOnly: true,
+      score: <%= review.evaluation %>,
+    });
+  </script>
+
+  <% end %>
+
+  <%= paginate @reviews %>
+
+
+</section>

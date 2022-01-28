@@ -1,0 +1,43 @@
+<%= render 'layouts/title', title: "ストア一覧" %>
+
+<section class="page">
+  <% if !@often_use.blank? %>
+    <% cnt=0 %>
+    <div class="often_use_station">
+      <h3>よく使う駅にて開催中のポップアップストア</h3>
+      <% @often_use.each do |station| %>
+        <% @infos.each do |info| %>
+          <% if info.station == station.name %>
+            <% cnt = cnt + 1 %>
+            <% store = Store.find(info.store_id) %>
+            <% images = StoreImage.where(store_id: store.id) %>
+            <h4><%= info.station %>駅</h4>
+
+            <div class="field">
+              <h4 class="store_color"><%= link_to store.name, users_storepage_path(store.id) %></h4>
+            </div>
+
+
+            <div class="row">
+              <div class="store_image col-md-12 col-lg-4">
+                  <%= attachment_image_tag images[0], :image, fallback: "noimage.png", class: "img-fluid" %>
+              </div>
+
+              <div class="store_info col-md-12 col-lg-8">
+                <%= render 'stores/info/info', info: info %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if cnt > 0 %>
+      <div class="middle-line_image"></div>
+    <% end %>
+  <% end %>
+
+  <h3>本日開催中のポップアップストア</h3>
+  <%= render 'users/stores/storeinfo', infos: @infos %>
+</section>
+

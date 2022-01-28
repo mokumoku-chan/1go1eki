@@ -1,0 +1,11 @@
+<%= render 'layouts/title', title: "TOPページ" %>
+
+<section class="page">
+  <%= render 'admins/users/user', users: @users %>
+  <div class="destination"><%= link_to "一般ユーザ一覧 行き", admins_users_path %></div>
+
+  <div class="middle-line_image"></div>
+
+  <%= render 'admins/stores/store', stores: @stores %>
+  <div class="destination"><%= link_to "ストアユーザ一覧 行き", admins_stores_path %></div>
+</section>

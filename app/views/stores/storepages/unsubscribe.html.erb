@@ -1,0 +1,10 @@
+<%= render 'layouts/title', title: "退会画面" %>
+
+<section class="page">
+	<h4 class="section-ttl">本当に退会しますか？</h4>
+	<h5 class="text-center">退会すると、会員登録情報が削除されます。<br>退会する場合は、「退会する」をクリックしてください。</h5>
+	<div class="flex justify-around mt2">
+		<div class="destination"><%= link_to "マイページに戻る", stores_storepage_path %></div>
+		<div class="destination_left"><%= link_to "退会する", stores_withdraw_store_path, method: :patch, "data-confirm" => "OKを押すと退会処理がされます。本当によろしいですか？" %></div>
+	</div>
+</section>

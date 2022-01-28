@@ -1,0 +1,25 @@
+<%= render 'layouts/title', title: "TOPページ" %>
+
+<section class="page">
+    <div class="destination"><%= link_to "予定の追加", new_stores_info_path %></div>
+
+    <%= month_calendar do |date| %>
+        <%= date.day %></br>
+        <% @infos_all.each do |all| %>
+            <% if date == all.start_period.to_date %>
+                <% station = all.station+"駅" %>
+                <%= link_to station, stores_info_path(all.id) %></br>
+                Start
+            <% end %>
+
+            <% if date == all.end_period.to_date %>
+                <%= all.station+"駅" %></br>
+                End
+            <% end %>
+        <% end %>
+    <% end %>
+
+    <%= render 'stores/info/infomation', infos: @infos %>
+
+</section>
+

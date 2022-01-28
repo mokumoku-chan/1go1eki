@@ -1,0 +1,32 @@
+<table rules="all">
+    <thead>
+      <tr>
+        <th scope="row", height="50", class="No">No.</th>
+        <th scope="row">ユーザー名</th>
+        <th scope="row">登録日</th>
+        <th scope="row">ステータス</th>
+        <th scope="row"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% users.each do |user| %>
+      <tr>
+        <td height="50", class="No"><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= l user.created_at %></td>
+        <td>
+          <% if user.is_active? %>
+            <p class="valid">有効</p>
+          <% else %>
+            <p class="invalid">退会済み</p>
+          <% end %>
+
+        </td>
+        <td><%= link_to "詳細", admins_user_path(user.id) %></td>
+      </tr>
+      <% end %>
+
+
+    </tbody>
+  </table>

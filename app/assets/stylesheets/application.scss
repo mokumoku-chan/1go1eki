@@ -1,0 +1,737 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require simple_calendar
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+
+
+header {
+  height: 30%;
+  display: flex;
+
+  .search {
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    input[type='submit'] {
+      width: 100px;
+      height: 35px;
+      background-color: #fff0f5;
+      font-weight: bold;
+      color: #db7093;
+      border-radius: 6px;
+      border-color: #db7093;
+      margin-left: 10px;
+    }
+  }
+}
+
+
+.title_field {
+  position: relative;
+  height: 100px;
+}
+
+.title_field .train {
+  width: 30%;
+  height: 120px;
+  background-image: url("train.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  right: 0;
+}
+
+.title_board {
+  width: 30%;
+  height: 120px;
+  background-image: url("board.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  position: absolute;
+  left: 0;
+
+  .title {
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+  }
+}
+
+.line_image {
+  height: 50px;
+  background-image: url('line.png');
+  background-repeat: repeat-x;
+}
+
+.middle-line_image {
+  height: 50px;
+  background-image: url('middle-line.png');
+  background-repeat: repeat-x;
+}
+
+.short-line_image {
+  height: 30px;
+  margin: 30px 0;
+  background-image: url('short_line.png');
+  background-repeat: repeat-x;
+}
+
+.logo {
+  text-align: center;
+}
+
+.menu-item {
+  text-align: center;
+}
+
+.logo img {
+    width: 300px;
+    margin-top: 20px;
+}
+
+
+.menu_left{
+  margin-top: auto;
+}
+
+.menu_right{
+  margin-top: auto;
+}
+
+.menu_left, .menu_right {
+
+  a {
+    margin: 0 10px;
+    color: #a9a9a9;
+    font-size: 20px;
+    }
+
+  li {
+    display: inline;
+    justify-content: center;
+    flex-wrap: wrap;
+    }
+
+  span {
+    color: #FF82B2;
+  }
+}
+
+.inner {
+    width: 80%;
+    margin: 30px auto;
+
+    .field {
+      margin: 20px;
+    }
+
+    input[type='email'] {
+      width: 50%;
+      height: 30px;
+    }
+
+    input[type='password'] {
+      width: 50%;
+      height: 30px;
+    }
+
+    input[type='text'] {
+      width: 50%;
+      height: 30px;
+    }
+
+    textarea {
+      width: 50%;
+      height: 100px;
+    }
+
+    .a {
+      color: black;
+    }
+}
+
+
+.page {
+  width: 70%;
+  margin: 30px auto;
+}
+
+
+.item {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.store {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.store_color{
+  margin: 20px 0;
+  a{
+    color: black;
+  }
+}
+
+.profile_image, .profile_info {
+  h4 {
+    margin: 20px 0;
+  }
+}
+
+
+
+.review_title {
+  font-weight: bold;
+  margin: 10px;
+}
+
+.review_contents {
+  margin: 30px 20px 30px 10px;
+}
+
+.update_time {
+  text-align: right;
+}
+.star_filed {
+  margin: 10px 0;
+}
+
+.favorite {
+  margin-top: 20px;
+  .favorite-list {
+  margin: 30px;
+  }
+}
+
+.often_use {
+  margin: 20px 0;
+  .station-list {
+    margin: 30px;
+  }
+}
+
+.info-list, .sns_new, .sns_edit {
+  .row {
+  margin: 20px 0;
+  }
+}
+
+.url_type, .url, .url_register {
+  margin: 10px 0;
+}
+
+.admin_change {
+  height: 40px;
+}
+
+input#user_name, input#user_email, input#user_telephone_number,
+ input#user_password, input#user_password_confirmation,
+ input#admin_email, input#admin_password, input#admin_password_confirmation,
+ input#store_name, input#store_email, input#store_telephone_number,
+ input#store_postal_code, input#store_address, input#store_password,
+ input#store_password_confirmation, input#storeinfo_place,
+ input#item_name {
+  width: 80%;
+  height: 40px;
+}
+
+input#station_name {
+  width: 60%;
+  height: 40px;
+}
+
+input#storeinfo_start_period, input#storeinfo_end_period,
+input#storeinfo_open_time, input#storeinfo_close_time, input#item_price{
+  width: 60%;
+  height: 40px;
+}
+
+input#review_title, input#homepage_url {
+  width: 100%;
+  height: 40px;
+}
+
+textarea#review_comment {
+  width: 100%;
+  height: 100px;
+}
+
+textarea#store_introduction, textarea#item_comment {
+  width: 80%;
+  height: 100px;
+}
+
+.profile_info {
+  margin-bottom: 60px;
+}
+
+
+.store-evaluation .field {
+  margin: 20px 0;
+}
+
+
+
+
+
+
+
+
+table {
+  margin: 20px auto;
+  width: 100%;
+  font-size: 20px;
+
+
+  .No {
+    text-align: center;
+  }
+}
+
+table th, table td {
+  padding: 9px;
+}
+
+
+.valid {
+  color: blue;
+}
+
+.invalid {
+  color: grey;
+}
+
+.edit-button {
+  text-align: center;
+}
+
+.register-img {
+  margin: 0 0 30px 0;
+  .h4 {
+    margin-bottom: 20px;
+  }
+}
+
+.edit-img {
+  .delete-img {
+    margin-left: 30px;
+    color: black;
+  }
+}
+
+.shop-image {
+  margin: 30px;
+}
+
+.shop_info {
+  width: 100%;
+}
+
+
+.image_filed {
+  img {
+    width: 80%;
+  }
+}
+
+
+.input, .info {
+  margin: 20px;
+  display: flex;
+
+  ul li {
+    list-style: none;
+  }
+
+  .input-label, .info-title, .station, .store_name {
+    margin-right: 30px;
+    width: 40%;
+    font-weight: bold;
+  }
+
+  .input-field, .info-contents, .button, .like {
+    width: 60%;
+    input[type='text'] {
+      width: 100%;
+      height: 40px;
+    }
+
+    input[type='email'] {
+      width: 100%;
+      height: 40px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 60px;
+    }
+  }
+}
+
+.shop-info{
+  .info {
+    margin: 20px;
+    display: flex;
+   }
+
+  .period, .station, .detail {
+   margin-right: 20px;
+  }
+}
+
+
+.review {
+  margin: 10px;
+}
+
+.review_store a {
+  color: #665266;
+  font-weight: bold;
+  font-size: 25px;
+
+}
+
+.star_filed {
+  display: flex;
+
+  .star, .eval {
+    margin: 0 10px;
+  }
+}
+
+
+.button, .sns_field {
+  a {
+    color: grey;
+    font-weight: bold;
+  }
+}
+
+.destination {
+  margin: 10px 0;
+  background-image: url('destination.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  a {
+    margin: 0 10px;
+    color: grey;
+    font-weight: bold;
+  }
+}
+
+.destination_session {
+  background-position: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: right;
+  background-image: url('destination.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  a {
+    margin: 0 10px;
+    color: grey;
+    font-weight: bold;
+  }
+}
+
+.destination_left {
+  margin: 10px 0;
+  background-image: url('destination_left.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  a {
+    margin: 0 10px;
+    color: grey;
+    font-weight: bold;
+  }
+}
+
+
+
+
+.calendar {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.comment {
+  margin: 20px;
+}
+
+
+.often_use_station {
+  margin-bottom: 20px;
+}
+
+
+.basic_info {
+  margin-bottom: 30px;
+}
+
+.actions {
+  margin: 10px 20px;
+  input[type='submit'] {
+    width: 100px;
+    height: 35px;
+    background-color: #ffc0cb;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+    border-color: #db7093;
+  }
+}
+
+.like_button, .favorite {
+  img#heart_on, img#heart_off {
+    width: 30px;
+  }
+
+  .favorite-store a {
+    color: black
+  }
+}
+
+
+.input-field {
+  input[type='submit'] {
+    width: 100px;
+    height: 35px;
+    background-color: #ffc0cb;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+    border-color: #db7093;
+  }
+
+  input[type='button'] {
+    width: 100px;
+    height: 35px;
+    background-color: #fff0f5;
+    font-weight: bold;
+    color: #db7093;
+    border-radius: 6px;
+    border-color: #db7093;
+    margin-left: 10px;
+  }
+}
+
+.profile_info, .admin_change {
+  position: relative;
+  input[type='submit'] {
+    width: 100px;
+    height: 35px;
+    background-color: #FFBEDA;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+    border-color: #db7093;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+}
+
+.register_button {
+  width: 100%;
+  height: 30px;
+  margin: 30px;
+  position: relative;
+
+  input[type='submit'] {
+    width: 100px;
+    height: 35px;
+    background-color: #FFBEDA;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+    border-color: #db7093;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+}
+
+.store-evaluation {
+  input[type='submit'] {
+    width: 100px;
+    height: 35px;
+    background-color: #FFBEDA;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+    border-color: #db7093;
+    margin: 20px;
+  }
+}
+
+.register_img {
+  margin: 20px 0;
+
+  input[type='submit'] {
+    width: 100px;
+    height: 35px;
+    background-color: #ffc0cb;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+    border-color: #db7093;
+  }
+}
+
+
+.url_register {
+
+  input[type='submit'] {
+    width: 100px;
+    height: 35px;
+    background-color: #ffc0cb;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+    border-color: #db7093;
+  }
+}
+
+
+
+.item_register {
+  margin: 20px 0;
+  text-align: center;
+
+  input[type='submit'] {
+    width: 100px;
+    height: 35px;
+    background-color: #ffc0cb;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+    border-color: #db7093;
+  }
+}
+
+.item_change {
+  margin: 20px 0;
+  text-align: center;
+
+  input[type='submit'] {
+    width: 100px;
+    height: 35px;
+    background-color: #FFBEDA;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+    border-color: #db7093;
+  }
+}
+
+
+.sns_new {
+  margin-top: 30px;
+  margin-left: 40px;
+
+  input[type='submit'] {
+    width: 100px;
+    height: 35px;
+    background-color: #ffc0cb;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+    border-color: #db7093;
+  }
+}
+
+.sns_edit {
+  margin-top: 30px;
+  margin-left: 40px;
+
+  .sns_field {
+    margin: 20px 0;
+      input[type='submit'] {
+      width: 100px;
+      height: 35px;
+      background-color: #FFBEDA;
+      font-weight: bold;
+      color: white;
+      border-radius: 6px;
+      border-color: #db7093;
+    }
+  }
+}
+
+
+.store-schedule {
+  margin-top: 30px;
+}
+
+
+footer {
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  margin-top: 40px;
+  line-height: 120px;
+  border-top: solid 3px #ffcccc;
+}
+
+
+.pagination {
+  margin: 20px auto;
+
+  .page-item.active
+  .page-link {
+      background-color: #ffb6c1;
+      border-color: pink;
+  }
+
+  .page-item a{
+    color: grey;
+  }
+}
+
+
+.letter {
+  width: 80%;
+  margin: 0 auto;
+
+}
+
+.about {
+  width : 80%;
+  margin: 30px auto;
+  p {
+  }
+}
+
+.from {
+  text-align: right;
+  p {
+  }
+}

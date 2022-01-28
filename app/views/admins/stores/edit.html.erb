@@ -1,0 +1,49 @@
+
+<%= render 'layouts/title', title: "ストアユーザ編集" %>
+
+<section class="page">
+
+  <%= form_with model: @store, url: admins_store_path(@store.id), local: true do |f| %>
+    <div class="info-list">
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3"><%= f.label :name, "ストア名" %></div>
+        <div class="input-field col-sm-12 col-lg-8 offset-lg-1"><%= f.text_field :name %></div>
+      </div>
+
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3"><%= f.label :email, "メールアドレス" %></div>
+        <div class="input-field col-sm-12 col-lg-8 offset-lg-1"><%= f.text_field :email %></div>
+      </div>
+
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3"><%= f.label :telephone_number, "電話番号" %></div>
+        <div class="input-field col-sm-12 col-lg-8 offset-lg-1"><%= f.text_field :telephone_number %></div>
+      </div>
+
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3"><%= f.label :postal_code, "郵便番号" %></div>
+        <div class="input-field col-sm-12 col-lg-8 offset-lg-1"><%= f.text_field :postal_code %></div>
+      </div>
+
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3"><%= f.label :address, "住所" %></div>
+        <div class="input-field col-sm-12 col-lg-8 offset-lg-1"><%= f.text_field :address %></div>
+      </div>
+
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3"><%= f.label :is_active, "ステータス" %></div>
+        <div class="input-field col-sm-12 col-lg-8 offset-lg-1">
+          <%= f.label :is_active, "有効" %>
+          <%= f.radio_button :is_active, true %>
+          <%= f.label :is_active, "退会済み" %>
+          <%= f.radio_button :is_active, false %>
+        </div>
+      </div>
+
+      <div class="admin_change"><%= f.submit "変更" %></div>
+    </div>
+
+
+
+  <% end %>
+</section>

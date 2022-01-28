@@ -1,0 +1,13 @@
+    <h5>今後のポップアップストア出店予定</h5>
+
+    <% infos.each do |info| %>
+      <ol class="shop-info">
+        <li class="info">
+          <div class="period">
+            <%= info.start_period %> ~
+            <%= info.end_period %>
+          </div>
+          <div class="station"><%= info.station %>駅</div>
+        </li>
+      </ol>
+    <% end %>

@@ -1,0 +1,42 @@
+<%= render 'layouts/title', title: "アイテム追加" %>
+
+<section class="page">
+  <%= form_with model: @item, url: stores_items_path, local: true do |f| %>
+    <div class="info-list">
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :name, "アイテム名" %></div>
+        <div class="input-field col-sm-12 col-lg-8"><%= f.text_field :name %></div>
+      </div>
+
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :comment, "アイテム紹介" %></div>
+        <div class="input-field col-sm-12 col-lg-8"><%= f.text_area :comment %></div>
+      </div>
+
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :image, "アイテムイメージ" %></div>
+        <div class="input-field col-sm-12 col-lg-8"><%= f.attachment_field :image %></div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :price, "金額" %></div>
+        <div class="input-field col-sm-12 col-lg-8"><%= f.text_field :price %></div>
+      </div>
+
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :status, "ステータス" %></div>
+        <div class="input-field col-sm-12 col-lg-8">
+          <%= f.label :status, "販売中" %>
+          <%= f.radio_button :status, 0 %>
+          <%= f.label :status, "販売停止" %>
+          <%= f.radio_button :status, 1 %>
+        </div>
+      </div>
+    </div>
+
+    <div class="item_register"><%= f.submit "登録" %></div>
+  <% end %>
+
+</section>

@@ -1,0 +1,9 @@
+<%= render 'layouts/title', title: "TOPページ" %>
+
+<section class="page">
+
+  <%= month_calendar do |date| %>
+    <%= date.day %>
+  <% end %>
+
+</section>

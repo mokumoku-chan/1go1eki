@@ -1,0 +1,25 @@
+<%= render 'layouts/title', title: "画像編集画面" %>
+
+  <section class="page">
+    <div class="register_img">
+      <h4>新規登録</h4>
+      <%= form_with model: @image_new, url: stores_image_path, local: true do |f| %>
+        <%= f.attachment_field :image %>
+        <%= f.submit "登録" %>
+      <% end %>
+    </div>
+
+    <div class="middle-line_image"></div>
+
+    <div class="edit-img">
+      <h4>登録済みの画像</h4>
+      <% @images.each do |image| %>
+        <div class="shop-image">
+          <%= attachment_image_tag image, :image, :fill, 300, 200, fallback: "noimage.png"%>
+          <%= link_to "削除", stores_image_path(image.id), method: :delete, "data-confirm" => "本当に削除しますか？" , class: "delete-img" %>
+        </div>
+    <% end %>
+    </div>
+
+    <div class="destination"><%= link_to "編集ページに戻る", edit_stores_storepage_path %></div>
+  </section>

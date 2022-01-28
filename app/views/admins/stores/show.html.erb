@@ -1,0 +1,48 @@
+<%= render 'layouts/title', title: "ストアユーザ詳細" %>
+
+<section class="page">
+  <table rules="all">
+    <tr>
+      <th width="30%">No.</th>
+      <td><%= @store.id %></td>
+    </tr>
+
+    <tr>
+      <th>ストア名</th>
+      <td><%= @store.name %></td>
+    </tr>
+
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= @store.email %></td>
+    </tr>
+
+    <tr>
+      <th>電話番号</th>
+      <td><%= @store.telephone_number %></td>
+    </tr>
+
+    <tr>
+      <th>住所</th>
+      <td>
+        〒<%= @store.postal_code %>
+        <%= @store.address %>
+      </td>
+    </tr>
+
+    <tr>
+      <th>ステータス</th>
+      <td>
+        <% if @store.is_active? %>
+          <p class="valid">有効</p>
+        <% else %>
+          <p class="invalid">退会済み</p>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+
+
+  <div class="destination"><%= link_to "編集画面 行き", edit_admins_store_path(@store.id) %></div>
+
+</section>

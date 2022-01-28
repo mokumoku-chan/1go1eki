@@ -1,0 +1,15 @@
+<h2>ストア詳細</h2>
+
+
+<%= @store.name %>
+<%= @store.introduction %>
+
+<% if @store.favorited_by?(current_user) %>
+  <%= link_to users_store_favorites_path(@store), method: :delete do %>
+    ♥
+  <% end %>
+<% else %>
+  <%= link_to users_store_favorites_path(@store), method: :post do %>
+    ♡
+  <% end %>
+<% end %>

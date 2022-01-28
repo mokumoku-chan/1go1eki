@@ -1,0 +1,46 @@
+<%= render 'layouts/title', title: "出店情報追加" %>
+
+<section class="page">
+
+  <%= form_with model: @info, url: stores_info_index_path, local: true do |f| %>
+    <div class="info-list">
+      <div class="row">
+          <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :station, "駅名" %></div>
+          <div class="input-field col-sm-12 col-lg-8">
+            <%= f.text_field :station, :value => "", :id => "station_name" %>
+
+            <input type="button" value="検索" onclick="OnButtonClick()">
+            <div id="St_name">必ず検索後に登録をお願いします</div>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :place, "出店場所(詳細)" %></div>
+        <div class="input-field col-sm-12 col-lg-8"><%= f.text_field :place %></div>
+      </div>
+
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :start_period, "開始日" %></div>
+        <div class="input-field col-sm-12 col-lg-4"><%= f.date_field :start_period %></div>
+      </div>
+
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :end_period, "終了日" %></div>
+        <div class="input-field col-sm-12 col-lg-4"><%= f.date_field :end_period %></div>
+      </div>
+
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :open_time, "オープン時間" %></div>
+        <div class="input-field col-sm-12 col-lg-4"><%= f.time_field :open_time, :value => "10:00" %></div>
+      </div>
+
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :close_time, "クローズ時間" %></div>
+        <div class="input-field col-sm-12 col-lg-4"><%= f.time_field :close_time, :value => "20:00" %></div>
+      </div>
+    </div>
+
+    <div class="register_button"><%= f.submit "登録" %></div>
+  <% end %>
+
+</section>

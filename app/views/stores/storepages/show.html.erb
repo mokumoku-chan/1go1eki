@@ -1,0 +1,22 @@
+<%= render 'layouts/title', title: "ストアページ" %>
+<section class="page">
+    <h2><%= @store.name %></h2>
+    <div class="row">
+        <div class="image_filed col-sm-6 col-lg-4">
+            <%= render 'stores/storepages/image', images: @images, images_arr: @images_arr %>
+        </div>
+
+        <div class="info_field col-sm-12 col-lg-8">
+            <div class="info-list">
+                <%= render 'stores/storepages/storepage', store: @store, homepages: @homepages %>
+
+                <li class="row">
+                    <div class="info-title col-sm-12 col-lg-3">メールアドレス</div>
+                    <div class="info-contents col-sm-12 col-lg-8 offset-lg-1"><%= @store.email %></div>
+                </li>
+            </div>
+        </div>
+    </div>
+    <div class="destination"><%= link_to "編集ページ 行き", edit_stores_storepage_path %></div>
+
+</section>

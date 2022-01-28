@@ -1,0 +1,61 @@
+<%= render 'layouts/title', title: "編集画面" %>
+
+<section class="page">
+
+  <%= form_with model: @user, url: users_mypage_update_path, local: true do |f| %>
+    <div class="row">
+      <div class="profile_image col-sm-6 col-lg-3">
+        <h4>プロフィール画像</h4>
+          <%= attachment_image_tag @user, :profile_image, fallback: "noimage.png", class: "img-fluid"%>
+          <%= f.attachment_field :profile_image %>
+      </div>
+
+      <div class="profile_info col-sm-12 col-lg-8 offset-lg-1">
+        <h4>基本情報</h4>
+          <div class="info-list">
+            <div class="row">
+              <div class="input-label col-sm-12 col-lg-3"><%= f.label :name, "ユーザ名" %></div>
+              <div class="input-field col-sm-12 col-lg-8 offset-lg-1"><%= f.text_field :name %></div>
+            </div>
+
+            <div class="row">
+              <div class="input-label col-sm-12 col-lg-3"><%= f.label :email, "メールアドレス" %></div>
+              <div class="input-field col-sm-12 col-lg-8 offset-lg-1"><%= f.text_field :email %></div>
+            </div>
+
+            <div class="row">
+              <div class="input-label col-sm-12 col-lg-3"><%= f.label :telephone_number, "電話番号" %></div>
+              <div class="input-field col-sm-12 col-lg-8 offset-lg-1"><%= f.text_field :telephone_number %></div>
+            </div>
+          </div>
+          <%= f.submit "更新" %>
+
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="often_use col-sm-12 col-lg-8 offset-lg-4">
+        <h4>よく使う駅</h4>
+        <%= form_with model: @station_new, url: users_mypage_create_path, local: true do |f| %>
+          <div class="input-field">
+            <%= f.text_field :name, :value => "", :id => "station_name" %>
+
+            <input type="button" value="検索" onclick="OnButtonClick();">
+            <%= f.submit "登録" %>
+          </div>
+          <div id="St_name">必ず検索後に登録をお願いします</div>
+        <% end %>
+
+        <ul class="info-list">
+          <% @stations.each do |station| %>
+            <li class="info">
+              <div class="station"><%= station.name %></div>
+              <div class="button"><%= link_to "削除", users_destroy_mypage_path(station.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+</section>

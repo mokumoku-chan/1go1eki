@@ -1,0 +1,45 @@
+
+<%= render 'layouts/title', title: "一般ユーザ詳細" %>
+
+<section class="page">
+  <table rules="all">
+    <tr>
+      <th width="30%">No</th>
+      <td><%= @user.id %></td>
+    </tr>
+
+    <tr>
+      <th>ユーザ名</th>
+      <td><%= @user.name %></td>
+    </tr>
+
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= @user.email %></td>
+    </tr>
+
+    <tr>
+      <th>電話番号</th>
+      <td><%= @user.telephone_number %></td>
+    </tr>
+
+    <tr>
+      <th>ステータス</th>
+      <td>
+        <% if @user.is_active? %>
+          <p class="valid">有効</p>
+        <% else %>
+          <p class="invalid">退会済み</p>
+        <% end %>
+      </td>
+    </tr>
+
+  </table>
+
+  <div class="destination"><%= link_to "編集画面 行き", edit_admins_user_path(@user.id), class:"edit-button" %></div>
+
+</section>
+
+
+
+

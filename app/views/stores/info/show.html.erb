@@ -1,0 +1,14 @@
+<%= render 'layouts/title', title: "出店情報詳細" %>
+
+<section class="page">
+  <ul class="info-list">
+
+
+    <%= render 'stores/info/info', info: @info %>
+  </ul>
+
+
+  <div class="destination"><%= link_to "編集", edit_stores_info_path(@info.id) %></div>
+  <div class="destination_left"><%= link_to "削除", stores_info_path(@info.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></div>
+
+</section>

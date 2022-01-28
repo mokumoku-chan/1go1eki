@@ -1,0 +1,8 @@
+
+<%= render 'layouts/title', title: "一般ユーザ" %>
+
+<section class="page">
+  
+  <%= render 'admins/users/user', users: @users %>
+  <%= paginate @users %>
+</section>

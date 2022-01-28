@@ -1,0 +1,7 @@
+
+<%= render 'layouts/title', title: "ストアユーザ" %>
+
+<section class="page">
+  <%= render 'admins/stores/store', stores: @stores %>
+  <%= paginate @stores %>
+</section>

@@ -1,0 +1,57 @@
+  <% infos.each do |info| %>
+
+    <% store = Store.find(info.store_id) %>
+    <div class="field">
+      <% images = StoreImage.where(store_id: store.id) %>
+      <h4 class="store_color"><%= link_to store.name, users_storepage_path(store.id) %></h4>
+    </div>
+
+
+    <div class="row">
+      <div class="store_image col-sm-12 col-lg-4">
+        <%= image_tag attachment_url(images[0], :image, fallback: "noimage.png"), class: "img-fluid" %>
+      </div>
+
+      <div class="store_info col-sm-12 col-lg-8">
+        <div class="info-list">
+          <div class="row">
+            <div class="info-title col-sm-12 col-lg-3">駅名 <i class="fas fa-subway"></i></div>
+            <div class="info-contents col-sm-12 col-lg-8 offset-lg-1">
+              <%= info.station %>駅
+            </div>
+          </div>
+
+        <div class="row">
+          <div class="info-title col-sm-12 col-lg-3">出店場所(詳細)</div>
+          <div class="info-contents col-sm-12 col-lg-8 offset-lg-1">
+            <%= info.place %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="info-title col-sm-12 col-lg-3">
+            出店期間  <i class="far fa-calendar"></i>
+          </div>
+          <div class="info-contents col-sm-12 col-lg-8 offset-lg-1">
+            <%= l Time.parse(info.start_period) %>
+            ～
+            <%= l Time.parse(info.end_period) %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="info-title col-sm-12 col-lg-3">
+            営業時間  <i class="far fa-clock"></i>
+          </div>
+          <div class="info-contents col-sm-12 col-lg-8 offset-lg-1">
+            OPEN　<%= info.open_time %>
+            ～</br>
+            CLOSE　<%= info.close_time %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="short-line_image"></div>
+  <% end %>
