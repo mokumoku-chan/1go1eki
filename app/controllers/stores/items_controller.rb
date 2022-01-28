@@ -12,14 +12,21 @@ class Stores::ItemsController < ApplicationController
   def create
     item = Item.new(item_params)
     item.store_id = current_store.id
-    item.save
-    redirect_to stores_items_path
+    if item.save
+      redirect_to stores_items_path
+    else
+      render :new
+    end
   end
 
   def update
     item = Item.find(params[:id])
-    item.update(item_params)
-    redirect_to stores_items_path
+    if item.update(item_params)
+      redirect_to stores_items_path
+    else
+      @item = Item.find(params[:id])
+      render :edit
+    end
   end
 
   def show

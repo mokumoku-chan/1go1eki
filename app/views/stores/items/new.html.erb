@@ -2,39 +2,39 @@
 
 <section class="page">
   <%= form_with model: @item, url: stores_items_path, local: true do |f| %>
-    <ul class="input-list">
-      <li class="input">
-        <div class="input-label"><%= f.label :name, "アイテム名" %></div>
-        <div class="input-field"><%= f.text_field :name %></div>
-      </li>
+    <div class="info-list">
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :name, "アイテム名" %></div>
+        <div class="input-field col-sm-12 col-lg-8"><%= f.text_field :name %></div>
+      </div>
 
-      <li class="input">
-        <div class="input-label"><%= f.label :comment, "アイテム紹介" %></div>
-        <div class="input-field"><%= f.text_area :comment %></div>
-      </li>
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :comment, "アイテム紹介" %></div>
+        <div class="input-field col-sm-12 col-lg-8"><%= f.text_area :comment %></div>
+      </div>
 
-      <li class="input">
-        <div class="input-label"><%= f.label :image, "アイテムイメージ" %></div>
-        <div class="input-field"><%= f.attachment_field :image %></div>
-      </li>
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :image, "アイテムイメージ" %></div>
+        <div class="input-field col-sm-12 col-lg-8"><%= f.attachment_field :image %></div>
+      </div>
 
 
 
-      <li class="input">
-        <div class="input-label"><%= f.label :price, "金額" %></div>
-        <div class="input-field"><%= f.text_field :price %></div>
-      </li>
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :price, "金額" %></div>
+        <div class="input-field col-sm-12 col-lg-8"><%= f.text_field :price %></div>
+      </div>
 
-      <li class="input">
-        <div class="input-label"><%= f.label :status, "ステータス" %></div>
-        <div class="input-field">
+      <div class="row">
+        <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :status, "ステータス" %></div>
+        <div class="input-field col-sm-12 col-lg-8">
           <%= f.label :status, "販売中" %>
           <%= f.radio_button :status, 0 %>
           <%= f.label :status, "販売停止" %>
           <%= f.radio_button :status, 1 %>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
 
     <div class="item_register"><%= f.submit "登録" %></div>
   <% end %>
