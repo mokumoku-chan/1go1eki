@@ -1,14 +1,5 @@
 <%= render 'layouts/title', title: "コメント編集" %>
 
-<% if @review.errors.any? %>
-    <%= @review.errors.count %>件のエラーが発生しました
-    <ul>
-    <% @review.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  <% end %>
-
 <section class="page">
   <div class="row">
     <div class="store-evaluation col-sm-12 col-lg-8">
