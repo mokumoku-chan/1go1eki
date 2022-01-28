@@ -9,63 +9,62 @@
     <% end %>
   </div>
 
-  <div class="row">
-    <div class = "image_filed col-sm-12 col-lg-4">
-      <%= render 'stores/storepages/image', images: @images, images_arr: @images_arr %>
-    </div>
+  <div class=" basic-info">
+    <div class="row">
+      <div class = "image_filed col-sm-12 col-lg-4">
+        <%= render 'stores/storepages/image', images: @images, images_arr: @images_arr %>
+      </div>
 
-    <div class="info_field col-sm-12 col-lg-8">
-      <div class="info-list">
-        <%= render 'stores/storepages/storepage', store: @store, homepages: @homepages %>
-      <div>
+      <div class="info_field col-sm-12 col-lg-8">
+        <div class="info-list">
+          <%= render 'stores/storepages/storepage', store: @store, homepages: @homepages %>
+        </div>
+      </div>
     </div>
   </div>
 
+  <ul class="nav nav-tabs">
+    <li class="nav-item"><a href="#items" class="nav-link active" data-toggle="tab">アイテム</a></li>
+    <li class="nav-item"><a href="#schedules" class="nav-link" data-toggle="tab">今後の予定</a></li>
+    <li class="nav-item"><a href="#comments" class="nav-link" data-toggle="tab">コメント</a></li>
+  </ul>
 
-  <div class="row">
-    <ul class="nav nav-tabs">
-      <li class="nav-item"><a href="#items" class="nav-link active" data-toggle="tab">アイテム</a></li>
-      <li class="nav-item"><a href="#schedules" class="nav-link" data-toggle="tab">今後の予定</a></li>
-      <li class="nav-item"><a href="#comments" class="nav-link" data-toggle="tab">コメント</a></li>
-    </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="items">
+      <%= render 'stores/items/item', items: @items %>
+    </div>
 
-    <div class="tab-content">
-      <div class="tab-pane active" id="items">
-        <%= render 'stores/items/item', items: @items %>
-      </div>
+    <div class="tab-pane" id="schedules">
+      <%= render 'stores/info/schedule', infos: @infos, infos_all: @infos_all %>
+    </div>
 
-      <div class="tab-pane" id="schedules">
-        <%= render 'stores/info/schedule', infos: @infos, infos_all: @infos_all %>
-      </div>
+    <div class="tab-pane" id="comments">
+      <div class="store-evaluation">
 
-      <div class="tab-pane" id="comments">
-        <div class="store-evaluation">
-
-          <%= form_with model: @review_new, url: users_storepages_path, local: true do |f| %>
-            <%= f.hidden_field :store_id, :value => @store.id %>
-            <div class="field">
-              <%= f.label :title, "タイトル" %></br>
-              <%= f.text_field :title %>
-            </div>
-
-            <div id="evaluate_stars", class="field"></div>
-
-            <div class="field">
-              <%= f.label :comment, "コメント" %></br>
-              <%= f.text_area :comment %>
-            </div>
-
-            <% if user_signed_in? %>
-              <%= f.submit "投稿" %>
-            <% else %>
-              <div class="destination"><%= link_to "ログイン画面行き", user_session_path %></div>
-              コメント投稿するにはログインしてください
-            <% end %>
-          <% end %>
-
-          <div class="comment">
-            <%= render 'users/storepages/review', reviews: @reviews %>
+        <%= form_with model: @review_new, url: users_storepages_path, local: true do |f| %>
+          <%= f.hidden_field :store_id, :value => @store.id %>
+          <div class="field">
+            <%= f.label :title, "タイトル" %></br>
+            <%= f.text_field :title %>
           </div>
+
+          <div id="evaluate_stars", class="field"></div>
+
+          <div class="field">
+            <%= f.label :comment, "コメント" %></br>
+            <%= f.text_area :comment %>
+          </div>
+
+          <% if user_signed_in? %>
+            <%= f.submit "投稿" %>
+          <% else %>
+            <div class="destination"><%= link_to "ログイン画面行き", user_session_path %></div>
+            コメント投稿するにはログインしてください
+          <% end %>
+        <% end %>
+
+        <div class="comment">
+          <%= render 'users/storepages/review', reviews: @reviews %>
         </div>
       </div>
     </div>

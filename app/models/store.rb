@@ -12,6 +12,7 @@ class Store < ApplicationRecord
   attachment :image
 
   has_many :favorites, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
 
   validates :email, presence: true

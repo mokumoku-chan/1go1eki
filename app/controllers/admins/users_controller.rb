@@ -1,4 +1,6 @@
 class Admins::UsersController < ApplicationController
+  before_action :authenticate_admin!, {only: [:index, :show, :edit, :update]}
+
   def index
     @users = User.page(params[:page])
   end

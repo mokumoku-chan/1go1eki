@@ -1,4 +1,5 @@
 class Admins::StoresController < ApplicationController
+  before_action :authenticate_admin!, {only: [:index, :show, :edit, :update]}
 
   def index
     @stores = Store.page(params[:page])

@@ -15,4 +15,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authenticate_admin
+    if @current_store == nil
+      flash[:notice]="ログインしてください"
+      redirect_to new_store_session_path
+    end
+  end
+
 end

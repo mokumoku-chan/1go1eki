@@ -10,8 +10,8 @@ class Users::StorepagesController < ApplicationController
     @infos = Storeinfo.where("store_id == ? and start_period >= ?",@store.id, date)
 
     @review_new = Review.new
-    @reviews = Review.where(store_id: @store.id).order(updated_at: :desc).page(params[:page])
-    @items = Item.where("store_id == ? and status == ?", @store.id, 0).page(params[:page])
+    @reviews = Review.where(store_id: @store.id).order(updated_at: :desc)
+    @items = Item.where("store_id == ? and status == ?", @store.id, 0)
 
   end
 
@@ -31,8 +31,8 @@ class Users::StorepagesController < ApplicationController
       @infos = Storeinfo.where("store_id == ? and start_period >= ?",@store.id, date)
 
       @review_new = Review.new
-      @reviews = Review.where(store_id: @store.id).order(updated_at: :desc).page(params[:page])
-      @items = Item.where("store_id == ? and status == ?", @store.id, 0).page(params[:page])
+      @reviews = Review.where(store_id: @store.id).order(updated_at: :desc)
+      @items = Item.where("store_id == ? and status == ?", @store.id, 0)
 
       render :show
     end
