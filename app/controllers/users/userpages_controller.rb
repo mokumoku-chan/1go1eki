@@ -17,16 +17,21 @@ class Users::UserpagesController < ApplicationController
 
   def create
     station = Station.new(station_params)
-    station.user_id = current_user.id
+    registered = Station.where("name == ? and user_id == ?" ,station.name, current_user.id)
+    if registered.blank?
+        station.user_id = current_user.id
 
-    if station.save
-      redirect_to users_mypage_path
+        if station.save
+          redirect_to users_mypage_path
+        else
+          @user = User.find(current_user.id)
+          @stations = Station.where(user_id: current_user.id)
+          @station_new = Station.new
+
+          render :edit
+        end
     else
-      @user = User.find(current_user.id)
-      @stations = Station.where(user_id: current_user.id)
-      @station_new = Station.new
-
-      render :edit
+        redirect_to users_mypage_path
     end
   end
 
