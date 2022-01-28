@@ -19,10 +19,8 @@ class Admins::StoresController < ApplicationController
     redirect_to admins_store_path(store.id)
   end
 
-
   private
-    def store_params
-      params.require(:store).permit(:name, :email, :telephone_number, :postal_code, :address, :is_active)
-    end
-
+  def store_params
+    params.require(:store).permit(:name, :email, :telephone_number, :postal_code, :address, :is_active)
+  end
 end

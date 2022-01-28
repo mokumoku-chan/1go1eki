@@ -701,3 +701,37 @@ footer {
   border-top: solid 3px #ffcccc;
 }
 
+
+.pagination {
+  margin: 20px auto;
+
+  .page-item.active
+  .page-link {
+      background-color: #ffb6c1;
+      border-color: pink;
+  }
+
+  .page-item a{
+    color: grey;
+  }
+}
+
+
+.letter {
+  width: 80%;
+  margin: 0 auto;
+
+}
+
+.about {
+  width : 80%;
+  margin: 30px auto;
+  p {
+  }
+}
+
+.from {
+  text-align: right;
+  p {
+  }
+}

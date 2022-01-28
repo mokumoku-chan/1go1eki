@@ -4,8 +4,17 @@
   <% if @type == 0 %>
     <%= render 'users/stores/storeinfo', infos: @infos %>
 
+    <h3>今後開催予定のポップアップストア</h3>
+    <%= render 'users/stores/storeinfo', infos: @infos_all %>
+
   <% elsif @type == 1 %>
 
+    <% @store.each do |store| %>
+      <% infos = Storeinfo.where("store_id== ? and start_period <= ? and end_period >= ? and is_active == ?", store.id, @date, @date, true) %>
+      <%= render 'users/stores/storeinfo', infos: infos %>
+    <% end %>
+
+    <h3>今後開催予定のポップアップストア</h3>
     <% @store.each do |store| %>
       <% infos = Storeinfo.where("store_id== ? and end_period >= ? and is_active == ?", store.id, @date, true) %>
       <%= render 'users/stores/storeinfo', infos: infos %>

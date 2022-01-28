@@ -4,6 +4,7 @@ class Users::StoresController < ApplicationController
 
     if params[:type] == "station"
       @infos = Storeinfo.search(params[:search]).where("start_period <= ? and end_period >= ?", date, date)
+      @infos_all = Storeinfo.search(params[:search]).where("end_period >= ?" ,date)
       @type = 0
 
     else
