@@ -7,38 +7,37 @@
     <div class="destination_left"><%= link_to "画像登録/編集画面 行き", edit_stores_image_path %></div>
 
     <%= form_with model: @store, url: stores_storepage_path, local: true do |f| %>
+      <div class="info-list">
+        <div class="row">
+          <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :name, "店名" %></div>
+          <div class="input-field col-sm-12 col-lg-8"><%= f.text_field :name %></div>
+        </div>
 
-      <ul class="input-list">
-        <li class="input">
-          <div class="input-label"><%= f.label :name, "店名" %></div>
-          <div class="input-field"><%= f.text_field :name %></div>
-        </li>
+        <div class="row">
+          <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :introduction, "店舗紹介" %></div>
+          <div class="input-field col-sm-12 col-lg-8"><%= f.text_area :introduction %></div>
+        </div>
 
-        <li class="input">
-          <div class="input-label"><%= f.label :introduction, "店舗紹介" %></div>
-          <div class="input-field"><%= f.text_area :introduction %></div>
-        </li>
+        <div class="row">
+          <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :telephone_number, "電話番号" %></div>
+          <div class="input-field col-sm-12 col-lg-8"><%= f.text_field :telephone_number %></div>
+        </div>
 
-        <li class="input">
-          <div class="input-label"><%= f.label :telephone_number, "電話番号" %></div>
-          <div class="input-field"><%= f.text_field :telephone_number %></div>
-        </li>
+        <div class="row">
+          <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :email, "メールアドレス" %></div>
+          <div class="input-field col-sm-12 col-lg-8"><%= f.text_field :email %></div>
+        </div>
 
-        <li class="input">
-          <div class="input-label"><%= f.label :email, "メールアドレス" %></div>
-          <div class="input-field"><%= f.text_field :email %></div>
-        </li>
+        <div class="row">
+          <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :postal_code, "郵便番号" %></div>
+          <div class="input-field col-sm-12 col-lg-8"><%= f.text_field :postal_code %></div>
+        </div>
 
-        <li class="input">
-          <div class="input-label"><%= f.label :postal_code, "郵便番号" %></div>
-          <div class="input-field"><%= f.text_field :postal_code %></div>
-        </li>
-
-        <li class="input">
-          <div class="input-label"><%= f.label :address, "住所" %></div>
-          <div class="input-field"><%= f.text_field :address %></div>
-        </li>
-      </ul>
+        <div class="row">
+          <div class="input-label col-sm-12 col-lg-3 offset-lg-1"><%= f.label :address, "住所" %></div>
+          <div class="input-field col-sm-12 col-lg-8"><%= f.text_field :address %></div>
+        </div>
+      </div>
 
       <%= hidden_field_tag :change_id, 0 %>
       <div class="register_button"><%= f.submit "変更" %></div>
@@ -54,9 +53,13 @@
   <div class="sns_new">
     <h4>新規登録</h4>
     <%= form_with model: @homepage_new, url: stores_storepage_path, local: true do |f| %>
-      <%= f.select :url_type, {'HP':0, 'Twitter':1, "Instagram":2, "Facebook":3, "LINE":4, "その他":5},{include_blank: "選択してください"}, {class: "required: true"} %>
-      <%= f.text_field :url %>
-      <%= f.submit "登録" %>
+      <div class="row">
+        <div class="url_type col-sm-12 col-lg-2 offset-lg-1">
+          <%= f.select :url_type, {'HP':0, 'Twitter':1, "Instagram":2, "Facebook":3, "LINE":4, "その他":5},{include_blank: "選択してください"}, {class: "required: true"} %>
+        </div>
+        <div class="url col-sm-12 col-lg-5"><%= f.text_field :url %></div>
+        <div class="url_register col-sm-12 col-lg-2"><%= f.submit "登録" %></div>
+      </div>
     <% end %>
   </div>
 
@@ -64,13 +67,17 @@
     <h4>編集</h4>
       <% @homepages.each do |homepage| %>
         <div class="sns_field">
-        <%= form_with model: homepage, url: stores_storepage_path, local: true do |f| %>
-          <%= f.select :url_type, {'HP':0, 'Twitter':1, "Instagram":2, "Facebook":3, "LINE":4, "その他":5},{include_blank: "選択してください"}, {class: "required: true"} %>
-          <%= f.text_field :url %>
-
+        <%= form_with model: homepage, url: stores_storepage_path(homepage.id), local: true do |f| %>
+          <div class="row">
+            <div class="url_type col-sm-12 col-lg-2 offset-lg-1">
+              <%= f.select :url_type, {'HP':0, 'Twitter':1, "Instagram":2, "Facebook":3, "LINE":4, "その他":5},{include_blank: "選択してください"}, {class: "required: true"} %>
+            </div>
+            <div class="url col-sm-12 col-lg-5"><%= f.text_field :url %></div>
+            <div class="url_register col-sm-3 col-lg-2"><%= f.submit "登録" %></div>
+            <div class="destination col-sm-3 col-lg-2"><%= link_to "削除", stores_storepage_path(homepage.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></div>
+          </div>
           <%= hidden_field_tag :change_id, 1 %>
-          <%= f.submit "変更" %>
-          <%= link_to "削除", stores_storepage_path(homepage.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+
         <% end %>
         </div>
       <% end %>

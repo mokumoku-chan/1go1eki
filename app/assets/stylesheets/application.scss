@@ -237,10 +237,14 @@ header {
   }
 }
 
-.info-list {
+.info-list, .sns_new, .sns_edit {
   .row {
   margin: 20px 0;
   }
+}
+
+.url_type, .url, .url_register {
+  margin: 10px 0;
 }
 
 .admin_change {
@@ -263,13 +267,18 @@ input#station_name {
 }
 
 
-input#review_title {
+input#review_title, input#homepage_url {
   width: 100%;
   height: 40px;
 }
 
 textarea#review_comment {
   width: 100%;
+  height: 100px;
+}
+
+textarea#store_introduction {
+  width: 80%;
   height: 100px;
 }
 
@@ -345,54 +354,6 @@ table th, table td {
     width: 80%;
   }
 }
-
-.profile, .store_page, .item, .store {
-  display: flex;
-}
-
-
-.profile, .store_page, .item, .store {
-
-  .profile_image, .image_filed, .item_img, .store_image {
-    width: 100%;
-    margin: 10px 10px 20px 10px;
-
-    img#img_id {
-    width: 100%;
-    }
-
-    img#profile_img {
-    width: 80%;
-    }
-
-    img#item_img {
-    width: 80%;
-    }
-
-    img#item_img_id {
-    margin: 20px auto;
-    width: 60%;
-    }
-
-    img#profile_image {
-    margin: 20px auto;
-    width: 60%;
-    }
-
-
-    .image_button{
-      text-align: center;
-    }
-  }
-
-  .profile_info, .info_field, .item_info, .store_info {
-    width: 100%;
-    margin: 10px 0;
-  }
-}
-
-
-
 
 
 .input, .info {
@@ -642,6 +603,22 @@ table th, table td {
     border-color: #db7093;
   }
 }
+
+
+.url_register {
+
+  input[type='submit'] {
+    width: 100px;
+    height: 35px;
+    background-color: #ffc0cb;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+    border-color: #db7093;
+  }
+}
+
+
 
 .item_register {
   margin: 20px 0;

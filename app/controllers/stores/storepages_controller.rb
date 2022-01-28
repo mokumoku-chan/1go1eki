@@ -48,7 +48,7 @@ class Stores::StorepagesController < ApplicationController
       end
 
     elsif params[:change_id] == "1"
-      homepage = Homepage.where(store_id: current_store.id)
+      homepage = Homepage.find(params[:format])
       if homepage.update(url_params)
         redirect_to stores_storepage_path
       else
