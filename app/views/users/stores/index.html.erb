@@ -10,13 +10,14 @@
   <% elsif @type == 1 %>
 
     <% @store.each do |store| %>
-      <% infos = Storeinfo.where("store_id== ? and start_period <= ? and end_period >= ?", store.id, @date, @date) %>
+      <% infos = Storeinfo.where("store_id = ? and start_period <= ? and end_period >= ?", store.id, @date, @date) %>
+
       <%= render 'users/stores/storeinfo', infos: infos %>
     <% end %>
 
     <h3>今後開催予定のポップアップストア</h3>
     <% @store.each do |store| %>
-      <% infos = Storeinfo.where("store_id == ? and start_period >= ?",store.id, @date) %>
+      <% infos = Storeinfo.where("store_id = ? and start_period >= ?",store.id, @date) %>
 
       <%= render 'users/stores/storeinfo', infos: infos %>
     <% end %>
