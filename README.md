@@ -51,7 +51,8 @@ SNS利用していない人がお店を知ることができないというこ�
 
 
 ## 設計書
-<...>
+https://docs.google.com/spreadsheets/d/1Uk6rxG1whfZW8UInkwTIEZ4b6XsQpQPj/edit?usp=sharing&ouid=103649251237292040698&rtpof=true&sd=true
+https://docs.google.com/spreadsheets/d/1qxsZLfaiWTnmvN5DOUsqQTKldlQ93MFk/edit?usp=sharing&ouid=103649251237292040698&rtpof=true&sd=true
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1BvMUAYRJUJ7R61ovl1n5gztaw24dNFoXejus_xX5lVU/edit?usp=sharing
