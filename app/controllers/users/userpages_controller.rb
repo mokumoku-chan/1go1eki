@@ -17,7 +17,7 @@ class Users::UserpagesController < ApplicationController
 
   def create
     station = Station.new(station_params)
-    registered = Station.where("name = ? and user_id = ?" ,station.name, current_user.id)
+    registered = Station.where("name == ? and user_id == ?" ,station.name, current_user.id)
     if registered.blank?
         station.user_id = current_user.id
 
