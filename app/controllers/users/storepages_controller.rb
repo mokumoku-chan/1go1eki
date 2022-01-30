@@ -8,11 +8,12 @@ class Users::StorepagesController < ApplicationController
     @homepages = Homepage.where(store_id: @store.id)
 
     date = Date.current
-    @infos = Storeinfo.where("store_id == ? and start_period >= ?",@store.id, date)
+    @infos = Storeinfo.where(store_id: current_store.id, start_period: date .. Float::INFINITY)
 
     @review_new = Review.new
     @reviews = Review.where(store_id: @store.id).order(updated_at: :desc)
     @items = Item.where("store_id == ? and status == ?", @store.id, 0)
+    @items = Item.where(store_id: current_store.id, status: 0)
 
   end
 

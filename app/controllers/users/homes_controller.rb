@@ -8,6 +8,5 @@ class Users::HomesController < ApplicationController
 
     @infos = Storeinfo.where("start_period <= ? and end_period >= ?", date, date)
 
-
   end
 end
